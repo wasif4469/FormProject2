@@ -1,0 +1,259 @@
+﻿.Form-Table1 {
+    width: 66%;
+    height: 141px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Verdana;
+}
+
+.Table1-Text {
+    height: 20px;
+    width: 292px;
+    font-family: Verdana;
+}
+
+.TableHeading {
+    width: 500px;
+    margin-left: 200px;
+    font-size: 14px;
+    font-family: Verdana;
+}
+
+.PageHeader {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Verdana;
+    margin-bottom: 20px;
+    color: black; /* Red header color */
+}
+
+.Table1-Label {
+    height: 20px;
+    width: 350px;
+    font-family: Verdana;
+    font-size: 16px;
+    background-color: #d8dcdf;
+    color: black;
+    text-shadow: 4px black;
+}
+
+.Table1-Input {
+    height: 20px;
+    width: 292px;
+    font-family: Verdana;
+}
+
+.logo {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding-right: 15px;
+    width: 114px;
+    height: 56px;
+    font-family: Verdana;
+}
+
+.Form-Table2 {
+    width: 47%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Verdana;
+}
+
+.auto-style15 {
+    width: 861px;
+    font-family: Verdana;
+    resize: vertical;
+}
+
+.Table2-Textarea {
+    width: 867px;
+    font-family: Verdana;
+}
+
+.Table2-Question {
+    width: 867px;
+    height: 24px;
+    font-family: Verdana;
+    background-color: #d8dcdf;
+}
+
+.Form-Table10 {
+    width: 867px;
+    height: 37px;
+    font-family: Verdana;
+}
+
+.Form-Table11 {
+    font-family: Verdana;
+    font-size: 12px;
+    width: 107px;
+}
+
+.Form-Table12 {
+    height: 20px;
+    width: 199px;
+    font-family: Verdana;
+}
+
+.Form-Table13 {
+    width: 100%;
+    height: 29px;
+}
+
+/* Style for the Submit button */
+.Submit {
+    background-color: #BA0C25; /* Submit button color */
+    color: #ffffff; /* White text color */
+    padding: 12px 20px; /* Add padding to the button */
+    font-size: 16px;
+    border-radius: 10px; /* Rounded corners */
+    margin-left: 75%;
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+    /* Hover effect for the Submit button */
+    .Submit:hover {
+        background-color: #a70a21; /* Darker shade of the Submit button color on hover */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+    }
+
+    /* Active effect for the Submit button (when it's clicked) */
+    .Submit:active {
+        background-color: #c0243a; /* Slightly darker shade of the Submit button color on click */
+        box-shadow: none; /* Remove box shadow on click */
+    }
+
+    /* Optional: Add a slight transition when the button is active */
+    .Submit:active {
+        transition: background-color 0.1s;
+    }
+
+/* Reset default button styles */
+button {
+    border: none;
+    outline: none;
+}
+
+/* Style for the Back button */
+.Back {
+    background-color: #4285F4; /* Google Blue color */
+    color: #ffffff; /* White text color */
+    padding: 12px 20px; /* Add padding to the button */
+    font-size: 16px;
+    border-radius: 10px; /* Rounded corners */
+    margin-left: 3.5%;
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+    /* Hover effect for the Back button */
+    .Back:hover {
+        background-color: #3c78d8; /* Darker shade of Google Blue on hover */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+    }
+
+    /* Active effect for the Back button (when it's clicked) */
+    .Back:active {
+        background-color: #3367c7; /* Slightly darker shade of Google Blue on click */
+        box-shadow: none; /* Remove box shadow on click */
+    }
+
+    /* Optional: Add a slight transition when the button is active */
+    .Back:active {
+        transition: background-color 0.1s;
+    }
+
+
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    margin: 0;
+}
+
+.container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 65%; /* Adjust container width as needed */
+    background-color: #ffffff; /* White background color */
+    padding: 25px;
+    box-shadow: 10px 0 13px rgba(0, 0, 0, 0.6); /* Add a subtle box shadow */
+    border-radius: 10px;
+}
+
+.auto-style16 {
+    height: 20px;
+}
+
+.validator {
+    display: flex;
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+.val-col {
+    width: max-content;
+    display: flex;
+    font-family: Verdana;
+    margin-left: 15%;
+    font-size: 14px;
+}
+
+.navbar {
+    background-color: #343a40;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+}
+
+.navbar-brand {
+    margin-right: 15px;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    margin-right: 20px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+    .navbar-link:hover {
+        color: #BA0C25;
+    }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-list {
+        margin-top: 10px;
+    }
+
+    .navbar-item {
+        margin: 0;
+    }
+}

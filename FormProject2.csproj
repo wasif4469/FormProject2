@@ -73,7 +73,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Hanif.css" />
+    <Content Include="Content\Form1.css" />
+    <Content Include="Content\Form3.css" />
     <Content Include="Images\Jubilee Logo.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />

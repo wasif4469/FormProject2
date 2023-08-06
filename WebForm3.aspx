@@ -1,13 +1,7 @@
 ﻿
 <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="FormProject2.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Content/Hanif.css" rel="stylesheet" />
-    <style type="text/css">
-        .auto-style8 {
-            width: 921px;
-            height: 45px;
-        }
-    </style>
+    <link href="Content/Form3.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -299,7 +293,7 @@
     <br /><br />
     <div class="auto-style8">
         <asp:Button ID="Button2" CssClass="Submit-Pro" runat="server" Text="Process"  />&nbsp;&nbsp;&nbsp;&nbsp;
-        <input id="Button1" type="button" value="button" class="Submit-Pro2"/>
+        <input id="Button1" type="button" value="Rejected" class="Submit-Pro2"/>
     </div>
 &nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br/>
@@ -326,6 +320,11 @@
     <br />
         <textarea class="TextArea2" id="TextArea2" cols="20" name="S1" rows="2"></textarea>
 &nbsp;&nbsp;
+        <br /><br />
+        <div>
+            <input class="Back" id="Button5" type="button" value="Back" />
+        </div>
     </div>
+    
 </asp:Content>
 
