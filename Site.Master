@@ -6,10 +6,76 @@
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+        <style>
+            /* Custom Navigation Styles */
+            .navbar {
+                background-color: #343a40;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 10px 20px;
+            }
+
+            .navbar-brand img {
+                max-height: 40px;
+            }
+
+            .navbar-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .navbar-item {
+                margin-right: 20px;
+            }
+
+            .navbar-link {
+                text-decoration: none;
+                color: #ffffff;
+                font-weight: bold;
+                transition: color 0.2s;
+            }
+
+                .navbar-link:hover {
+                    color: #ffc107;
+                }
+
+            /* Responsive Styles */
+            @media (max-width: 768px) {
+                .navbar {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .navbar-list {
+                    margin-top: 10px;
+                }
+
+                .navbar-item {
+                    margin: 0;
+                }
+            }
+
+            .navbar-brand {
+                margin-right: 15px;
+            }
+        </style>
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <img alt="Logo" src="Images/Jubilee%20Logo.jpg" />
+            </div>
+            <ul class="navbar-list">
+                <li class="navbar-item"><a href="#" class="navbar-link">Form1</a></li>
+                <li class="navbar-item"><a href="#" class="navbar-link">Form2</a></li>
+                <li class="navbar-item"><a href="WebForm3.aspx" class="navbar-link">Form3</a></li>
+            </ul>
+        </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

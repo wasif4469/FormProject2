@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .Form-Table1 {
-            width: 76%;
+            width: 66%;
             height: 141px;
             margin-left: auto;
             margin-right: auto;
@@ -12,7 +12,7 @@
 
         .Table1-Text {
             height: 20px;
-            width: 492px;
+            width: 292px;
             font-family: Verdana;
         }
 
@@ -35,7 +35,7 @@
 
         .Table1-Label {
             height: 20px;
-            width: 550px;
+            width: 350px;
             font-family: Verdana;
             font-size: 16px;
             background-color: #d8dcdf;
@@ -45,13 +45,14 @@
 
         .Table1-Input {
             height: 20px;
-            width: 294px;
+            width: 292px;
             font-family: Verdana;
         }
 
         .logo {
             margin-left: 20px;
             margin-top: 20px;
+            padding-right: 15px;
             width: 114px;
             height: 56px;
             font-family: Verdana;
@@ -112,7 +113,7 @@
             padding: 12px 20px; /* Add padding to the button */
             font-size: 16px;
             border-radius: 10px; /* Rounded corners */
-            margin-left: 70%;
+            margin-left: 75%;
             cursor: pointer; /* Add a pointer cursor on hover */
             transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
         }
@@ -147,7 +148,7 @@
             padding: 12px 20px; /* Add padding to the button */
             font-size: 16px;
             border-radius: 10px; /* Rounded corners */
-            margin-left: 7%;
+            margin-left: 3.5%;
             cursor: pointer; /* Add a pointer cursor on hover */
             transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
         }
@@ -171,20 +172,19 @@
 
 
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content:center;
+            align-items:center;
             min-height: 80vh;
             margin: 0;
-            
+
         }
 
         .container {
             margin-top: 30px;
             margin-bottom: 30px;
-            margin-left:10px;
-            margin-left:10px;
-            width: 95%; /* Adjust container width as needed */
+            margin-right: auto;
+            margin-left: auto;
+            width: 65%; /* Adjust container width as needed */
             background-color: #ffffff; /* White background color */
             padding: 25px;
             box-shadow: 10px 0 13px rgba(0, 0, 0, 0.6); /* Add a subtle box shadow */
@@ -196,7 +196,71 @@
         }
 
         .validator {
-            display: flex
+            display: flex;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+
+        .val-col {
+            width: max-content;
+            display: flex;
+            font-family: Verdana;
+            margin-left: 15%;
+            font-size: 14px;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-brand img {
+            max-height: 40px;
+        }
+
+        .navbar-brand {
+            margin-right: 15px;
+        }
+
+        .navbar-list {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-item {
+            margin-right: 20px;
+        }
+
+        .navbar-link {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+            .navbar-link:hover {
+                color: #BA0C25;
+            }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-list {
+                margin-top: 10px;
+            }
+
+            .navbar-item {
+                margin: 0;
+            }
         }
     </style>
 </asp:Content>
@@ -222,45 +286,45 @@
                 <td class="Table1-Label" style="border: thin solid #000000">Employee ID</td>
                 <td class="Table1-Input" style="border: thin solid #000000">
                     <asp:TextBox ID="Textempid" runat="server" CssClass="Table1-Text"></asp:TextBox>
-                <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Textempid" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="Textempid" Display="Dynamic" ErrorMessage="*" ForeColor="Red" MaximumValue="199999" MinimumValue="100000" SetFocusOnError="True" Type="Integer">6 digits number required</asp:RangeValidator>
-                </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Textempid" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    </td>
             </tr>
             <tr>
                 <td class="Table1-Label" style="border: thin solid #000000">Section Deployed In</td>
                 <td class="Table1-Input" style="border: thin solid #000000">
                     <asp:TextBox ID="Textsection" runat="server" CssClass="Table1-Text"></asp:TextBox>
-                <td class="auto-style16">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Textsection" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                </td>
+                    <td class="auto-style16">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Textsection" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    </td>
             </tr>
             <tr>
                 <td class="Table1-Label" style="border: thin solid #000000">Supervisor Name</td>
                 <td class="Table1-Input" style="border: thin solid #000000">
                     <asp:TextBox ID="Textsupervisor" runat="server" CssClass="Table1-Text"></asp:TextBox>
-                <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Textsupervisor" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Textsupervisor" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    </td>
             </tr>
             <tr>
                 <td class="Table1-Label" style="border: thin solid #000000">Tenure( From Date - To Date)</td>
                 <td class="Table1-Input" style="border: thin solid #000000">
                     <asp:TextBox ID="Textdate" runat="server" CssClass="Table1-Text"></asp:TextBox>
-                <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Textdate" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Textdate" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    </td>
             </tr>
 
         </table>
         <br />
+        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="Textempid" Display="Dynamic" ErrorMessage="*" ForeColor="Red" MaximumValue="199999" MinimumValue="100000" SetFocusOnError="True" Type="Integer" CssClass="val-col">*Employee ID Should be of six digits*</asp:RangeValidator>
         <br />
         <p class="TableHeading"><b>General Information of a Tenure by Tech Graduate</b></p>
         <table class="Form-Table2" border="1" style="border: thin solid #000000">
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
                     <p class="MsoNormal">
-                        <b><span style="mso-spacerun: 'yes'; font-family: Verdana; mso-fareast-font-family: 等线; mso-bidi-font-family: 'Times New Roman'; font-weight: bold; font-size: 9.0000pt;">How do you feel you have performed in your role as a tech graduate in the last assignment?</span></b>
+                        <b><span font-family: Verdana;font-weight: bold; font-size: 9.0000pt;">How do you feel you have performed in your role as a tech graduate in the last assignment?</span></b>
                     </p>
                 </td>
             </tr>
@@ -271,7 +335,7 @@
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
                     <p class="MsoNormal">
-                        <b><span style="mso-spacerun: 'yes'; font-family: Verdana; mso-fareast-font-family: 等线; mso-bidi-font-family: 'Times New Roman'; font-weight: bold; font-size: 9.0000pt;">What do you feel you have learned in your role?</span></b>
+                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">What do you feel you have learned in your role?</span></b>
                     </p>
                 </td>
             </tr>
@@ -282,7 +346,7 @@
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
                     <p class="MsoNormal">
-                        <b><span style="mso-spacerun: 'yes'; font-family: Verdana; mso-fareast-font-family: 等线; mso-bidi-font-family: 'Times New Roman'; font-weight: bold; font-size: 9.0000pt;">What do you feel you could have done better in your role?</span></b>
+                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">What do you feel you could have done better in your role?</span></b>
                     </p>
                 </td>
             </tr>
@@ -293,7 +357,7 @@
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
                     <p class="MsoNormal">
-                        <b><span style="mso-spacerun: 'yes'; font-family: Verdana; mso-fareast-font-family: 等线; mso-bidi-font-family: 'Times New Roman'; font-weight: bold; font-size: 9.0000pt;">What do you feel was your top achievement in last assignment?</span></b>
+                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">What do you feel was your top achievement in last assignment?</span></b>
                     </p>
                 </td>
             </tr>
@@ -304,7 +368,7 @@
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
                     <p class="MsoNormal">
-                        <b><span style="mso-spacerun: 'yes'; font-family: Verdana; mso-fareast-font-family: 等线; mso-bidi-font-family: 'Times New Roman'; font-weight: bold; font-size: 9.0000pt;">What do you think your strengths were specific to last assignment?</span></b>
+                        <b><span style="font-family: Verdana;font-weight: bold; font-size: 9.0000pt;">What do you think your strengths were specific to last assignment?</span></b>
                     </p>
                 </td>
             </tr>
@@ -315,7 +379,7 @@
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
                     <p class="MsoNormal">
-                        <b><span style="mso-spacerun: 'yes'; font-family: Verdana; mso-fareast-font-family: 等线; mso-bidi-font-family: 'Times New Roman'; font-weight: bold; font-size: 9.0000pt;">What do you think your weaknesses were specific to last assignment?</span></b>
+                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">What do you think your weaknesses were specific to last assignment?</span></b>
                     </p>
                 </td>
             </tr>
@@ -326,7 +390,7 @@
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
                     <p class="MsoNormal">
-                        <b><span style="mso-spacerun: 'yes'; font-family: Verdana; mso-fareast-font-family: 等线; mso-bidi-font-family: 'Times New Roman'; font-weight: bold; font-size: 9.0000pt;">Do you think you would consider last assignment’s area of work for you career?</span></b>
+                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">Do you think you would consider last assignment’s area of work for you career?</span></b>
                     </p>
                 </td>
             </tr>
@@ -344,7 +408,7 @@
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
                     <p class="MsoNormal">
-                        <b><span style="mso-spacerun: 'yes'; font-family: Verdana; mso-fareast-font-family: 等线; mso-bidi-font-family: 'Times New Roman'; font-weight: bold; font-size: 9.0000pt;">Reason:</span></b>
+                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">Reason:</span></b>
                     </p>
                 </td>
             </tr>
@@ -360,5 +424,7 @@
         </div>
     </div>
 </asp:Content>
+
+
 
 
