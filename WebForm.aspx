@@ -419,7 +419,8 @@
         </table>
         <br />
         <div>
-            <input class="Back" id="Button2" type="button" value="Back" /><asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="Submit" OnClick="btnSubmit_Click" />
+            <input class="Back" id="Button2" type="button" value="Back" />
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="Submit" OnClick="btnSubmit_Click" />
 
         </div>
     </div>
