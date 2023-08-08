@@ -63,7 +63,7 @@
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
                     <p class="MsoNormal">
-                        <b><span font-family: Verdana;font-weight: bold; font-size: 9.0000pt;">How do you feel you have performed in your role as a tech graduate in the last assignment?</span></b>
+                        <b><span font-family: Verdana;font-weight: bold;">How do you feel you have performed in your role as a tech graduate in the last assignment?</span></b>
                     </p>
                 </td>
             </tr>
