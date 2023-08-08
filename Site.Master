@@ -71,8 +71,8 @@
                 <img alt="Logo" src="Images/Jubilee%20Logo.jpg" />
             </div>
             <ul class="navbar-list">
-                <li class="navbar-item"><a href="#" class="navbar-link">Form1</a></li>
-                <li class="navbar-item"><a href="#" class="navbar-link">Form2</a></li>
+                <li class="navbar-item"><a href="WebForm.aspx" class="navbar-link">Form1</a></li>
+                <li class="navbar-item"><a href="WebForm2.aspx" class="navbar-link">Form2</a></li>
                 <li class="navbar-item"><a href="WebForm3.aspx" class="navbar-link">Form3</a></li>
             </ul>
         </nav>

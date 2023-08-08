@@ -243,7 +243,7 @@
             <td style="border: 1.0000pt solid windowtext; padding: 0.0000pt 5.4000pt;" valign="center">
                 <p class="MsoNormal">
                     <b><span style="font-family:Verdana;font-size:16px;">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50</span></b></p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50</span></b></p>
             </td>
             <td  style="border: 1.0000pt solid windowtext; padding: 0.0000pt 5.4000pt;" valign="center">
                 <p align="center" class="MsoNormal">

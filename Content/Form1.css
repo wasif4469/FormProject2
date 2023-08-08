@@ -204,6 +204,8 @@ body {
     font-size: 14px;
 }
 
+/* Master Page Navigation bar Style */
+
 .navbar {
     background-color: #343a40;
     display: flex;

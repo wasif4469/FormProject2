@@ -1,0 +1,239 @@
+﻿.auto-style21 {
+    margin-left: 8px;
+}
+
+.auto-style25 {
+    margin-right: 0px;
+    margin-left: 25%;
+}
+
+.auto-style26 {
+    margin-right: 0px;
+    margin-left: 68%;
+}
+
+.auto-style31 {
+    width: 202px;
+}
+
+.auto-style34 {
+    width: 596px;
+}
+
+.auto-style37 {
+    width: 50px;
+}
+
+.auto-style38 {
+    width: 543px;
+}
+
+.auto-style39 {
+    width: 264px;
+}
+
+.auto-style40 {
+    width: 612px;
+}
+
+.auto-style41 {
+    width: 785px;
+    height: 105px;
+    margin-left: 8%;
+}
+
+.auto-style42 {
+    width: 126px;
+}
+
+.auto-style43 {
+    width: 245px;
+}
+
+.auto-style44 {
+    width: 185px;
+}
+
+.auto-style45 {
+    width: 190px;
+}
+
+
+.container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 65%; /* Adjust container width as needed */
+    background-color: #ffffff; /* White background color */
+    padding: 25px;
+    box-shadow: 10px 0 13px rgba(0, 0, 0, 0.6); /* Add a subtle box shadow */
+    border-radius: 10px;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    margin: 0;
+}
+
+/* Master Page Navigation bar Style */
+
+.navbar {
+    background-color: #343a40;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+}
+
+.navbar-brand {
+    margin-right: 15px;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    margin-right: 20px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+    .navbar-link:hover {
+        color: #BA0C25;
+    }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-list {
+        margin-top: 10px;
+    }
+
+    .navbar-item {
+        margin: 0;
+    }
+}
+
+.Container-header {
+    font-family: Verdana;
+    font-weight: bold;
+    margin-left: 170px;
+    margin-right: 170px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.container-table {
+    margin-left: 8%;
+    width: 785px;
+}
+
+.Submit {
+    background-color: #BA0C25; /* Submit button color */
+    height: 40px;
+    width: 150px;
+    color: #ffffff; /* White text color */
+    padding: 12px 20px; /* Add padding to the button */
+    font-size: 16px;
+    border-radius: 10px; /* Rounded corners */
+    margin-left: 1.5%;
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+    /* Hover effect for the Submit button */
+    .Submit:hover {
+        background-color: #a70a21; /* Darker shade of the Submit button color on hover */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+    }
+
+    /* Active effect for the Submit button (when it's clicked) */
+    .Submit:active {
+        background-color: #c0243a; /* Slightly darker shade of the Submit button color on click */
+        box-shadow: none; /* Remove box shadow on click */
+    }
+
+    /* Optional: Add a slight transition when the button is active */
+    .Submit:active {
+        transition: background-color 0.1s;
+    }
+
+.Submit-Pro {
+    background-color: #BA0C25; /* Submit button color */
+    height: 40px;
+    width: 150px;
+    color: #ffffff; /* White text color */
+    padding: 12px 20px; /* Add padding to the button */
+    font-size: 16px;
+    border-radius: 10px; /* Rounded corners */
+    margin-left: 45%;
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+    /* Hover effect for the Submit button */
+    .Submit-Pro:hover {
+        background-color: #a70a21; /* Darker shade of the Submit button color on hover */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+    }
+
+    /* Active effect for the Submit button (when it's clicked) */
+    .Submit-Pro:active {
+        background-color: #c0243a; /* Slightly darker shade of the Submit button color on click */
+        box-shadow: none; /* Remove box shadow on click */
+    }
+
+    /* Optional: Add a slight transition when the button is active */
+    .Submit-Pro:active {
+        transition: background-color 0.1s;
+    }
+
+.Back {
+    background-color: #4285F4; /* Google Blue color */
+    color: #ffffff; /* White text color */
+    height: 40px;
+    vertical-align:central;
+    padding: 12px 20px; /* Add padding to the button */
+    font-size: 16px;
+    border-radius: 10px; /* Rounded corners */
+    margin-left: 3%;
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+    /* Hover effect for the Back button */
+    .Back:hover {
+        background-color: #3c78d8; /* Darker shade of Google Blue on hover */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+    }
+
+    /* Active effect for the Back button (when it's clicked) */
+    .Back:active {
+        background-color: #3367c7; /* Slightly darker shade of Google Blue on click */
+        box-shadow: none; /* Remove box shadow on click */
+    }
+
+    /* Optional: Add a slight transition when the button is active */
+    .Back:active {
+        transition: background-color 0.1s;
+    }
