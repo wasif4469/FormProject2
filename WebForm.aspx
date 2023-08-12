@@ -62,8 +62,8 @@
         <table class="Form-Table2" border="1" style="border: thin solid #000000">
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
-                    <p class="MsoNormal">
-                        <b><span font-family: Verdana;font-weight: bold;">How do you feel you have performed in your role as a tech graduate in the last assignment?</span></b>
+                    <p>
+                        <b><span>How do you feel you have performed in your role as a tech graduate in the last assignment?</span></b>
                     </p>
                 </td>
             </tr>
@@ -73,8 +73,8 @@
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
-                    <p class="MsoNormal">
-                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">What do you feel you have learned in your role?</span></b>
+                    <p>
+                        <b><span>What do you feel you have learned in your role?</span></b>
                     </p>
                 </td>
             </tr>
@@ -84,8 +84,8 @@
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
-                    <p class="MsoNormal">
-                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">What do you feel you could have done better in your role?</span></b>
+                    <p>
+                        <b><span>What do you feel you could have done better in your role?</span></b>
                     </p>
                 </td>
             </tr>
@@ -95,8 +95,8 @@
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
-                    <p class="MsoNormal">
-                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">What do you feel was your top achievement in last assignment?</span></b>
+                    <p>
+                        <b><span>What do you feel was your top achievement in last assignment?</span></b>
                     </p>
                 </td>
             </tr>
@@ -106,8 +106,8 @@
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
-                    <p class="MsoNormal">
-                        <b><span style="font-family: Verdana;font-weight: bold; font-size: 9.0000pt;">What do you think your strengths were specific to last assignment?</span></b>
+                    <p>
+                        <b><span>What do you think your strengths were specific to last assignment?</span></b>
                     </p>
                 </td>
             </tr>
@@ -117,8 +117,8 @@
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
-                    <p class="MsoNormal">
-                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">What do you think your weaknesses were specific to last assignment?</span></b>
+                    <p>
+                        <b><span>What do you think your weaknesses were specific to last assignment?</span></b>
                     </p>
                 </td>
             </tr>
@@ -128,8 +128,8 @@
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
-                    <p class="MsoNormal">
-                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">Do you think you would consider last assignment’s area of work for you career?</span></b>
+                    <p>
+                        <b><span>Do you think you would consider last assignment’s area of work for you career?</span></b>
                     </p>
                 </td>
             </tr>
@@ -146,8 +146,8 @@
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
-                    <p class="MsoNormal">
-                        <b><span style="font-family: Verdana; font-weight: bold; font-size: 9.0000pt;">Reason:</span></b>
+                    <p>
+                        <b><span>Reason:</span></b>
                     </p>
                 </td>
             </tr>
