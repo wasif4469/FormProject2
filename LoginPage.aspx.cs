@@ -13,5 +13,20 @@ namespace FormProject2
         {
 
         }
+
+        protected void SignInButton_Click(object sender, EventArgs e)
+        {
+            string usernametext = username.Value; 
+            string passwordtext = password.Value;
+
+            if (usernametext == "admin" && passwordtext == "admin")
+            {
+                Response.RedirectToRoute("WebForm.aspx");
+            }
+            else
+            {
+                Label1.Text = "Invalid username or password.";
+            }
+        }
     }
 }

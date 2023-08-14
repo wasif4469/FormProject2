@@ -29,8 +29,9 @@
                     <option value="section-head">Section Head</option>
                     <option value="group-head">Group Head</option>
                 </select>
+                <asp:Label ID="Label1" runat="server" ForeColor="#BA0C25"></asp:Label>
             </div>
-            <button href="WebForm.aspx" type="submit" class="submit-button">Sign In</button>
+            <button type="submit" class="submit-button" onclick="SignInButton_Click" >Sign In</button>
             <div class="form-links">
                 <a href="RegisterPage.aspx" class="signup-link">Sign Up</a>
                 <a href="#" class="forgot-link">Forgot Password?</a>

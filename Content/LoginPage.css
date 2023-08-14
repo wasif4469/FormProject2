@@ -61,9 +61,11 @@ input[type="text"], input[type="password"], select{
 }
 
 .submit-button {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
     background: #BA0C25;
     color: white;
-    border: none;
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
