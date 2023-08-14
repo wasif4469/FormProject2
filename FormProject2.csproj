@@ -76,7 +76,9 @@
     <Content Include="Images\Jubilee Logo.jpg" />
     <Content Include="Images\Jubilee_Logo_2-bgr.png" />
     <Content Include="LoginPage.aspx" />
-    <Content Include="LoginPage.css" />
+    <Content Include="Content\LoginPage.css" />
+    <Content Include="Content\Register.css" />
+    <Content Include="RegisterPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -200,6 +202,13 @@
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
