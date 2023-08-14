@@ -29,9 +29,11 @@
                     <option value="section-head">Section Head</option>
                     <option value="group-head">Group Head</option>
                 </select>
-                <asp:Label ID="Label1" runat="server" ForeColor="#BA0C25"></asp:Label>
             </div>
-            <button type="submit" class="submit-button" onclick="SignInButton_Click" >Sign In</button>
+            <asp:Label ID="Label1" runat="server" ForeColor="#BA0C25" style="margin-bottom: 15px"></asp:Label>
+            <div>
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Sign In" CssClass="submit-button" />
+            </div>
             <div class="form-links">
                 <a href="RegisterPage.aspx" class="signup-link">Sign Up</a>
                 <a href="#" class="forgot-link">Forgot Password?</a>
