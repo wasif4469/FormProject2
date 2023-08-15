@@ -2,6 +2,11 @@
 <%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="FormProject2.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Content/Form3.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style9 {
+            margin-left: 0px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -246,8 +251,9 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50</span></b></p>
             </td>
             <td  style="border: 1.0000pt solid windowtext; padding: 0.0000pt 5.4000pt;" valign="center">
-                <p align="center" class="MsoNormal">
-                    &nbsp;</p>
+                <p align="left" class="MsoNormal">
+                    <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style9" Height="25px"></asp:TextBox>
+                </p>
             </td>
         </tr>
         <tr>
@@ -275,8 +281,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp; 100</span></b></p>
             </td>
             <td  style="border: 1.0000pt solid windowtext; padding: 0.0000pt 5.4000pt;" valign="center">
-                <p align="center" class="MsoNormal">
-                    &nbsp;</p>
+                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
             </td>
         </tr>
         </table>
@@ -292,9 +297,10 @@
     <asp:Label ID="Label2" Style="font-family:Verdana;margin-left:3%;font-weight:bold;" runat="server" Text="To be Submitted by Section Head"></asp:Label>
     <br /><br />
     <div class="auto-style8">
-        <asp:Button ID="Button2" CssClass="Submit-Pro" runat="server" Text="Process"  />&nbsp;&nbsp;&nbsp;&nbsp;
-        <input id="Button1" type="button" value="Rejected" class="Submit-Pro2"/>
+        <asp:Button ID="Button2" CssClass="Submit-Pro" runat="server" Text="Process" OnClick="Button2_Click"  />&nbsp;
+        <asp:Button ID="Button3" CssClass="Submit-Pro2" runat="server" Text="Rejected" onClick="Rejbtn1"/>
     </div>
+     <asp:Label ID="RejLabel1" runat="server" ForeColor="#BA0C25" Visible="False"></asp:Label>
 &nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br/>
     <asp:Label ID="Label3" Style="font-family:Verdana;margin-left:3%;" runat="server" Text="In case of rejection kindly give the reason"></asp:Label>
@@ -303,22 +309,24 @@
 &nbsp;&nbsp;
     
     &nbsp;&nbsp;&nbsp;
-        <textarea class="TextArea1" id="TextArea1" cols="20" name="S1" rows="2"></textarea><br />
+        <asp:TextBox ID="TextBox2" runat="server" CssClass="TextArea1"></asp:TextBox>
+        <br />
         <br/>
     <asp:Label ID="Label4" Style="font-family:Verdana;margin-left:3%;font-weight:bold;" runat="server" Text="To be Submitted by Group Head"></asp:Label>
 
     <br/>
         <br/>
     <div>
-       <asp:Button ID="Button4" runat="server" Text="Approved" CssClass="Submit-Pro"/>
-       <asp:Button ID="Rej" runat="server" Text="Rejected" CssClass="Submit-Pro2"/>
+       <asp:Button ID="Button4" runat="server" Text="Approved" CssClass="Submit-Pro" OnClick="Button4_Click"/>
+       <asp:Button ID="Rej" runat="server" Text="Rejected" CssClass="Submit-Pro2" OnClick="Rejbtn2"/>
     </div>
+        <asp:Label ID="RejLabel2" runat="server" ForeColor="#BA0C25"></asp:Label>
     <br/>
     <br/>
         <asp:Label ID="Label5" Style="font-family:Verdana;margin-left:3%;" runat="server" Text="In case of rejection kindly give the reason"></asp:Label>
     <br />
     <br />
-        <textarea class="TextArea2" id="TextArea2" cols="20" name="S1" rows="2"></textarea>
+        <asp:TextBox ID="TextBox3" runat="server" CssClass="TextArea2"></asp:TextBox>
 &nbsp;&nbsp;
         <br /><br />
         <div>

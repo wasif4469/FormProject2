@@ -25,33 +25,33 @@
                 <td class="Table1-Label" style="border: thin solid #000000">Employee ID</td>
                 <td class="Table1-Input" style="border: thin solid #000000">
                     <asp:TextBox ID="Textempid" runat="server" CssClass="Table1-Text"></asp:TextBox>
-                    <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Textempid" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                    </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Textempid" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="Table1-Label" style="border: thin solid #000000">Section Deployed In</td>
                 <td class="Table1-Input" style="border: thin solid #000000">
                     <asp:TextBox ID="Textsection" runat="server" CssClass="Table1-Text"></asp:TextBox>
-                    <td class="auto-style16">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Textsection" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                    </td>
+                <td class="auto-style16">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Textsection" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="Table1-Label" style="border: thin solid #000000">Supervisor Name</td>
                 <td class="Table1-Input" style="border: thin solid #000000">
                     <asp:TextBox ID="Textsupervisor" runat="server" CssClass="Table1-Text"></asp:TextBox>
-                    <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Textsupervisor" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                    </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Textsupervisor" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="Table1-Label" style="border: thin solid #000000">Tenure( From Date - To Date)</td>
                 <td class="Table1-Input" style="border: thin solid #000000">
                     <asp:TextBox ID="Textdate" runat="server" CssClass="Table1-Text"></asp:TextBox>
-                    <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Textdate" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                    </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Textdate" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                </td>
             </tr>
 
         </table>
@@ -69,7 +69,8 @@
             </tr>
             <tr>
                 <td class="Table2-Textarea" style="border: thin solid #000000">
-                    <textarea id="TextArea1" class="auto-style15" name="S1" rows="2"></textarea></td>
+                    <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style15" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
@@ -80,7 +81,8 @@
             </tr>
             <tr>
                 <td class="Table2-Textarea" style="border: thin solid #000000">
-                    <textarea id="TextArea2" class="auto-style15" name="S1" rows="2"></textarea></td>
+                    <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style15" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
@@ -91,7 +93,8 @@
             </tr>
             <tr>
                 <td class="Table2-Textarea" style="border: thin solid #000000">
-                    <textarea id="TextArea3" class="auto-style15" name="S1" rows="2"></textarea></td>
+                    <asp:TextBox ID="TextBox3" runat="server" CssClass="auto-style15" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
@@ -102,7 +105,8 @@
             </tr>
             <tr>
                 <td class="Table2-Textarea" style="border: thin solid #000000">
-                    <textarea id="TextArea4" class="auto-style15" name="S1" rows="2"></textarea></td>
+                    <asp:TextBox ID="TextBox4" runat="server" CssClass="auto-style15" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
@@ -113,7 +117,8 @@
             </tr>
             <tr>
                 <td class="Table2-Textarea" style="border: thin solid #000000">
-                    <textarea id="TextArea5" class="auto-style15" name="S1" rows="2"></textarea></td>
+                    <asp:TextBox ID="TextBox5" runat="server" CssClass="auto-style15" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
@@ -124,7 +129,8 @@
             </tr>
             <tr>
                 <td class="Table2-Textarea" style="border: thin solid #000000">
-                    <textarea id="TextArea6" class="auto-style15" name="S1" rows="2"></textarea></td>
+                    <asp:TextBox ID="TextBox6" runat="server" CssClass="auto-style15" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="Table2-Question" style="border: thin solid #000000">
@@ -153,7 +159,8 @@
             </tr>
             <tr>
                 <td class="Table2-Textarea" style="border: thin solid #000000">
-                    <textarea id="TextArea7" class="auto-style15" name="S1" rows="2"></textarea></td>
+                    <asp:TextBox ID="TextBox7" runat="server" CssClass="auto-style15" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                </td>
             </tr>
         </table>
         <br />
