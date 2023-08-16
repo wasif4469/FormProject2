@@ -33,7 +33,7 @@ body {
     padding: 30px;
     width: 100%;
     max-width: 400px;
-    text-align: center;
+    text-align: inherit;
     position: relative;
     position: absolute;
     top: 50%;
@@ -47,7 +47,15 @@ body {
     }
 
 .input-container {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top:10px;
+}
+
+/* Style for aligning validation error text to the left */
+.signup-form .validatorMessage {
+    text-align: left !important;
+    margin-left: 0;
+    display:flex !important;
 }
 
 input[type="text"], input[type="password"], input[type="email"], select {
@@ -64,11 +72,12 @@ input[type="text"], input[type="password"], input[type="email"], select {
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
+    margin-left: 120px;
+    margin-top: 5px;
 }
 
 .form-links {
     margin-top: 20px;
-    margin-left: 25px;
 }
 
 .signup-link {
@@ -79,6 +88,7 @@ input[type="text"], input[type="password"], input[type="email"], select {
     border: 1px solid #BA0C25;
     padding: 5px 10px;
     border-radius: 5px;
+    margin-left: 50px;
 }
 
     .signup-link:hover {

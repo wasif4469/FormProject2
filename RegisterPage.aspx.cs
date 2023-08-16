@@ -30,10 +30,14 @@ namespace FormProject2
             co.ExecuteNonQuery();
             con.Close();
 
+           
+
             txtEmployeeID.Text = "";
             txtUsername.Text = "";
             txtPassword.Text = "";
             txtemail.Text = "";
+
+            
         }
     }
 }

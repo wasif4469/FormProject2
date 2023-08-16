@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,18 +18,36 @@ namespace FormProject2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string usernametext = username.Value;
-            string passwordtext = password.Value;
-
-            if (usernametext == "admin" && passwordtext == "admin")
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                Response.Redirect("WebForm.aspx");
-            }
-            else
-            {
-                Label1.Text = "Invalid username or password.";
-            }
+                string usernametext = username.Value;
+                string passwordtext = password.Value;
+                string userRole = category.Value.ToString();
 
+                string query = "SELECT COUNT(*) FROM LOGIN WHERE User_Name = @User_name AND Password = @Password AND Role = @Role";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@User_Name", usernametext);
+                    command.Parameters.AddWithValue("@Password", passwordtext);
+                    command.Parameters.AddWithValue("@Role", userRole);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        // Successful login
+                        Response.Redirect("WebForm.aspx"); // Redirect to the dashboard page
+                    }
+                    else
+                    {
+                        // Failed login
+                        Label1.Text = "Invalid login credentials.";
+                    }
+                }
+            }
         }
     }
 }
