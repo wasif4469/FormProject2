@@ -4,6 +4,19 @@
     <link href="Content/Form2.css" rel="stylesheet" />
     <style type="text/css">
         
+        .auto-style46 {
+            width: 50px;
+            height: 36px;
+        }
+        .auto-style47 {
+            width: 543px;
+            height: 36px;
+        }
+        .auto-style48 {
+            width: 185px;
+            height: 36px;
+        }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -271,12 +284,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style37">10</td>
-                    <td class="auto-style38">
+                    <td class="auto-style46">10</td>
+                    <td class="auto-style47">
                         <asp:TextBox ID="act10" runat="server" Width="511px" ValidationGroup="val"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator16" ControlToValidate="act10" runat="server" ErrorMessage="Name Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style44">
+                    <td class="auto-style48">
                         <asp:DropDownList ID="Drop10" runat="server" CssClass="auto-style21" Width="162px" ValidationGroup="val">
                             <asp:ListItem Value="0">0</asp:ListItem>
                             <asp:ListItem Value="1">1</asp:ListItem>
@@ -292,7 +305,9 @@
                     <td class="auto-style37"></td>
                     <td class="auto-style38">Total Activity rating score out of 50  
                     </td>
-                    <td class="auto-style44"></td>
+                    <td class="auto-style44">
+                        <asp:TextBox ID="Txtsum" runat="server"></asp:TextBox>
+                    </td>
                 </tr>
             </table>
             <br />

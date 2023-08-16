@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -15,12 +16,33 @@ namespace FormProject2
             //Table.Visible = false;
             if (!IsPostBack)
             {
+
                 GetIndicator();
                 Getprocess();
                 GetReject();
+
+                using (SqlConnection connection = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123"))
+                {
+                    connection.Open();
+                    //  int id = 11;
+                    string query = "SELECT SUB_TOTAL FROM Details WHERE id = 11";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string column1Value = reader["SUB_TOTAL"].ToString();
+                                // label1.Text = "Column1 Value: " + column1Value;
+
+                                TextBox1.Text = column1Value;
+
+                            }
+                        }
+                    }
+                }
             }
         }
-
         private bool IsAllDropDownListsValid()
         {
             if (DDL1.SelectedValue == "0" ||
@@ -39,6 +61,7 @@ namespace FormProject2
 
         protected void Btn1_Click(object sender, EventArgs e)
         {
+
             int sum = 0;
             if (!string.IsNullOrEmpty(DDL1.SelectedValue))
                 sum += Convert.ToInt32(DDL1.SelectedValue);
@@ -57,17 +80,19 @@ namespace FormProject2
 
             if (!string.IsNullOrEmpty(DDL6.SelectedValue))
                 sum += Convert.ToInt32(DDL6.SelectedValue);
-            TextBox1.Text = sum.ToString();
+            if (!string.IsNullOrEmpty(TextBox1.Text))
+                sum += Convert.ToInt32(TextBox1.Text);
 
+            TextBox4.Text = sum.ToString();
 
             if (IsAllDropDownListsValid())
             {
 
-                int id = 19;
+                int id = 11;
                 int Indicator_01_Rating = int.Parse(DDL1.SelectedValue); int Indicator_02_Rating = int.Parse(DDL2.SelectedValue);
                 int Indicator_03_Rating = int.Parse(DDL3.SelectedValue); int Indicator_04_Rating = int.Parse(DDL4.SelectedValue);
                 int Indicator_05_Rating = int.Parse(DDL5.SelectedValue); int Indicator_06_Rating = int.Parse(DDL6.SelectedValue);
-                int Indicator_07_Rating = int.Parse(TextBox1.Text);
+                int Indicator_07_Rating = int.Parse(TextBox4.Text);
                 Boolean Approved_By_Section_Head = true;
                 String Status_Application = "sh_pending";
                 Boolean ISACTIVE = true;
@@ -94,7 +119,7 @@ namespace FormProject2
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            int id = 19;
+            int id = 11;
             Boolean Approved_By_Section_Head = true;
             String Status_Application = "gh_pending";
             con.Open();
@@ -113,7 +138,7 @@ namespace FormProject2
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            int id = 19;
+            int id = 11;
             Boolean Approved_By_Group_Lead = true;
             String Status = "Completed";
             String Status_Application = "Completed";
@@ -136,7 +161,7 @@ namespace FormProject2
             {
                 RejLabel1.Visible = false;
             }
-            int id = 19;
+            int id = 11;
             Boolean Approved_By_Section_Head = false;
             String Status_Application = "sh_rejected";
             String SECTION_HEAD_REJECTION = TextBox2.Text;
@@ -166,7 +191,7 @@ namespace FormProject2
             {
                 RejLabel2.Visible = false;
             }
-            int id = 19;
+            int id = 11;
             String Status_Application = "gh_rejected";
             Boolean Approved_By_Group_Lead = false;
             String GROUP_LEAD_REJECTION = TextBox3.Text;
@@ -178,6 +203,4 @@ namespace FormProject2
         }
 
     }
-
-
 }

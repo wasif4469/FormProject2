@@ -297,7 +297,7 @@
     <asp:Label ID="Label2" Style="font-family:Verdana;margin-left:3%;font-weight:bold;" runat="server" Text="To be Submitted by Section Head"></asp:Label>
     <br /><br />
     <div class="auto-style8">
-        <asp:Button ID="Button2" CssClass="Submit-Pro" runat="server" Text="Process" OnClick="Button2_Click"  />&nbsp;
+        <asp:Button ID="Button2" CssClass="Submit-Pro" runat="server" Text="Process" OnClick="Button2_Click"  />
         <asp:Button ID="Button3" CssClass="Submit-Pro2" runat="server" Text="Rejected" onClick="Rejbtn1"/>
     </div>
      <asp:Label ID="RejLabel1" runat="server" ForeColor="#BA0C25" Visible="False"></asp:Label>

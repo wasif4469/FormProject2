@@ -17,23 +17,27 @@
         <form id="signupForm" runat="server" class="signup-form">
             <h1>TG-Portal Registration</h1>
             <div class="input-container">
-                <input type="text" id="username" runat="server" placeholder="Username" />
+                <asp:TextBox ID="txtEmployeeID" runat="server"></asp:TextBox>
             </div>
             <div class="input-container">
-                <input type="password" id="password" runat="server" placeholder="Password" />
+                <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+
             </div>
             <div class="input-container">
-                <input type="email" id="email" runat="server" placeholder="Email" />
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
             </div>
             <div class="input-container">
-                <select id="category" runat="server">
-                    <option value="tech-graduate">Tech Graduate</option>
-                    <option value="team-lead">Team Lead</option>
-                    <option value="section-head">Section Head</option>
-                    <option value="group-head">Group Head</option>
-                </select>
+                <asp:TextBox ID="txtemail" runat="server" placeholder="Email"></asp:TextBox>
             </div>
-            <button type="submit" class="submit-button">Sign Up</button>
+            <div class="input-container">
+                <asp:DropDownList ID="category" runat="server">
+                    <asp:ListItem Value="Tech-Graduate">Tech Graduate</asp:ListItem>
+                    <asp:ListItem Value="Team-Lead">Team Lead</asp:ListItem>
+                    <asp:ListItem Value="Section-Head">Section Head</asp:ListItem>
+                    <asp:ListItem Value="Group-Head">Group Head</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="submit-button" OnClick="Button1_Click" />
             <div class="form-links">
                 <a href="LoginPage.aspx" class="signup-link">Already have an account? Log In</a>
             </div>
