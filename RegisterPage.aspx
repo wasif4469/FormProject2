@@ -17,14 +17,14 @@
         <form id="signupForm" runat="server" class="signup-form">
             <h1>TG-Portal Registration</h1>
             <div class="input-container">
-                <asp:TextBox ID="txtEmployeeID" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmployeeID" runat="server" placeholder="Employee Code"></asp:TextBox>
             </div>
             <div class="input-container">
-                <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtUsername" runat="server" placeholder="Username"></asp:TextBox>
 
             </div>
             <div class="input-container">
-                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
             </div>
             <div class="input-container">
                 <asp:TextBox ID="txtemail" runat="server" placeholder="Email"></asp:TextBox>
