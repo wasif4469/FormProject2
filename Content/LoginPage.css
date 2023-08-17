@@ -29,7 +29,7 @@ body {
     padding: 30px;
     width: 100%;
     max-width: 400px;
-    text-align: center;
+    text-align: inherit;
     position: relative;
     /* Center the form both vertically and horizontally */
     position: absolute;
@@ -43,7 +43,8 @@ body {
     }
 
 .input-container {
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin: 10px;
 }
 
 input[type="text"], input[type="password"], select{
@@ -69,11 +70,13 @@ input[type="text"], input[type="password"], select{
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
+    margin-left: 140px;
 }
 
 .form-links {
     margin-top: 20px;
     margin-left: 25px;
+    margin-left: 70px;
 }
 
 .signup-link, .forgot-link {
@@ -83,7 +86,7 @@ input[type="text"], input[type="password"], select{
     transition: color 0.3s;
     border: 1px solid #BA0C25; 
     padding: 5px 10px; 
-    border-radius: 5px; 
+    border-radius: 5px;
 }
 
     .signup-link:hover, .forgot-link:hover {

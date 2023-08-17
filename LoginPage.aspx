@@ -19,9 +19,11 @@
             <div class="input-container">
                 <input type="text" id="username" runat="server" placeholder="Username" />
             </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="username" Display="Dynamic" ForeColor="#BA0C25" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
             <div class="input-container">
                 <input type="password" id="password" runat="server" placeholder="Password" />
             </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="password" Display="Dynamic" ForeColor="#BA0C25" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
             <div class="input-container">
                 <select id="category" runat="server">
                     <option value="tech-graduate">Tech Graduate</option>
