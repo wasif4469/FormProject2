@@ -73,9 +73,6 @@
     <Content Include="Content\Form1.css" />
     <Content Include="Content\Form2.css" />
     <Content Include="Content\Form3.css" />
-    <Content Include="Dashboard-Script.js" />
-    <Content Include="Dashboard-Style.css" />
-    <Content Include="Dashboard.aspx" />
     <Content Include="Images\Jubilee Logo.jpg" />
     <Content Include="Images\Jubilee_Logo_2-bgr.png" />
     <Content Include="Images\menu-Icon.png" />
@@ -198,13 +195,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
