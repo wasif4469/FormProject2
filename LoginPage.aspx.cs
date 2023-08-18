@@ -13,6 +13,10 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(Request.QueryString["Label1Text"]))
+            {
+                Label1.Text = Request.QueryString["Label1Text"];
+            }
 
         }
 
@@ -39,6 +43,7 @@ namespace FormProject2
                     if (count > 0)
                     {
                         // Successful login
+                        Session["IsLoggedIn"] = true;
                         Response.Redirect("WebForm.aspx"); // Redirect to the dashboard page
                     }
                     else

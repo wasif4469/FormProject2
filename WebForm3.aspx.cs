@@ -13,6 +13,17 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
+
+            if (IsPostBack)
+            {
+                // Redirect to the target page and pass data using QueryString
+                Response.Redirect("LoginPage.aspx?Label1Text=Please+Provide+Credentials");
+            }
+
             //Table.Visible = false;
             if (!IsPostBack)
             {

@@ -13,7 +13,16 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
 
+            if (IsPostBack)
+            {
+                // Redirect to the target page and pass data using QueryString
+                Response.Redirect("LoginPage.aspx?Label1Text=Please+Provide+Credentials");
+            }
         }
 
         SqlConnection con = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123");
