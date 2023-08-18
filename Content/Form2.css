@@ -237,3 +237,9 @@ body {
     .Back:active {
         transition: background-color 0.1s;
     }
+
+.navbar-logout {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: 440%;
+}

@@ -260,3 +260,9 @@ body {
         margin: 0;
     }
 }
+
+.navbar-logout {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: 440%;
+}
