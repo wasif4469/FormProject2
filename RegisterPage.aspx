@@ -50,6 +50,7 @@
                 <div class="form-links">
                     <a href="LoginPage.aspx" class="signup-link">Already have an account? Log In</a>
                 </div>
+                <asp:Label ID="RegisterLabel" runat="server" ForeColor="#BA0C25"></asp:Label>
             </div>
         </form>
     </div>

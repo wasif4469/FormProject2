@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,10 +15,7 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Request.QueryString["Label1Text"]))
-            {
-                Label1.Text = Request.QueryString["Label1Text"];
-            }
+          
 
         }
 
@@ -29,30 +28,56 @@ namespace FormProject2
                 string passwordtext = password.Value;
                 string userRole = category.Value.ToString();
 
-                string query = "SELECT COUNT(*) FROM LOGIN WHERE User_Name = @User_name AND Password = @Password AND Role = @Role";
+                string query = "SELECT Password FROM LOGIN WHERE User_Name = @User_name AND Role = @Role";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@User_Name", usernametext);
-                    command.Parameters.AddWithValue("@Password", passwordtext);
+                    
                     command.Parameters.AddWithValue("@Role", userRole);
 
                     connection.Open();
-                    int count = (int)command.ExecuteScalar();
+                    
+                    object hashedPasswordObj = command.ExecuteScalar();
 
-                    if (count > 0)
+                    if (hashedPasswordObj != null)
                     {
-                        // Successful login
-                        Session["IsLoggedIn"] = true;
-                        Response.Redirect("WebForm.aspx"); // Redirect to the dashboard page
+                        string hashedPasswordFromDB = hashedPasswordObj.ToString();
+                        if (VerifyPassword(passwordtext, hashedPasswordFromDB))
+                        {
+                            // Successful login
+                            Session["IsLoggedIn"] = true;
+                            Response.Redirect("WebForm.aspx"); // Redirect to the dashboard page
+                        }
+                        else
+                        {
+                            // Failed login
+                            Label1.Text = "Invalid login credentials.";
+                        }
                     }
                     else
                     {
-                        // Failed login
-                        Label1.Text = "Invalid login credentials.";
+                        // User not found
+                        Label1.Text = "User not found.";
                     }
+                    
                 }
             }
+        }
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(password);
+                byte[] hash = sha256.ComputeHash(bytes);
+                return Convert.ToBase64String(hash);
+            }
+        }
+
+        private bool VerifyPassword(string password, string hashedPassword)
+        {
+            string hashedInputPassword = HashPassword(password);
+            return hashedInputPassword == hashedPassword;
         }
     }
 }

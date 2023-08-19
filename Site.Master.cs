@@ -13,5 +13,11 @@ namespace FormProject2
         {
 
         }
+
+        protected void Logout(object sender, EventArgs e)
+        {
+            Response.Redirect("LoginPage.aspx");
+            Session.Abandon();
+        }
     }
 }

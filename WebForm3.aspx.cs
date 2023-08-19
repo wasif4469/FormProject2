@@ -18,12 +18,6 @@ namespace FormProject2
                 Response.Redirect("LoginPage.aspx");
             }
 
-            if (IsPostBack)
-            {
-                // Redirect to the target page and pass data using QueryString
-                Response.Redirect("LoginPage.aspx?Label1Text=Please+Provide+Credentials");
-            }
-
             //Table.Visible = false;
             if (!IsPostBack)
             {
