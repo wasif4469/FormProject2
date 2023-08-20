@@ -14,10 +14,23 @@ namespace FormProject2
 
         }
 
-        protected void Logout(object sender, EventArgs e)
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("LoginPage.aspx");
+            // Clear session
+            Session.Clear();
             Session.Abandon();
+
+            // Clear authentication cookies
+            HttpCookie cookie = Request.Cookies["FormsAuthenticationCookie"];
+            if (cookie != null)
+            {
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+            }
+
+            // Redirect to login page
+            Response.Redirect("LoginPage.aspx");
+
         }
     }
 }

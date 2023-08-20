@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="container-right">
-        <form id="loginForm" runat="server" class="login-form">
+        <form id="loginForm" runat="server" class="login-form" >
             <h1>TG-Portal Login</h1>
             <div class="input-container">
                 <input type="text" id="username" runat="server" placeholder="Username" />

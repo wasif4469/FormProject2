@@ -17,6 +17,11 @@ namespace FormProject2
             {
                 Response.Redirect("LoginPage.aspx");
             }
+
+            Textempid.Text = Session["EmployeeID"].ToString();
+
+            // Disable editing of the employee code text box
+            Textempid.Enabled = false;
         }
 
         SqlConnection con = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123");

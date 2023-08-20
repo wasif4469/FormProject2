@@ -15,7 +15,7 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+
 
         }
 
@@ -28,40 +28,45 @@ namespace FormProject2
                 string passwordtext = password.Value;
                 string userRole = category.Value.ToString();
 
-                string query = "SELECT Password FROM LOGIN WHERE User_Name = @User_name AND Role = @Role";
+                string query = "SELECT * FROM LOGIN WHERE User_Name = @User_name AND Role = @Role";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@User_Name", usernametext);
-                    
+
                     command.Parameters.AddWithValue("@Role", userRole);
 
                     connection.Open();
-                    
-                    object hashedPasswordObj = command.ExecuteScalar();
 
-                    if (hashedPasswordObj != null)
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        string hashedPasswordFromDB = hashedPasswordObj.ToString();
-                        if (VerifyPassword(passwordtext, hashedPasswordFromDB))
+                        if (reader.Read())
                         {
-                            // Successful login
-                            Session["IsLoggedIn"] = true;
-                            Response.Redirect("WebForm.aspx"); // Redirect to the dashboard page
+                            string hashedPasswordFromDB = reader["Password"].ToString();
+                            if (VerifyPassword(passwordtext, hashedPasswordFromDB))
+                            {
+                                // Successful login
+                                Session["IsLoggedIn"] = true;
+                                Session["UserRole"] = userRole;
+                                Session["UserName"] = usernametext;
+                                Session["EmployeeID"] = reader["Employee_ID"].ToString();
+                                Response.Redirect("WebForm.aspx"); // Redirect to the dashboard page
+                            }
+                            else
+                            {
+                                // Failed login
+                                Label1.Text = "Invalid login credentials.";
+                            }
                         }
                         else
                         {
-                            // Failed login
-                            Label1.Text = "Invalid login credentials.";
+                            // User not found
+                            Label1.Text = "User not found.";
                         }
+
                     }
-                    else
-                    {
-                        // User not found
-                        Label1.Text = "User not found.";
-                    }
-                    
                 }
+
             }
         }
         private string HashPassword(string password)

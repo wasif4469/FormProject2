@@ -60,16 +60,17 @@
             .navbar-brand {
                 margin-right: 15px;
             }
+
             .navbar-logout {
-                display:flex;
+                display: flex;
                 flex-direction: row-reverse;
-                margin-left: 440%;
+                margin-left: 50%;
             }
         </style>
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" action="javascript:void(0);">
 
         <nav class="navbar">
             <div class="navbar-brand">
@@ -78,9 +79,9 @@
             <ul class="navbar-list">
                 <li class="navbar-item"><a href="WebForm.aspx" class="navbar-link">Form1</a></li>
                 <li class="navbar-item"><a href="WebForm2.aspx" class="navbar-link">Form2</a></li>
-                <li class="navbar-item"><a href="WebForm3.aspx" class="navbar-link">FoForm3</a></li>
+                <li class="navbar-item"><a href="WebForm3.aspx" class="navbar-link">Form3</a></li>
+                <li class="navbar-logout"><a href="LoginPage.aspx" class="navbar-link">Logout</a></li>
             </ul>
-            <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Logout" CssClass="" />
         </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
