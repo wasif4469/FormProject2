@@ -80,9 +80,24 @@
                 <li class="navbar-item"><a href="WebForm.aspx" class="navbar-link">Form1</a></li>
                 <li class="navbar-item"><a href="WebForm2.aspx" class="navbar-link">Form2</a></li>
                 <li class="navbar-item"><a href="WebForm3.aspx" class="navbar-link">Form3</a></li>
-                <li class="navbar-logout"><a href="LoginPage.aspx" class="navbar-link">Logout</a></li>
             </ul>
+            <div>
+                <a href="LoginPage.aspx" class="navbar-link" id="logoutLink">Logout</a>
+            </div>
         </nav>
+        <script>
+            document.getElementById("logoutLink").addEventListener("click", function () {
+        // Clear session
+        <%= "Session.Clear();" %>
+        <%= "Session.Abandon();" %>
+
+                // Clear authentication cookies
+                var cookie = document.cookie = "FormsAuthenticationCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+                // Redirect to login page
+                window.location.href = "LoginPage.aspx";
+            });
+        </script>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
