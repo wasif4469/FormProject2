@@ -60,7 +60,7 @@ namespace FormProject2
                             else
                             {
                                 // Failed login
-                                Label1.Text = "Invalid login credentials.";
+                                Label1.Text = "Invalid login credential.";
                             }
                         }
                         else
