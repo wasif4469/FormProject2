@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebForm.aspx.cs" Inherits="FormProject2.WebForm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm.aspx.cs" Inherits="FormProject2.WebForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Content/Form1.css" rel="stylesheet" />
@@ -145,7 +145,8 @@
                         <tr>
                             <td class="Form-Table11">&nbsp;&nbsp; Yes/No/Maybe:</td>
                             <td>
-                                <input id="Text5" class="Form-Table12" type="text" /></td>
+                               <asp:TextBox ID="TextBox8" runat="server" CssClass="Form-Table12"></asp:TextBox>
+                            </td>
                         </tr>
                     </table>
                 </td>

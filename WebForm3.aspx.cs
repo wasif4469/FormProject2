@@ -18,6 +18,8 @@ namespace FormProject2
                 Response.Redirect("LoginPage.aspx");
             }
 
+            string EmployeeID = Session["EmployeeID"].ToString();
+
             //Table.Visible = false;
             if (!IsPostBack)
             {
@@ -66,53 +68,59 @@ namespace FormProject2
 
         protected void Btn1_Click(object sender, EventArgs e)
         {
+            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            Boolean ISACTIVE = true;
 
-            int sum = 0;
-            if (!string.IsNullOrEmpty(DDL1.SelectedValue))
-                sum += Convert.ToInt32(DDL1.SelectedValue);
-
-            if (!string.IsNullOrEmpty(DDL2.SelectedValue))
-                sum += Convert.ToInt32(DDL2.SelectedValue);
-
-            if (!string.IsNullOrEmpty(DDL3.SelectedValue))
-                sum += Convert.ToInt32(DDL3.SelectedValue);
-
-            if (!string.IsNullOrEmpty(DDL4.SelectedValue))
-                sum += Convert.ToInt32(DDL4.SelectedValue);
-
-            if (!string.IsNullOrEmpty(DDL5.SelectedValue))
-                sum += Convert.ToInt32(DDL5.SelectedValue);
-
-            if (!string.IsNullOrEmpty(DDL6.SelectedValue))
-                sum += Convert.ToInt32(DDL6.SelectedValue);
-            if (!string.IsNullOrEmpty(TextBox1.Text))
-                sum += Convert.ToInt32(TextBox1.Text);
-
-            TextBox4.Text = sum.ToString();
-
-            if (IsAllDropDownListsValid())
+            if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
             {
 
-                int id = 11;
-                int Indicator_01_Rating = int.Parse(DDL1.SelectedValue); int Indicator_02_Rating = int.Parse(DDL2.SelectedValue);
-                int Indicator_03_Rating = int.Parse(DDL3.SelectedValue); int Indicator_04_Rating = int.Parse(DDL4.SelectedValue);
-                int Indicator_05_Rating = int.Parse(DDL5.SelectedValue); int Indicator_06_Rating = int.Parse(DDL6.SelectedValue);
-                int Indicator_07_Rating = int.Parse(TextBox4.Text);
-                Boolean Approved_By_Section_Head = true;
-                String Status_Application = "sh_pending";
-                Boolean ISACTIVE = true;
-                con.Open();
-                SqlCommand co = new SqlCommand("exec Indicator_Update  " + id + ",'" + Indicator_01_Rating + "', '" + Indicator_02_Rating + "','" + Indicator_03_Rating + "','" + Indicator_04_Rating + "','" + Indicator_05_Rating + "','" + Indicator_06_Rating + "','" + Indicator_07_Rating + "','" + Approved_By_Section_Head + "','" + Status_Application + "','" + ISACTIVE + "'", con);
-                co.ExecuteNonQuery();
-                con.Close();
-                GetIndicator();
-                Label6.Visible = true;
-                Label6.Text = "Succesfully Submited data";
-            }
-            else
-            {
-                Label6.Visible = true;
-                Label6.Text = "Kindly select other than 0";
+                int sum = 0;
+                if (!string.IsNullOrEmpty(DDL1.SelectedValue))
+                    sum += Convert.ToInt32(DDL1.SelectedValue);
+
+                if (!string.IsNullOrEmpty(DDL2.SelectedValue))
+                    sum += Convert.ToInt32(DDL2.SelectedValue);
+
+                if (!string.IsNullOrEmpty(DDL3.SelectedValue))
+                    sum += Convert.ToInt32(DDL3.SelectedValue);
+
+                if (!string.IsNullOrEmpty(DDL4.SelectedValue))
+                    sum += Convert.ToInt32(DDL4.SelectedValue);
+
+                if (!string.IsNullOrEmpty(DDL5.SelectedValue))
+                    sum += Convert.ToInt32(DDL5.SelectedValue);
+
+                if (!string.IsNullOrEmpty(DDL6.SelectedValue))
+                    sum += Convert.ToInt32(DDL6.SelectedValue);
+                if (!string.IsNullOrEmpty(TextBox1.Text))
+                    sum += Convert.ToInt32(TextBox1.Text);
+
+                TextBox4.Text = sum.ToString();
+
+                if (IsAllDropDownListsValid())
+                {
+
+
+                    int Indicator_01_Rating = int.Parse(DDL1.SelectedValue); int Indicator_02_Rating = int.Parse(DDL2.SelectedValue);
+                    int Indicator_03_Rating = int.Parse(DDL3.SelectedValue); int Indicator_04_Rating = int.Parse(DDL4.SelectedValue);
+                    int Indicator_05_Rating = int.Parse(DDL5.SelectedValue); int Indicator_06_Rating = int.Parse(DDL6.SelectedValue);
+                    int Indicator_07_Rating = int.Parse(TextBox4.Text);
+                    Boolean Approved_By_Team_Lead = true;
+                    String Status_Application = "sh_pending";
+                    ISACTIVE = true;
+                    con.Open();
+                    SqlCommand co = new SqlCommand("exec Indicator_Update  " + EmployeeID + ",'" + Indicator_01_Rating + "', '" + Indicator_02_Rating + "','" + Indicator_03_Rating + "','" + Indicator_04_Rating + "','" + Indicator_05_Rating + "','" + Indicator_06_Rating + "','" + Indicator_07_Rating + "','" + Approved_By_Team_Lead + "','" + Status_Application + "','" + ISACTIVE + "'", con);
+                    co.ExecuteNonQuery();
+                    con.Close();
+                    GetIndicator();
+                    Label6.Visible = true;
+                    Label6.Text = "Succesfully Submited data";
+                }
+                else
+                {
+                    Label6.Visible = true;
+                    Label6.Text = "Kindly select other than 0";
+                }
             }
         }
 
@@ -124,14 +132,20 @@ namespace FormProject2
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            int id = 11;
-            Boolean Approved_By_Section_Head = true;
-            String Status_Application = "gh_pending";
-            con.Open();
-            SqlCommand co = new SqlCommand("exec SH_Process  " + id + ",'" + Approved_By_Section_Head + "','" + Status_Application + "'", con);
-            co.ExecuteNonQuery();
-            con.Close();
-            Getprocess();
+            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            Boolean ISACTIVE = true;
+
+            if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
+            {
+                Boolean Approved_By_Section_Head = true;
+                String Status_Application = "gh_pending";
+                ISACTIVE = true;
+                con.Open();
+                SqlCommand co = new SqlCommand("exec SH_Process  " + EmployeeID + ",'" + Approved_By_Section_Head + "','" + Status_Application + "','" + ISACTIVE + "'", con);
+                co.ExecuteNonQuery();
+                con.Close();
+                Getprocess();
+            }
         }
 
         void Getprocess()
@@ -143,16 +157,22 @@ namespace FormProject2
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            int id = 11;
-            Boolean Approved_By_Group_Lead = true;
-            String Status = "Completed";
-            String Status_Application = "Completed";
-            con.Open();
-            SqlCommand co = new SqlCommand("exec GH_Process  " + id + ",'" + Approved_By_Group_Lead + "','" + Status + "','" + Status_Application + "'", con);
-            co.ExecuteNonQuery();
-            con.Close();
-            Getprocess();
+            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            Boolean ISACTIVE = true;
 
+            if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
+            {
+                Boolean Approved_By_Group_Head = true;
+                String Status = "Completed";
+                String Status_Application = "Completed";
+                ISACTIVE = false;
+                con.Open();
+                SqlCommand co = new SqlCommand("exec GH_Process  " + EmployeeID + ",'" + Approved_By_Group_Head + "','" + Status + "','" + Status_Application + "','" + ISACTIVE  + "'", con);
+                co.ExecuteNonQuery();
+                con.Close();
+                Getprocess();
+
+            }
         }
 
         protected void Rejbtn1(object sender, EventArgs e)

@@ -70,7 +70,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server" action="javascript:void(0);">
+    <form id="form1" runat="server">
 
         <nav class="navbar">
             <div class="navbar-brand">

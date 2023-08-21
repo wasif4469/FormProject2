@@ -3,20 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Content/Form2.css" rel="stylesheet" />
     <style type="text/css">
-        
         .auto-style46 {
             width: 50px;
             height: 36px;
         }
+
         .auto-style47 {
             width: 543px;
             height: 36px;
         }
+
         .auto-style48 {
             width: 185px;
             height: 36px;
         }
-        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -33,31 +33,31 @@
         <asp:Panel ID="Trainee_details" runat="server">
             <table class="container-table" border="1">
                 <tr>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:Label ID="Name" runat="server" Text="Name" Font-Bold="True"></asp:Label></td>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:TextBox ID="Name1" runat="server" Width="180px" ValidationGroup="val"></asp:TextBox>
 
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="Name1" runat="server" ErrorMessage="Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
                     </td>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:Label ID="Team_name" runat="server" Text="Team Name" Font-Bold="True"></asp:Label></td>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:TextBox ID="Team_name1" runat="server" Width="180px" ValidationGroup="val"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="Team_name1" runat="server" ErrorMessage="Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:Label ID="Employ_ID" runat="server" Text="Employee ID" Font-Bold="True"></asp:Label>
                     </td>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:TextBox ID="Employ_ID1" runat="server" Width="180px" ValidationGroup="val"></asp:TextBox>
 
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="Employ_ID1" runat="server" ErrorMessage="Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Employ_ID1" ErrorMessage="6 digit number" ValidationExpression="\d{6}" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*Incorrect</asp:RegularExpressionValidator>
                     </td>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:Label ID="program" runat="server" Text="Program Name" Font-Bold="True"></asp:Label>
                     </td>
                     <td>
@@ -66,14 +66,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:Label ID="section_name" runat="server" Text="Section Name" Font-Bold="True"></asp:Label>
                     </td>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:TextBox ID="section_name1" runat="server" Width="180px" ValidationGroup="val"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="section_name1" runat="server" ErrorMessage="Name Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
                     </td>
-                    <td style="height:20px;">
+                    <td style="height: 20px;">
                         <asp:Label ID="Section_head_name" runat="server" Text="Section Head Name" Font-Bold="True"></asp:Label>
                     </td>
                     <td>
@@ -320,14 +320,14 @@
                 <br />
                 <br />
             </asp:Panel>
-            <asp:Panel ID="submit_1" runat="server">
-                <asp:Button ID="Back1" runat="server" CssClass="Back" ValidationGroup="val" Text="Back"/>
-                <asp:Button ID="Submit" runat="server" ValidationGroup="val" CssClass="Submit-Pro" Text="Submit" OnClick="submit_Click" />
-                <asp:Button ID="Review" runat="server" ValidationGroup="val" Text="Reviewed" OnClick="review" CssClass="Submit"/>
+            <asp:Panel ID="button" runat="server">
+                <asp:Button ID="Back1" runat="server" CssClass="Back" ValidationGroup="val" Text="Back" />
+                <asp:Button ID="Submit" runat="server" ValidationGroup="val" CssClass="Submit-Pro" Text="Submit" OnClick="Submit_Click1" />
+                &nbsp;<asp:Button ID="Review" runat="server" ValidationGroup="val" Text="Reviewed" OnClick="review" CssClass="Submit" />
             </asp:Panel>
             <asp:Panel ID="Back" runat="server">
                 <br />
-                
+
             </asp:Panel>
         </asp:Panel>
     </div>
