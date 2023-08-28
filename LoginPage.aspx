@@ -24,14 +24,7 @@
                 <input type="password" id="password" runat="server" placeholder="Password" />
             </div>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="password" Display="Dynamic" ForeColor="#BA0C25" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
-            <div class="input-container">
-                <select id="category" runat="server">
-                    <option value="tech-graduate">Tech Graduate</option>
-                    <option value="team-lead">Team Lead</option>
-                    <option value="section-head">Section Head</option>
-                    <option value="group-head">Group Head</option>
-                </select>
-            </div>
+            
             <asp:Label ID="Label1" runat="server" ForeColor="#BA0C25" style="margin-bottom: 15px"></asp:Label>
             <div>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Sign In" CssClass="submit-button" />

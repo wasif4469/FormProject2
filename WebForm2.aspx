@@ -313,7 +313,7 @@
             <br />
         </asp:Panel>
         <asp:Panel ID="Remarks" runat="server">
-            <asp:Panel ID="Panel1" runat="server">
+            <asp:Panel ID="textarea" runat="server">
                 <asp:Label ID="Label8" runat="server" Text="Recommendation(s) for the further growth." Style="margin-left: 10%"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator28" ControlToValidate="TextArea1" runat="server" ErrorMessage="Name Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
                 <br />
                 <textarea id="TextArea1" class="auto-style41" runat="server" name="S1"></textarea>
@@ -321,13 +321,8 @@
                 <br />
             </asp:Panel>
             <asp:Panel ID="button" runat="server">
-                <asp:Button ID="Back1" runat="server" CssClass="Back" ValidationGroup="val" Text="Back" />
                 <asp:Button ID="Submit" runat="server" ValidationGroup="val" CssClass="Submit-Pro" Text="Submit" OnClick="Submit_Click1" />
                 &nbsp;<asp:Button ID="Review" runat="server" ValidationGroup="val" Text="Reviewed" OnClick="review" CssClass="Submit" />
-            </asp:Panel>
-            <asp:Panel ID="Back" runat="server">
-                <br />
-
             </asp:Panel>
         </asp:Panel>
     </div>

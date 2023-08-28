@@ -16,13 +16,52 @@ namespace FormProject2
             {
                 Response.Redirect("LoginPage.aspx");
             }
+            string Role = Session["UserRole"].ToString();
+            Trainee_details.Enabled = false;
+            Static_table.Enabled = false;
+            Activity_table.Enabled = false;
+            textarea.Visible = false;
+            Activity_table.Enabled = false;
+            Submit.Visible = false;
+            Review.Visible = false;
 
-            Employ_ID1.Text = Session["EmployeeID"].ToString();
+            if (Role == "Tech Graduate")
+            {
+                Employ_ID1.Text = Session["EmployeeID"].ToString();
+                Employ_ID1.Enabled = false;
+                string EmployeeID = Session["EmployeeID"].ToString();
+                program1.Text = Role;
+                program1.Enabled = false;
+                Name1.Text = Session["FullName"].ToString();
+                Name1.Enabled = false;
+                Trainee_details.Enabled = true;
+                Activity_table.Enabled = true;
+                textarea.Visible = false;  // Disable the textarea
+                Submit.Visible = true;
+                Review.Visible = false;
+               
+            }
+            else if (Role == "Team Lead")
+            {
+                Review.Visible = true;
+                Activity_table.Enabled = true;
+                textarea.Visible = false;
+            }
+            else if (Role == "Section Head")
+            {
+                Review.Visible = true;
+                textarea.Visible = true;   // Enable the textarea
+            }
 
-            // Disable editing of the employee code text box
-            Employ_ID1.Enabled = false;
+            else if (Role == "Group Head")
+            {
+                Trainee_details.Enabled = false;
+                Activity_table.Enabled = false;
+                textarea.Enabled = false; 
+            }
 
-            string EmployeeID = Session["EmployeeID"].ToString();
+
+
 
         }
         SqlConnection con = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123");

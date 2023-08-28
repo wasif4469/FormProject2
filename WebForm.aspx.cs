@@ -18,17 +18,36 @@ namespace FormProject2
                 Response.Redirect("LoginPage.aspx");
             }
 
-            Textempid.Text = Session["EmployeeID"].ToString();
+            string Role = Session["UserRole"].ToString();
 
-            // Disable editing of the employee code text box
-            Textempid.Enabled = false;
+
+
+            if (Role == "Tech Graduate")
+            {
+                Textempid.Text = Session["EmployeeID"].ToString();
+                Textname.Text = Session["FullName"].ToString();
+                // Disable editing of the employee code text box
+                Textempid.Enabled = false;
+                // Allow Tech-Graduate to edit
+                EnableFormElements(true);
+                Textname.Enabled = false;
+            }
+            else if (Role == "Team Lead")
+            {
+                // Redirect or restrict access for Team Lead
+                
+                Response.Redirect("WebForm2.aspx");
+            }
+            else if (Role == "Section Head" || Role == "Group Head")
+            {
+                // Allow Section-Head and Group Head to view, but not edit
+                EnableFormElements(false);
+            }
         }
 
         SqlConnection con = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123");
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
-            
 
             if (Textempid.Text == Session["EmployeeID"].ToString())
             {
@@ -45,14 +64,32 @@ namespace FormProject2
                 string Answer_08 = TextBox8.Text.ToString();
                 string TEAM_LEAD_NAME = Textsupervisor.Text.ToString();
                 string DATE = Textdate.Text.ToString();
-                Boolean ISACTIVE=true;
-                
+                Boolean ISACTIVE = true;
+
 
                 con.Open();
                 SqlCommand co = new SqlCommand("exec S_Evaluation  " + Employee_ID + ",'" + Trainee_Name.ToString() + "','" + Section_Name.ToString() + "','" + Answer_01.ToString() + "','" + Answer_02.ToString() + "','" + Answer_03.ToString() + "','" + Answer_04.ToString() + "','" + Answer_05.ToString() + "','" + Answer_06.ToString() + "','" + Answer_07.ToString() + "','" + Answer_08.ToString() + "','" + TEAM_LEAD_NAME.ToString() + "','" + DATE.ToString() + "','" + ISACTIVE + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
             }
+        }
+
+        private void EnableFormElements(bool enable)
+        {
+            Textname.Enabled = enable;
+            Textsection.Enabled = enable;
+            Textsupervisor.Enabled = enable;
+            Textdate.Enabled = enable;
+            TextBox1.Enabled = enable;
+            TextBox2.Enabled = enable;
+            TextBox3.Enabled = enable;
+            TextBox4.Enabled = enable;
+            TextBox5.Enabled = enable;
+            TextBox6.Enabled = enable;
+            TextBox7.Enabled = enable;
+            TextBox8.Enabled = enable;
+            btnSubmit.Visible = enable; // Show/hide submit button based on the role
+            
         }
     }
 }

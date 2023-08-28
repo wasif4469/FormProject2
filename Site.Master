@@ -61,11 +61,6 @@
                 margin-right: 15px;
             }
 
-            .navbar-logout {
-                display: flex;
-                flex-direction: row-reverse;
-                margin-left: 50%;
-            }
         </style>
     </asp:ContentPlaceHolder>
 </head>
@@ -77,13 +72,12 @@
                 <img alt="Logo" src="Images/Jubilee%20Logo.jpg" />
             </div>
             <ul class="navbar-list">
-                <li class="navbar-item"><a href="WebForm.aspx" class="navbar-link">Form1</a></li>
-                <li class="navbar-item"><a href="WebForm2.aspx" class="navbar-link">Form2</a></li>
-                <li class="navbar-item"><a href="WebForm3.aspx" class="navbar-link">Form3</a></li>
+                <li id="SelfEvaluationItem" class="navbar-item"><a href="WebForm.aspx" class="navbar-link">Self Evaluation</a></li>
+                <li id="ActivitiesFormItem" class="navbar-item"><a href="WebForm2.aspx" class="navbar-link">Activities Evaluation</a></li>
+                <li id="KnowledgeIndicatorItem" class="navbar-item"><a href="WebForm3.aspx" class="navbar-link">Knowledge Evaluation</a></li>
+                <li><a href="LoginPage.aspx" class="navbar-link" id="logoutLink">Logout</a></li>
             </ul>
-            <div>
-                <a href="LoginPage.aspx" class="navbar-link" id="logoutLink">Logout</a>
-            </div>
+
         </nav>
         <script>
             document.getElementById("logoutLink").addEventListener("click", function () {

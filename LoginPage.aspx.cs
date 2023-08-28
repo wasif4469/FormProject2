@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ActiveDirectorySynchronization;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Web;
+using System.DirectoryServices.AccountManagement;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace FormProject2
 {
-    public partial class LoginPage : System.Web.UI.Page
+    public partial class LoginPage : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,74 +16,79 @@ namespace FormProject2
                 Session.Clear();
                 Session.Abandon();
             }
-
-
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string domain = "jubileelife.com";
+            string usernametxt = username.Value;
+            string passwordtxt = password.Value;
+
+            ActiveDirectoryHelper ADhelper = new ActiveDirectoryHelper();
+            var details = ADhelper.GetUserByLoginName(usernametxt);
+            var ADuser = details.LoginName;
+
+            PrincipalContext context = new PrincipalContext(ContextType.Domain, domain);
+
+            // Validate credentials against Active Directory
+            bool is_valid = context.ValidateCredentials(usernametxt, passwordtxt);
+
+            if (is_valid)
+            {
+                // Check if the AD username matches a username in the PortalUsers table
+                if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName))
+                {
+                    // Store user data in session variables
+                    Session["IsLoggedIn"] = true;
+                    Session["UserRole"] = role;
+                    Session["UserName"] = userName;
+                    Session["EmployeeID"] = employeeID;
+                    Session["Department"] = Department;
+                    Session["FullName"] = fullname;
+
+                    Response.Redirect("WebForm.aspx");
+                }
+                else
+                {
+                    Label1.Visible = true;
+                    Label1.Text = "Unauthorized user.";
+                }
+            }
+            else
+            {
+                Label1.Visible = true;
+                Label1.Text = "Invalid login credential.";
+            }
+        }
+
+        private bool IsAuthorizedUser(string username, out string role, out string employeeID, out string fullname, out string Department, out string userName)
+        {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
+            role = employeeID = fullname = Department = userName = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string usernametext = username.Value;
-                string passwordtext = password.Value;
-                string userRole = category.Value.ToString();
-
-                string query = "SELECT * FROM LOGIN WHERE User_Name = @User_name AND Role = @Role";
+                string query = "SELECT * FROM PortalUsers WHERE UserName = @UserName";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@User_Name", usernametext);
-
-                    command.Parameters.AddWithValue("@Role", userRole);
+                    command.Parameters.AddWithValue("@UserName", username);
 
                     connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    if (reader.Read())
                     {
-                        if (reader.Read())
-                        {
-                            string hashedPasswordFromDB = reader["Password"].ToString();
-                            if (VerifyPassword(passwordtext, hashedPasswordFromDB))
-                            {
-                                // Successful login
-                                Session["IsLoggedIn"] = true;
-                                Session["UserRole"] = userRole;
-                                Session["UserName"] = usernametext;
-                                Session["EmployeeID"] = reader["Employee_ID"].ToString();
-                                Response.Redirect("WebForm.aspx"); // Redirect to the dashboard page
-                            }
-                            else
-                            {
-                                // Failed login
-                                Label1.Text = "Invalid login credential.";
-                            }
-                        }
-                        else
-                        {
-                            // User not found
-                            Label1.Text = "User not found.";
-                        }
-
+                        role = reader["Designation"].ToString();
+                        employeeID = reader["EmployeeID"].ToString();
+                        fullname = reader["FullName"].ToString();
+                        Department = reader["Department"].ToString();
+                        userName = reader["UserName"].ToString();
+                        return true;
                     }
                 }
-
             }
-        }
-        private string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] bytes = Encoding.UTF8.GetBytes(password);
-                byte[] hash = sha256.ComputeHash(bytes);
-                return Convert.ToBase64String(hash);
-            }
-        }
 
-        private bool VerifyPassword(string password, string hashedPassword)
-        {
-            string hashedInputPassword = HashPassword(password);
-            return hashedInputPassword == hashedPassword;
+            return false;
         }
     }
 }

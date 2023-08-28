@@ -609,13 +609,13 @@ namespace FormProject2
         protected global::System.Web.UI.WebControls.Panel Remarks;
 
         /// <summary>
-        /// Panel1 control.
+        /// textarea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel textarea;
 
         /// <summary>
         /// Label8 control.
@@ -654,15 +654,6 @@ namespace FormProject2
         protected global::System.Web.UI.WebControls.Panel button;
 
         /// <summary>
-        /// Back1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Back1;
-
-        /// <summary>
         /// Submit control.
         /// </summary>
         /// <remarks>
@@ -679,14 +670,5 @@ namespace FormProject2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Review;
-
-        /// <summary>
-        /// Back control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Back;
     }
 }

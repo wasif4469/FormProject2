@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ActiveDirectorySynchronization;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -14,43 +16,61 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-        }
-
-        SqlConnection con = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123");
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            string Employee_ID = txtEmployeeID.Text.ToString();
-            string User_Name = txtUsername.Text.ToString();
-            string Password = txtPassword.Text;
-            string Email = txtemail.Text.ToString();
-            string Roles = category.Text.ToString();
-            string hashedPassword = HashPassword(Password);
-
-            con.Open();
-            SqlCommand co = new SqlCommand("exec U_Login  " + Employee_ID + ",'" + User_Name.ToString() + "','" + hashedPassword + "','" + Email.ToString() + "','" + Roles.ToString() + "'", con);
-            co.ExecuteNonQuery();
-            con.Close();
-
-            RegisterLabel.Text = "User Created Successfully";
-
-           
-
-            txtEmployeeID.Text = "";
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-            txtemail.Text = "";
-
             
         }
-        private string HashPassword(string password)
+
+        ActiveDirectoryHelper ADhelper = new ActiveDirectoryHelper();
+
+        protected void txtEmployeeID_TextChanged(object sender, EventArgs e)
         {
-            using (SHA256 sha256 = SHA256.Create())
+            string enteredEmployeeCode = txtEmployeeID.Text.Trim();
+
+            var userDetails = ADhelper.GetUsersByEmployeeCode(enteredEmployeeCode);
+
+            if (userDetails!=null)
             {
-                byte[] bytes = Encoding.UTF8.GetBytes(password);
-                byte[] hash = sha256.ComputeHash(bytes);
-                return Convert.ToBase64String(hash);
+                string connectionString = ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT * FROM PortalUsers WHERE EmployeeID = @EmployeeID";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@EmployeeID",  enteredEmployeeCode);
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                              
+                                // Employee code found in the database
+                                txtUsername.Text = reader["UserName"].ToString();
+                                txtFullName.Text = reader["FullName"].ToString();
+                                txtemail.Text = reader["Email"].ToString();
+                                txtRole.Text = reader["Designation"].ToString();
+
+                                txtemail.Enabled = false;
+                                txtFullName.Enabled = false;
+                                txtRole.Enabled = false;
+                                txtUsername.Enabled = false;
+
+                            }
+                            else
+                            {
+                                RegisterLabel.Text = "Employee Code not found in the Database!";
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                RegisterLabel.Text = "Employee Code not found in the active Directory!";
+            
             }
         }
     }
