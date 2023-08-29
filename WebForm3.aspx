@@ -12,7 +12,7 @@
     <div class="container">
     <img src="Images/Jubilee%20Logo.jpg" alt="Sample Photo" id="image" /><br /> <br /><br />  
 <asp:Label ID="Label1"  style="margin-left:20%; font-family:Verdana;font-weight:bold;" runat="server" 
-    Text="To be Filled by Section Head"></asp:Label>
+    Text="To be Filled by Team Lead"></asp:Label>
     <br />   <br />  <br />
     <asp:Panel ID ="Table" runat="server">
     <table border="1" class="evaTable" >
@@ -70,14 +70,14 @@
                         <asp:ListItem Value="0"></asp:ListItem>
                         <asp:ListItem Value="1">1</asp:ListItem>
                         <asp:ListItem Value="2">2</asp:ListItem>
-                        <asp:ListItem Value="3"></asp:ListItem>
-                        <asp:ListItem Value="4"></asp:ListItem>
-                        <asp:ListItem Value="5"></asp:ListItem>
-                        <asp:ListItem Value="6"></asp:ListItem>
-                        <asp:ListItem Value="7"></asp:ListItem>
-                        <asp:ListItem Value="8"></asp:ListItem>
-                        <asp:ListItem Value="9"></asp:ListItem>
-                        <asp:ListItem Value="10"></asp:ListItem>   
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="5">5</asp:ListItem>
+                        <asp:ListItem Value="6">6</asp:ListItem>
+                        <asp:ListItem Value="7">7</asp:ListItem>
+                        <asp:ListItem Value="8">8</asp:ListItem>
+                        <asp:ListItem Value="9">9</asp:ListItem>
+                        <asp:ListItem Value="10">10</asp:ListItem>   
                     </asp:DropDownList>
                     </p>
             </td>
@@ -288,7 +288,7 @@
         </asp:Panel>
           
     <br />
-    <asp:Button runat="server" Text="Submit" CssClass="Submit" OnClick="Btn1_Click" />
+    <asp:Button ID="Button5" runat="server" Text="Submit" CssClass="Submit" OnClick="Btn1_Click" />
     &nbsp;
     
     <asp:Label ID="Label6" runat="server" Visible="False"></asp:Label>
@@ -329,9 +329,6 @@
         <asp:TextBox ID="TextBox3" runat="server" CssClass="TextArea2"></asp:TextBox>
 &nbsp;&nbsp;
         <br /><br />
-        <div>
-            <input class="Back" id="Button5" type="button" value="Back" />
-        </div>
     </div>
     
 </asp:Content>

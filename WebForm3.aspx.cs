@@ -18,7 +18,37 @@ namespace FormProject2
                 Response.Redirect("LoginPage.aspx");
             }
 
-            string EmployeeID = Session["EmployeeID"].ToString();
+            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            string Role = Session["UserRole"].ToString();
+
+            if (Role == "Tech Grduate")
+            {
+                DisableFormElements();
+            }
+            if (Role == "Team Lead")
+            {
+                DisableFormElements();
+                Table.Enabled = true;
+                Button5.Visible = true;
+
+            }
+            if (Role == "Section Head")
+            {
+                DisableFormElements();
+                Button2.Visible = true;
+                Button3.Visible = true;
+                TextBox2.Visible = true;
+
+
+            }
+            if (Role == "Group Head")
+            {
+                DisableFormElements();
+                Button4.Visible = true;
+                Rej.Visible = true;
+                TextBox3.Visible = true;
+
+            }
 
             //Table.Visible = false;
             if (!IsPostBack)
@@ -31,16 +61,16 @@ namespace FormProject2
                 using (SqlConnection connection = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123"))
                 {
                     connection.Open();
-                    //  int id = 11;
-                    string query = "SELECT SUB_TOTAL FROM Details WHERE id = 11";
+
+                    string query = "SELECT SUB_TOTAL FROM Details WHERE Employee_ID = @Employee_ID and ISACTIVE = 1";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
+                        command.Parameters.AddWithValue("@Employee_ID", EmployeeID);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.Read())
                             {
                                 string column1Value = reader["SUB_TOTAL"].ToString();
-                                // label1.Text = "Column1 Value: " + column1Value;
 
                                 TextBox1.Text = column1Value;
 
@@ -73,7 +103,6 @@ namespace FormProject2
 
             if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
             {
-
                 int sum = 0;
                 if (!string.IsNullOrEmpty(DDL1.SelectedValue))
                     sum += Convert.ToInt32(DDL1.SelectedValue);
@@ -167,7 +196,7 @@ namespace FormProject2
                 String Status_Application = "Completed";
                 ISACTIVE = false;
                 con.Open();
-                SqlCommand co = new SqlCommand("exec GH_Process  " + EmployeeID + ",'" + Approved_By_Group_Head + "','" + Status + "','" + Status_Application + "','" + ISACTIVE  + "'", con);
+                SqlCommand co = new SqlCommand("exec GH_Process  " + EmployeeID + ",'" + Approved_By_Group_Head + "','" + Status + "','" + Status_Application + "','" + ISACTIVE + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
                 Getprocess();
@@ -186,17 +215,21 @@ namespace FormProject2
             {
                 RejLabel1.Visible = false;
             }
-            int id = 11;
-            Boolean Approved_By_Section_Head = false;
-            String Status_Application = "sh_rejected";
-            String SECTION_HEAD_REJECTION = TextBox2.Text;
 
-            con.Open();
-            SqlCommand co = new SqlCommand("exec SH_Reject  " + id + ",'" + Approved_By_Section_Head + "','" + Status_Application + "','" + SECTION_HEAD_REJECTION.ToString() + "'", con);
-            //  SqlCommand co = new SqlCommand("exec SH_Reject `" + id + ",'" + Status_Application + "','" + SECTION_HEAD_REJECTION.ToString() + "'", con);
-            co.ExecuteNonQuery();
-            con.Close();
-            GetReject();
+            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            Boolean ISACTIVE = true;
+            if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
+            {
+                Boolean Approved_By_Section_Head = false;
+                String Status_Application = "sh_rejected";
+                String SECTION_HEAD_REJECTION = TextBox2.Text;
+
+                con.Open();
+                SqlCommand co = new SqlCommand("exec SH_Reject  " + Approved_By_Section_Head + ",'" + Status_Application + "','" + SECTION_HEAD_REJECTION.ToString() + "'", con);
+                co.ExecuteNonQuery();
+                con.Close();
+                GetReject();
+            }
         }
 
         void GetReject()
@@ -216,15 +249,31 @@ namespace FormProject2
             {
                 RejLabel2.Visible = false;
             }
-            int id = 11;
-            String Status_Application = "gh_rejected";
-            Boolean Approved_By_Group_Lead = false;
-            String GROUP_LEAD_REJECTION = TextBox3.Text;
-            con.Open();
-            SqlCommand co = new SqlCommand("exec GH_Reject  " + id + ",'" + Approved_By_Group_Lead + "','" + Status_Application + "','" + GROUP_LEAD_REJECTION.ToString() + "'", con);
-            co.ExecuteNonQuery();
-            con.Close();
-            GetReject();
+            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            Boolean ISACTIVE = true;
+            if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
+            {
+                String Status_Application = "gh_rejected";
+                Boolean Approved_By_Group_Lead = false;
+                String GROUP_LEAD_REJECTION = TextBox3.Text;
+                con.Open();
+                SqlCommand co = new SqlCommand("exec GH_Reject  " + Approved_By_Group_Lead + ",'" + Status_Application + "','" + GROUP_LEAD_REJECTION.ToString() + "'", con);
+                co.ExecuteNonQuery();
+                con.Close();
+                GetReject();
+            }
+        }
+
+        private void DisableFormElements()
+        {
+            Table.Enabled = false;
+            Button5.Visible = false;
+            Button2.Visible = false;
+            Button3.Visible = false;
+            Button4.Visible = false;
+            Rej.Visible = false;
+            TextBox2.Visible = false;
+            TextBox3.Visible = false;
         }
 
     }
