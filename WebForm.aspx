@@ -1,7 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm.aspx.cs" Inherits="FormProject2.WebForm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm.aspx.cs" Inherits="FormProject2.WebForm" EnableViewState="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Content/Form1.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -46,11 +49,19 @@
                 </td>
             </tr>
             <tr>
-                <td class="Table1-Label" style="border: thin solid #000000">Tenure( From Date - To Date)</td>
+                <td class="Table1-Label" style="border: thin solid #000000">From Date </td>
                 <td class="Table1-Input" style="border: thin solid #000000">
-                    <asp:TextBox ID="Textdate" runat="server" CssClass="Table1-Text"></asp:TextBox>
+                    <asp:TextBox ID="TextdateFrom" runat="server" CssClass="Table1-Text"></asp:TextBox>
                 <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Textdate" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextdateFrom" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="Table1-Label" style="border: thin solid #000000">To Date </td>
+                <td class="Table1-Input" style="border: thin solid #000000">
+                    <asp:TextBox ID="TextdateTo" runat="server" CssClass="Table1-Text"></asp:TextBox>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextdateTo" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
 
@@ -145,7 +156,7 @@
                         <tr>
                             <td class="Form-Table11">&nbsp;&nbsp; Yes/No/Maybe:</td>
                             <td>
-                               <asp:TextBox ID="TextBox8" runat="server" CssClass="Form-Table12"></asp:TextBox>
+                                <asp:TextBox ID="TextBox8" runat="server" CssClass="Form-Table12"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
@@ -166,11 +177,28 @@
         </table>
         <br />
         <div>
-            
+
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="Submit" OnClick="btnSubmit_Click" />
 
         </div>
     </div>
+
+    <script>
+        $(function () {
+            $("#<%= TextdateFrom.ClientID %>").datepicker({
+            dateFormat: 'dd-mm-yy', // Desired date format
+            changeMonth: true,
+            changeYear: true
+        });
+
+        $("#<%= TextdateTo.ClientID %>").datepicker({
+            dateFormat: 'dd-mm-yy', // Desired date format
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+    </script>
+
 </asp:Content>
 
 

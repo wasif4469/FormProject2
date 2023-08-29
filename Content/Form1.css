@@ -219,15 +219,8 @@ body {
     max-height: 40px;
 }
 
-.navbar-brand {
-    margin-right: 15px;
-}
-
 .navbar-list {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+   display:inline-flex;
 }
 
 .navbar-item {
@@ -242,7 +235,7 @@ body {
 }
 
     .navbar-link:hover {
-        color: #BA0C25;
+        color: #ffc107;
     }
 
 /* Responsive Styles */
@@ -261,8 +254,34 @@ body {
     }
 }
 
+.navbar-brand {
+    margin-right: 15px;
+}
+
 .navbar-logout {
+    margin-left: auto;
     display: flex;
-    flex-direction: row-reverse;
-    margin-left: 440%;
+    align-items: center;
+}
+
+.logout-arrow {
+    display: inline-block;
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(45deg);
+}
+
+
+.Date-Label {
+    width: 175px;
+}
+
+.Date-Input {
+    width: 200px;
+}
+
+.Date-Text {
+    width: 150px;
 }

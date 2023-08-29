@@ -159,15 +159,8 @@ p.MsoNormal {
     max-height: 40px;
 }
 
-.navbar-brand {
-    margin-right: 15px;
-}
-
 .navbar-list {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+   display: inline-flex;
 }
 
 .navbar-item {
@@ -182,7 +175,7 @@ p.MsoNormal {
 }
 
     .navbar-link:hover {
-        color: #BA0C25;
+        color: #ffc107;
     }
 
 /* Responsive Styles */
@@ -199,6 +192,25 @@ p.MsoNormal {
     .navbar-item {
         margin: 0;
     }
+}
+
+.navbar-brand {
+    margin-right: 15px;
+}
+
+.navbar-logout {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logout-arrow {
+    display: inline-block;
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(45deg);
 }
 
 .auto-style2 {
@@ -252,14 +264,16 @@ p.MsoNormal {
     text-align: justify;
     align-items: center;
 }
+
 .Btn-Wrapper {
-    display:inline-block;
+    display: inline-block;
 }
 
 button {
     border: none;
     outline: none;
 }
+
 .Back {
     background-color: #4285F4; /* Google Blue color */
     color: #ffffff; /* White text color */
@@ -287,9 +301,3 @@ button {
     .Back:active {
         transition: background-color 0.1s;
     }
-
-.navbar-logout {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-left: 440%;
-}

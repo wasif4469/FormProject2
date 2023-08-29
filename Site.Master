@@ -21,9 +21,7 @@
             }
 
             .navbar-list {
-                list-style: none;
-                margin: 0;
-                padding: 0;
+                display:inline-flex;
             }
 
             .navbar-item {
@@ -61,6 +59,20 @@
                 margin-right: 15px;
             }
 
+            .navbar-logout {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+            }
+
+            .logout-arrow {
+                display: inline-block;
+                margin-left: 5px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                padding: 3px;
+                transform: rotate(45deg);
+            }
         </style>
     </asp:ContentPlaceHolder>
 </head>
@@ -75,15 +87,17 @@
                 <li id="SelfEvaluationItem" class="navbar-item"><a href="WebForm.aspx" class="navbar-link">Self Evaluation</a></li>
                 <li id="ActivitiesFormItem" class="navbar-item"><a href="WebForm2.aspx" class="navbar-link">Activities Evaluation</a></li>
                 <li id="KnowledgeIndicatorItem" class="navbar-item"><a href="WebForm3.aspx" class="navbar-link">Knowledge Evaluation</a></li>
-                <li><a href="LoginPage.aspx" class="navbar-link" id="logoutLink">Logout</a></li>
             </ul>
-
+            <div class="navbar-logout">
+                <a href="LoginPage.aspx" class="navbar-link" id="logoutLink">Logout</a>
+                <span class="logout-arrow"></span>
+            </div>
         </nav>
         <script>
             document.getElementById("logoutLink").addEventListener("click", function () {
-        // Clear session
-        <%= "Session.Clear();" %>
-        <%= "Session.Abandon();" %>
+                // Clear session
+                <%= "Session.Clear();" %>
+                <%= "Session.Abandon();" %>
 
                 // Clear authentication cookies
                 var cookie = document.cookie = "FormsAuthenticationCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

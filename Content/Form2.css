@@ -92,15 +92,8 @@ body {
     max-height: 40px;
 }
 
-.navbar-brand {
-    margin-right: 15px;
-}
-
 .navbar-list {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+    display:inline-flex;
 }
 
 .navbar-item {
@@ -115,7 +108,7 @@ body {
 }
 
     .navbar-link:hover {
-        color: #BA0C25;
+        color: #ffc107;
     }
 
 /* Responsive Styles */
@@ -132,6 +125,25 @@ body {
     .navbar-item {
         margin: 0;
     }
+}
+
+.navbar-brand {
+    margin-right: 15px;
+}
+
+.navbar-logout {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logout-arrow {
+    display: inline-block;
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(45deg);
 }
 
 .Container-header {

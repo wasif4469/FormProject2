@@ -21,7 +21,7 @@ namespace FormProject2
             int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
             string Role = Session["UserRole"].ToString();
 
-            if (Role == "Tech Grduate")
+            if (Role == "Tech Graduate")
             {
                 DisableFormElements();
             }
@@ -37,17 +37,18 @@ namespace FormProject2
                 DisableFormElements();
                 Button2.Visible = true;
                 Button3.Visible = true;
+                Label2.Visible = true;
+                Label3.Visible = true;
                 TextBox2.Visible = true;
-
-
             }
             if (Role == "Group Head")
             {
                 DisableFormElements();
                 Button4.Visible = true;
                 Rej.Visible = true;
+                Label4.Visible = true;
+                Label5.Visible = true;
                 TextBox3.Visible = true;
-
             }
 
             //Table.Visible = false;
@@ -274,6 +275,11 @@ namespace FormProject2
             Rej.Visible = false;
             TextBox2.Visible = false;
             TextBox3.Visible = false;
+            Label2.Visible = false;
+            Label3.Visible = false;
+            Label4.Visible = false;
+            Label5.Visible = false;
+            
         }
 
     }

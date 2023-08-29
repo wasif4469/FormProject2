@@ -26,7 +26,6 @@ namespace FormProject2
             {
                 Textempid.Text = Session["EmployeeID"].ToString();
                 Textname.Text = Session["FullName"].ToString();
-                // Disable editing of the employee code text box
                 Textempid.Enabled = false;
                 // Allow Tech-Graduate to edit
                 EnableFormElements(true);
@@ -35,7 +34,7 @@ namespace FormProject2
             else if (Role == "Team Lead")
             {
                 // Redirect or restrict access for Team Lead
-                
+
                 Response.Redirect("WebForm2.aspx");
             }
             else if (Role == "Section Head" || Role == "Group Head")
@@ -63,12 +62,13 @@ namespace FormProject2
                 string Answer_07 = TextBox7.Text.ToString();
                 string Answer_08 = TextBox8.Text.ToString();
                 string TEAM_LEAD_NAME = Textsupervisor.Text.ToString();
-                string DATE = Textdate.Text.ToString();
+                string DATEFROM = TextdateFrom.Text.ToString();
+                string DateTO = TextdateTo.Text.ToString();
                 Boolean ISACTIVE = true;
 
 
                 con.Open();
-                SqlCommand co = new SqlCommand("exec S_Evaluation  " + Employee_ID + ",'" + Trainee_Name.ToString() + "','" + Section_Name.ToString() + "','" + Answer_01.ToString() + "','" + Answer_02.ToString() + "','" + Answer_03.ToString() + "','" + Answer_04.ToString() + "','" + Answer_05.ToString() + "','" + Answer_06.ToString() + "','" + Answer_07.ToString() + "','" + Answer_08.ToString() + "','" + TEAM_LEAD_NAME.ToString() + "','" + DATE.ToString() + "','" + ISACTIVE + "'", con);
+                SqlCommand co = new SqlCommand("exec S_Evaluation  " + Employee_ID + ",'" + Trainee_Name.ToString() + "','" + Section_Name.ToString() + "','" + Answer_01.ToString() + "','" + Answer_02.ToString() + "','" + Answer_03.ToString() + "','" + Answer_04.ToString() + "','" + Answer_05.ToString() + "','" + Answer_06.ToString() + "','" + Answer_07.ToString() + "','" + Answer_08.ToString() + "','" + TEAM_LEAD_NAME.ToString() + "','" + DATEFROM.ToString() + "','" + DateTO.ToString() + ISACTIVE + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
             }
@@ -79,7 +79,7 @@ namespace FormProject2
             Textname.Enabled = enable;
             Textsection.Enabled = enable;
             Textsupervisor.Enabled = enable;
-            Textdate.Enabled = enable;
+            //Textdate.Enabled = enable;
             TextBox1.Enabled = enable;
             TextBox2.Enabled = enable;
             TextBox3.Enabled = enable;
@@ -89,7 +89,6 @@ namespace FormProject2
             TextBox7.Enabled = enable;
             TextBox8.Enabled = enable;
             btnSubmit.Visible = enable; // Show/hide submit button based on the role
-            
         }
     }
 }

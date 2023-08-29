@@ -36,7 +36,7 @@ namespace FormProject2
             if (is_valid)
             {
                 // Check if the AD username matches a username in the PortalUsers table
-                if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName))
+                if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName))
                 {
                     // Store user data in session variables
                     Session["IsLoggedIn"] = true;
@@ -45,6 +45,7 @@ namespace FormProject2
                     Session["EmployeeID"] = employeeID;
                     Session["Department"] = Department;
                     Session["FullName"] = fullname;
+                    Session["TeamName"] = TeamName;
 
                     Response.Redirect("WebForm.aspx");
                 }
@@ -61,10 +62,10 @@ namespace FormProject2
             }
         }
 
-        private bool IsAuthorizedUser(string username, out string role, out string employeeID, out string fullname, out string Department, out string userName)
+        private bool IsAuthorizedUser(string username, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
-            role = employeeID = fullname = Department = userName = string.Empty;
+            role = employeeID = fullname = Department = userName = TeamName = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM PortalUsers WHERE UserName = @UserName";
@@ -83,6 +84,7 @@ namespace FormProject2
                         fullname = reader["FullName"].ToString();
                         Department = reader["Department"].ToString();
                         userName = reader["UserName"].ToString();
+                        TeamName = reader["TeamName"].ToString();
                         return true;
                     }
                 }

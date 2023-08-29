@@ -17,6 +17,7 @@ namespace FormProject2
                 Response.Redirect("LoginPage.aspx");
             }
             string Role = Session["UserRole"].ToString();
+            
             Trainee_details.Enabled = false;
             Static_table.Enabled = false;
             Activity_table.Enabled = false;
@@ -39,6 +40,8 @@ namespace FormProject2
                 textarea.Visible = false;  // Disable the textarea
                 Submit.Visible = true;
                 Review.Visible = false;
+                Team_name1.Text = Session["TeamName"].ToString();
+                Team_name1.Enabled = false;
                
             }
             else if (Role == "Team Lead")
