@@ -294,6 +294,7 @@
     <asp:Label ID="Label6" runat="server" Visible="False"></asp:Label>
     
     <br />
+<asp:Panel ID="SHPanel" runat="server">
     <asp:Label ID="Label2" Style="font-family:Verdana;margin-left:3%;font-weight:bold;" runat="server" Text="To be Submitted by Section Head"></asp:Label>
     <br /><br />
     <div class="auto-style8">
@@ -312,12 +313,15 @@
         <asp:TextBox ID="TextBox2" runat="server" CssClass="TextArea1" TextMode="MultiLine" Rows="5"></asp:TextBox>
         <br />
         <br/>
+</asp:Panel>
+
     <asp:Label ID="Label4" Style="font-family:Verdana;margin-left:3%;font-weight:bold;" runat="server" Text="To be Submitted by Group Head"></asp:Label>
 
     <br/>
         <br/>
     <div>
-       <asp:Button ID="Button4" runat="server" Text="Approved" CssClass="Submit-Pro" OnClick="Button4_Click"/>
+ <asp:Panel ID="GHPanel" runat="server">
+     <asp:Button ID="Button4" runat="server" Text="Approved" CssClass="Submit-Pro" OnClick="Button4_Click"/>
        <asp:Button ID="Rej" runat="server" Text="Rejected" CssClass="Submit-Pro2" OnClick="Rejbtn2"/>
     </div>
         <asp:Label ID="RejLabel2" runat="server" ForeColor="#BA0C25"></asp:Label>
@@ -330,6 +334,6 @@
 &nbsp;&nbsp;
         <br /><br />
     </div>
-    
+ </asp:Panel>
 </asp:Content>
 

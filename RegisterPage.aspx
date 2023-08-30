@@ -21,7 +21,7 @@
                 <asp:TextBox ID="txtEmployeeID" runat="server" placeholder="Employee Code" OnTextChanged="txtEmployeeID_TextChanged" AutoPostBack="true"></asp:TextBox>
             </div>
             <asp:RequiredFieldValidator ID="EmployeeIdValidator" runat="server" ForeColor="#BA0C25" ControlToValidate="txtEmployeeID" Display="Dynamic" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
-            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtEmployeeID" Display="Dynamic" ForeColor="#BA0C25" MaximumValue="199999" MinimumValue="100000" SetFocusOnError="True" Type="Integer">Employee ID Should be of Six digits</asp:RangeValidator>
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtEmployeeID" Display="Dynamic" ForeColor="#BA0C25" MaximumValue="99999999" MinimumValue="10000000" SetFocusOnError="True" Type="Integer">Employee ID Should be of Six digits</asp:RangeValidator>
 
             <div class="input-container">
                 <asp:TextBox ID="txtUsername" runat="server" placeholder="Username"></asp:TextBox>

@@ -40,6 +40,7 @@ namespace FormProject2
                 Label2.Visible = true;
                 Label3.Visible = true;
                 TextBox2.Visible = true;
+                SHPanel.Visible = true;
             }
             if (Role == "Group Head")
             {
@@ -49,6 +50,7 @@ namespace FormProject2
                 Label4.Visible = true;
                 Label5.Visible = true;
                 TextBox3.Visible = true;
+                GHPanel.Visible = true;
             }
 
             //Table.Visible = false;
@@ -279,6 +281,8 @@ namespace FormProject2
             Label3.Visible = false;
             Label4.Visible = false;
             Label5.Visible = false;
+            SHPanel.Visible = false;
+            GHPanel.Visible = false;    
             
         }
 

@@ -43,9 +43,9 @@ namespace FormProject2
                 EnableFormElements(false);
             }
 
-            else
+            else if(Role == "Group Head")
             {
-                Response.Redirect("WebForm.aspx");
+                
                 EnableFormElements(false);
             }
         }
