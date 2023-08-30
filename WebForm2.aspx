@@ -316,7 +316,7 @@
             <asp:Panel ID="textarea" runat="server">
                 <asp:Label ID="Label8" runat="server" Text="Recommendation(s) for the further growth." Style="margin-left: 10%"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator28" ControlToValidate="TextArea1" runat="server" ErrorMessage="Name Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
                 <br />
-                <textarea id="TextArea1" class="auto-style41" runat="server" name="S1"></textarea>
+                <asp:TextBox ID="TextArea1" runat="server" CssClass="auto-style41" Rows="5" TextMode="MultiLine"></asp:TextBox>
                 <br />
                 <br />
             </asp:Panel>

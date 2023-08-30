@@ -247,7 +247,7 @@ p.MsoNormal {
 
 .TextArea1 {
     resize: vertical;
-    min-height: 70px;
+    min-height: 40px;
     width: 90%;
     margin-left: auto;
     align-content: center;
@@ -257,7 +257,7 @@ p.MsoNormal {
 
 .TextArea2 {
     resize: vertical;
-    min-height: 70px;
+    min-height: 40px;
     width: 90%;
     margin-left: 3%;
     align-content: center;

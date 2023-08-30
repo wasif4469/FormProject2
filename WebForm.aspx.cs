@@ -34,12 +34,18 @@ namespace FormProject2
             else if (Role == "Team Lead")
             {
                 // Redirect or restrict access for Team Lead
-
                 Response.Redirect("WebForm2.aspx");
             }
-            else if (Role == "Section Head" || Role == "Group Head")
+            else if (Role == "Section Head")
             {
                 // Allow Section-Head and Group Head to view, but not edit
+                Response.Redirect("WebForm2.aspx");
+                EnableFormElements(false);
+            }
+
+            else
+            {
+                Response.Redirect("WebForm.aspx");
                 EnableFormElements(false);
             }
         }

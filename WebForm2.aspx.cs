@@ -114,7 +114,7 @@ namespace FormProject2
             int Activity_09_Rating = int.Parse(Drop9.SelectedValue);
             int Activity_10_Rating = int.Parse(Drop10.SelectedValue);
 
-            string Recommendation_By_Section_Head = TextArea1.InnerText;
+            string Recommendation_By_Section_Head = TextArea1.Text;
             string Status_Application = "sh_pending";
             string Status = "pending";
             int ID = 11;
@@ -191,7 +191,7 @@ namespace FormProject2
                 int Activity_09_Rating = int.Parse(Drop9.SelectedValue);
                 int Activity_10_Rating = int.Parse(Drop10.SelectedValue);
 
-                string Recommendation_By_Section_Head = TextArea1.InnerText;
+                string Recommendation_By_Section_Head = TextArea1.Text;
                 string Status_Application = "tl_pending";
                 string Status = "pending";
                 ISACTIVE = true;

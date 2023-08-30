@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="FormProject2.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="FormProject2.Site" EnableViewState="true" %>
 
 <!DOCTYPE html>
 
@@ -21,7 +21,7 @@
             }
 
             .navbar-list {
-                display:inline-flex;
+                display: inline-flex;
             }
 
             .navbar-item {
@@ -84,9 +84,9 @@
                 <img alt="Logo" src="Images/Jubilee%20Logo.jpg" />
             </div>
             <ul class="navbar-list">
-                <li id="SelfEvaluationItem" class="navbar-item"><a href="WebForm.aspx" class="navbar-link">Self Evaluation</a></li>
-                <li id="ActivitiesFormItem" class="navbar-item"><a href="WebForm2.aspx" class="navbar-link">Activities Evaluation</a></li>
-                <li id="KnowledgeIndicatorItem" class="navbar-item"><a href="WebForm3.aspx" class="navbar-link">Knowledge Evaluation</a></li>
+                <li id="SelfEvaluationItem" class="navbar-item" runat="server"><a href="WebForm.aspx" class="navbar-link">Self Evaluation</a></li>
+                <li id="ActivitiesFormItem" class="navbar-item" runat="server"><a href="WebForm2.aspx" class="navbar-link">Activities Evaluation</a></li>
+                <li id="KnowledgeIndicatorItem" class="navbar-item" runat="server"><a href="WebForm3.aspx" class="navbar-link">Knowledge Evaluation</a></li>
             </ul>
             <div class="navbar-logout">
                 <a href="LoginPage.aspx" class="navbar-link" id="logoutLink">Logout</a>

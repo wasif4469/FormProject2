@@ -309,7 +309,7 @@
 &nbsp;&nbsp;
     
     &nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox2" runat="server" CssClass="TextArea1"></asp:TextBox>
+        <asp:TextBox ID="TextBox2" runat="server" CssClass="TextArea1" TextMode="MultiLine" Rows="5"></asp:TextBox>
         <br />
         <br/>
     <asp:Label ID="Label4" Style="font-family:Verdana;margin-left:3%;font-weight:bold;" runat="server" Text="To be Submitted by Group Head"></asp:Label>
@@ -326,7 +326,7 @@
         <asp:Label ID="Label5" Style="font-family:Verdana;margin-left:3%;" runat="server" Text="In case of rejection kindly give the reason"></asp:Label>
     <br />
     <br />
-        <asp:TextBox ID="TextBox3" runat="server" CssClass="TextArea2"></asp:TextBox>
+        <asp:TextBox ID="TextBox3" runat="server" CssClass="TextArea2" TextMode="MultiLine" Rows="5"></asp:TextBox>
 &nbsp;&nbsp;
         <br /><br />
     </div>

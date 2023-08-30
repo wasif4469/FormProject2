@@ -21,12 +21,12 @@ namespace FormProject2
 
             if (selfEvaluationItem != null && activitiesFormItem != null && knowledgeIndicatorItem != null)
             {
-                if (Role == "Tech Graduate" || Role == "Group Head")
+                if (Role == "Tech Graduate")
                 {
                     // Show all three list items
                     selfEvaluationItem.Visible = true;
                     activitiesFormItem.Visible = true;
-                    knowledgeIndicatorItem.Visible = true;
+                    knowledgeIndicatorItem.Visible = false;
                 }
                 else if (Role == "Team Lead" || Role == "Section Head")
                 {
@@ -35,9 +35,15 @@ namespace FormProject2
                     activitiesFormItem.Visible = true;
                     knowledgeIndicatorItem.Visible = true;
                 }
-                else
+                else if (Role == "Group Head")
                 {
                     // Hide all list items
+                    selfEvaluationItem.Visible = true;
+                    activitiesFormItem.Visible = true;
+                    knowledgeIndicatorItem.Visible = true;
+                }
+                else 
+                {
                     selfEvaluationItem.Visible = false;
                     activitiesFormItem.Visible = false;
                     knowledgeIndicatorItem.Visible = false;
