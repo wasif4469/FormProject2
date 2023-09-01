@@ -64,6 +64,9 @@
                         <asp:TextBox ID="program1" runat="server" Width="180px" ValidationGroup="val"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="program1" runat="server" ErrorMessage="Name Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
                     </td>
+                    <td>
+
+                    </td>
                 </tr>
                 <tr>
                     <td style="height: 20px;">
