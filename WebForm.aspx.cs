@@ -53,7 +53,6 @@ namespace FormProject2
 
             else if(Role == "Group Head")
             {
-                
                 EnableFormElements(false);
             }
 
@@ -92,9 +91,11 @@ namespace FormProject2
         private void EnableFormElements(bool enable)
         {
             Textname.Enabled = enable;
+            Textempid.Enabled = enable;
             Textsection.Enabled = enable;
             Textsupervisor.Enabled = enable;
-            //Textdate.Enabled = enable;
+            TextdateFrom.Enabled = enable;
+            TextdateTo.Enabled = enable;
             TextBox1.Enabled = enable;
             TextBox2.Enabled = enable;
             TextBox3.Enabled = enable;

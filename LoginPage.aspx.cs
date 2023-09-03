@@ -40,7 +40,7 @@ namespace FormProject2
                 {
                     // Store user data in session variables
                     Session["IsLoggedIn"] = true;
-                    Session["UserRole"] = "Section Head";
+                    Session["UserRole"] = role;
                     Session["UserName"] = userName;
                     Session["EmployeeID"] = employeeID;
                     Session["Department"] = Department;
