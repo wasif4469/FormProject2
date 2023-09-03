@@ -81,7 +81,7 @@
 
         <nav class="navbar">
             <div class="navbar-brand">
-                <img alt="Logo" src="Images/Jubilee%20Logo.jpg" />
+                <img alt="Logo" src="/Images/Jubilee%20Logo.jpg" />
             </div>
             <ul class="navbar-list">
                 <li id="SelfEvaluationItem" class="navbar-item" runat="server"><a href="WebForm.aspx" class="navbar-link">Self Evaluation</a></li>

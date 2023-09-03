@@ -18,9 +18,17 @@ namespace FormProject2
                 Response.Redirect("LoginPage.aspx");
             }
 
+            if (Page.RouteData.Values["id"] != null)
+            {
+                if (!IsPostBack)
+                {
+                    Func();
+
+                }
+
+            }
+
             string Role = Session["UserRole"].ToString();
-
-
 
             if (Role == "Tech Graduate")
             {
@@ -48,6 +56,7 @@ namespace FormProject2
                 
                 EnableFormElements(false);
             }
+
         }
 
         SqlConnection con = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123");
@@ -96,5 +105,32 @@ namespace FormProject2
             TextBox8.Enabled = enable;
             btnSubmit.Visible = enable; // Show/hide submit button based on the role
         }
+
+        void Func()
+        {
+            string value = Page.RouteData.Values["id"].ToString();
+            con.Open();
+            SqlCommand co = new SqlCommand("select  *  from Details where ID = " + value, con);
+            SqlDataReader dr = co.ExecuteReader();
+            if (dr.Read())
+            {
+                Textempid.Text = dr["Employee_ID"].ToString();
+                Textname.Text = dr["Trainee_Name"].ToString();
+                Textsection.Text = dr["Section_Name"].ToString();
+                TextdateFrom.Text = dr["FROM_DATE"].ToString();
+                TextdateTo.Text = dr["TO_DATE"].ToString();
+                Textsupervisor.Text = dr["TEAM_LEAD_NAME"].ToString();
+                TextBox1.Text = dr["Answer_01"].ToString();
+                TextBox2.Text = dr["Answer_02"].ToString();
+                TextBox3.Text = dr["Answer_03"].ToString();
+                TextBox4.Text = dr["Answer_04"].ToString();
+                TextBox5.Text = dr["Answer_05"].ToString();
+                TextBox6.Text = dr["Answer_06"].ToString();
+                TextBox7.Text = dr["Answer_08"].ToString();
+                TextBox8.Text = dr["Answer_07"].ToString();
+            }
+            con.Close();
+        }
+
     }
 }

@@ -18,6 +18,15 @@ namespace FormProject2
                 Response.Redirect("LoginPage.aspx");
             }
 
+            if (Page.RouteData.Values["id"] != null)
+            {
+                if (!IsPostBack)
+                {
+                    Func();
+
+                }
+            }
+
             int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
             string Role = Session["UserRole"].ToString();
 
@@ -284,6 +293,29 @@ namespace FormProject2
             SHPanel.Visible = false;
             GHPanel.Visible = false;    
             
+        }
+        void Func()
+        {
+            string value = Page.RouteData.Values["id"].ToString();
+            con.Open();
+            SqlCommand co = new SqlCommand("select  *  from Details where ID = " + value, con);
+            SqlDataReader dr = co.ExecuteReader();
+            if (dr.Read())
+            {
+                DDL1.SelectedValue = dr["Indicator_01_Rating"].ToString();
+                DDL2.SelectedValue = dr["Indicator_02_Rating"].ToString();
+                DDL3.SelectedValue = dr["Indicator_03_Rating"].ToString();
+                DDL4.SelectedValue = dr["Indicator_04_Rating"].ToString();
+                DDL5.SelectedValue = dr["Indicator_05_Rating"].ToString();
+                DDL6.SelectedValue = dr["Indicator_06_Rating"].ToString();
+                TextBox1.Text = dr["Indicator_07_Rating"].ToString();
+                TextBox4.Text = dr["Total_Rating"].ToString();
+                TextBox2.Text = dr["SECTION_HEAD_REJECTION"].ToString();
+                TextBox3.Text = dr["GROUP_LEAD_REJECTION"].ToString();
+
+
+            }
+            con.Close();
         }
 
     }

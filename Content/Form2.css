@@ -93,7 +93,7 @@ body {
 }
 
 .navbar-list {
-    display:inline-flex;
+    display: inline-flex;
 }
 
 .navbar-item {
@@ -168,7 +168,7 @@ body {
     padding: 12px 20px; /* Add padding to the button */
     font-size: 16px;
     border-radius: 10px; /* Rounded corners */
-    margin-left: 40%;
+    margin-left: 45%;
     cursor: pointer; /* Add a pointer cursor on hover */
     transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
 }
@@ -220,3 +220,62 @@ body {
         transition: background-color 0.1s;
     }
 
+.Approve {
+    background-color: #BA0C25; /* Submit button color */
+    height: 40px;
+    width: 150px;
+    color: #ffffff; /* White text color */
+    padding: 12px 20px; /* Add padding to the button */
+    font-size: 16px;
+    border-radius: 10px; /* Rounded corners */
+    margin-left: 35%;
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+    /* Hover effect for the Submit button */
+    .Approve:hover {
+        background-color: #a70a21; /* Darker shade of the Submit button color on hover */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+    }
+
+    /* Active effect for the Submit button (when it's clicked) */
+    .Approve:active {
+        background-color: #c0243a; /* Slightly darker shade of the Submit button color on click */
+        box-shadow: none; /* Remove box shadow on click */
+    }
+
+    /* Optional: Add a slight transition when the button is active */
+    .Approve:active {
+        transition: background-color 0.1s;
+    }
+
+.Reject {
+    background-color: #BA0C25; /* Submit button color */
+    height: 40px;
+    width: 150px;
+    color: #ffffff; /* White text color */
+    padding: 12px 20px; /* Add padding to the button */
+    font-size: 16px;
+    border-radius: 10px; /* Rounded corners */
+    margin-left: 3%;
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+    /* Hover effect for the Submit button */
+    .Reject:hover {
+        background-color: #a70a21; /* Darker shade of the Submit button color on hover */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+    }
+
+    /* Active effect for the Submit button (when it's clicked) */
+    .Reject:active {
+        background-color: #c0243a; /* Slightly darker shade of the Submit button color on click */
+        box-shadow: none; /* Remove box shadow on click */
+    }
+
+    /* Optional: Add a slight transition when the button is active */
+    .Reject:active {
+        transition: background-color 0.1s;
+    }

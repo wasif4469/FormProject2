@@ -1,7 +1,7 @@
 ﻿
 <%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="FormProject2.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Content/Form3.css" rel="stylesheet" />
+    <link href="/Content/Form3.css" rel="stylesheet" />
     <style type="text/css">
         .auto-style9 {
             margin-left: 0px;
@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-    <img src="Images/Jubilee%20Logo.jpg" alt="Sample Photo" id="image" /><br /> <br /><br />  
+    <img src="/Images/Jubilee%20Logo.jpg" alt="Sample Photo" id="image" /><br /> <br /><br />  
 <asp:Label ID="Label1"  style="margin-left:20%; font-family:Verdana;font-weight:bold;" runat="server" 
     Text="To be Filled by Team Lead"></asp:Label>
     <br />   <br />  <br />

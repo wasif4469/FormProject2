@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm.aspx.cs" Inherits="FormProject2.WebForm" EnableViewState="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Content/Form1.css" rel="stylesheet" />
+    <link href="/Content/Form1.css" rel="stylesheet" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-        <img alt="" class="logo" src="Images/Jubilee%20Logo.jpg" />
+        <img alt="" class="logo" src="/Images/Jubilee%20Logo.jpg" />
         <p class="PageHeader">Tech Graduate Program 2023</p>
         <p class="PageHeader">Jubilee Life Inusrance - Technology & Project Management</p>
         <p class="PageHeader"><b>Tech Graduate's Performance Evaluation</b></p>
