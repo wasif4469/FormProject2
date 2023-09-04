@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Web.UI;
 
 namespace FormProject2
 {
@@ -14,7 +15,8 @@ namespace FormProject2
         protected void Application_Start(object sender, EventArgs e)
         {
 
-            RouteTable.Routes.MapPageRoute("Default", "form/{id}", "~/WebForm.aspx");
+            RouteTable.Routes.MapPageRoute("Default", "LoginPage.aspx", "~/LoginPage.aspx");
+            RouteTable.Routes.MapPageRoute("web", "form/{id}", "~/WebForm.aspx");
             RouteTable.Routes.MapPageRoute("web2", "form2/{id}", "~/form2.aspx");
             RouteTable.Routes.MapPageRoute("web3", "form3/{id}", "~/WebForm3.aspx");
 

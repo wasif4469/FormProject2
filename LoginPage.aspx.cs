@@ -16,49 +16,162 @@ namespace FormProject2
                 Session.Clear();
                 Session.Abandon();
             }
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string domain = "jubileelife.com";
-            string usernametxt = username.Value;
-            string passwordtxt = password.Value;
+            string redirectURL = Request.QueryString["redirectURL"];
+            Session["RedirectURL"] = redirectURL;
+            string requestedPage = Session["RedirectURL"]?.ToString();
 
-            ActiveDirectoryHelper ADhelper = new ActiveDirectoryHelper();
-            var details = ADhelper.GetUserByLoginName(usernametxt);
-            var ADuser = details.LoginName;
-
-            PrincipalContext context = new PrincipalContext(ContextType.Domain, domain);
-
-            // Validate credentials against Active Directory
-            bool is_valid = context.ValidateCredentials(usernametxt, passwordtxt);
-
-            if (is_valid)
+            if (requestedPage == null)
             {
-                // Check if the AD username matches a username in the PortalUsers table
-                if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName))
-                {
-                    // Store user data in session variables
-                    Session["IsLoggedIn"] = true;
-                    Session["UserRole"] = role;
-                    Session["UserName"] = userName;
-                    Session["EmployeeID"] = employeeID;
-                    Session["Department"] = Department;
-                    Session["FullName"] = fullname;
-                    Session["TeamName"] = TeamName;
+                string domain = "jubileelife.com";
+                string usernametxt = username.Value;
+                string passwordtxt = password.Value;
 
-                    Response.Redirect("WebForm.aspx");
+                ActiveDirectoryHelper ADhelper = new ActiveDirectoryHelper();
+                var details = ADhelper.GetUserByLoginName(usernametxt);
+                var ADuser = details.LoginName;
+
+                PrincipalContext context = new PrincipalContext(ContextType.Domain, domain);
+
+                // Validate credentials against Active Directory
+                bool is_valid = context.ValidateCredentials(usernametxt, passwordtxt);
+
+                if (is_valid)
+                {
+                    // Check if the AD username matches a username in the PortalUsers table
+                    if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName))
+                    {
+                        // Store user data in session variables
+                        Session["IsLoggedIn"] = true;
+                        Session["UserRole"] = role;
+                        Session["UserName"] = userName;
+                        Session["EmployeeID"] = employeeID;
+                        Session["Department"] = Department;
+                        Session["FullName"] = fullname;
+                        Session["TeamName"] = TeamName;
+
+                        Response.Redirect("WebForm.aspx");
+                    }
+                    else
+                    {
+                        Label1.Visible = true;
+                        Label1.Text = "Unauthorized user.";
+                    }
                 }
                 else
                 {
                     Label1.Visible = true;
-                    Label1.Text = "Unauthorized user.";
+                    Label1.Text = "Invalid login credential.";
                 }
             }
-            else
+            else if (requestedPage != null)
             {
-                Label1.Visible = true;
-                Label1.Text = "Invalid login credential.";
+                string domain = "jubileelife.com";
+                string usernametxt = username.Value;
+                string passwordtxt = password.Value;
+
+                ActiveDirectoryHelper ADhelper = new ActiveDirectoryHelper();
+                var details = ADhelper.GetUserByLoginName(usernametxt);
+                var ADuser = details.LoginName;
+
+                PrincipalContext context = new PrincipalContext(ContextType.Domain, domain);
+
+                // Validate credentials against Active Directory
+                bool is_valid = context.ValidateCredentials(usernametxt, passwordtxt);
+
+                if (is_valid)
+                {
+                    // Check if the AD username matches a username in the PortalUsers table
+                    if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName))
+                    {
+                        // Store user data in session variables
+                        Session["IsLoggedIn"] = true;
+                        Session["UserRole"] = role;
+                        Session["UserName"] = userName;
+                        Session["EmployeeID"] = employeeID;
+                        Session["Department"] = Department;
+                        Session["FullName"] = fullname;
+                        Session["TeamName"] = TeamName;
+
+                        if (requestedPage.StartsWith("/form/"))
+                        {
+                            // Extract the ID from the URL
+                            string[] parts = requestedPage.Split('/');
+                            if (parts.Length == 3)
+                            {
+                                string id = parts[2]; // Assuming ID is the third part of the URL
+
+                                // Perform any necessary processing with the ID
+
+                                // Redirect to /form2/{id} page
+                                Response.Redirect("~/form/" + id); // Redirect to the requested ID
+                            }
+                            else
+                            {
+                                // If the URL format is incorrect, redirect them to the default page
+                                Response.Redirect("~/LoginPage.aspx");
+                            }
+                        }
+
+                        else if (requestedPage.StartsWith("/form2/"))
+                        {
+                            // Extract the ID from the URL
+                            string[] parts = requestedPage.Split('/');
+                            if (parts.Length == 3)
+                            {
+                                string id = parts[2]; // Assuming ID is the third part of the URL
+
+                                // Perform any necessary processing with the ID
+
+                                // Redirect to /form2/{id} page
+                                Response.Redirect("~/form2/" + id); // Redirect to the requested ID
+                            }
+                            else
+                            {
+                                // If the URL format is incorrect, redirect them to the default page
+                                Response.Redirect("~/LoginPage.aspx");
+                            }
+                        }
+                        else if (requestedPage.StartsWith("/form3/"))
+                        {
+                            // Extract the ID from the URL
+                            string[] parts = requestedPage.Split('/');
+                            if (parts.Length == 3)
+                            {
+                                string id = parts[2]; // Assuming ID is the third part of the URL
+
+                                // Perform any necessary processing with the ID
+
+                                // Redirect to /form3/{id} page
+                                Response.Redirect("~/form3/" + id); // Redirect to the requested ID
+                            }
+                            else
+                            {
+                                // If the URL format is incorrect, redirect them to the default page
+                                Response.Redirect("~/LoginPage.aspx");
+                            }
+                        }
+                        else
+                        {
+                            // If the user requested any other page, redirect them to the default page
+                            Response.Redirect("~/LoginPage.aspx");
+                        }
+                    }
+                    else
+                    {
+                        Label1.Visible = true;
+                        Label1.Text = "Unauthorized user.";
+                    }
+                }
+                else
+                {
+                    Label1.Visible = true;
+                    Label1.Text = "Invalid login credential.";
+                }
             }
         }
 

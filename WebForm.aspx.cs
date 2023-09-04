@@ -15,17 +15,20 @@ namespace FormProject2
         {
             if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
             {
-                Response.Redirect("LoginPage.aspx");
+                string requestedURL = Request.Url.AbsolutePath.ToString();
+                Response.Redirect("/LoginPage.aspx?redirectURL=" + requestedURL);
             }
 
-            if (Page.RouteData.Values["id"] != null)
+            else
             {
-                if (!IsPostBack)
+
+                if (Page.RouteData.Values["id"] != null)
                 {
-                    Func();
-
+                    if (!IsPostBack)
+                    {
+                        Func();
+                    }
                 }
-
             }
 
             string Role = Session["UserRole"].ToString();
@@ -34,10 +37,9 @@ namespace FormProject2
             {
                 Textempid.Text = Session["EmployeeID"].ToString();
                 Textname.Text = Session["FullName"].ToString();
-                Textempid.Enabled = false;
-                // Allow Tech-Graduate to edit
                 EnableFormElements(true);
                 Textname.Enabled = false;
+                Textempid.Enabled = false;
             }
             else if (Role == "Team Lead")
             {
@@ -51,7 +53,7 @@ namespace FormProject2
                 EnableFormElements(false);
             }
 
-            else if(Role == "Group Head")
+            else if (Role == "Group Head")
             {
                 EnableFormElements(false);
             }

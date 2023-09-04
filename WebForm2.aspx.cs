@@ -36,7 +36,19 @@ namespace FormProject2
 
             if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
             {
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("/LoginPage.aspx");
+            }
+
+            else
+            {
+
+                if (Page.RouteData.Values["id"] != null)
+                {
+                    if (!IsPostBack)
+                    {
+                        Func();
+                    }
+                }
             }
 
             if (!IsPostBack)
@@ -45,15 +57,6 @@ namespace FormProject2
                 activity();
                 sh();
                 from2_reject();
-            }
-            if (Page.RouteData.Values["id"] != null)
-            {
-                if (!IsPostBack)
-                {
-                    Func();
-
-                }
-
             }
 
             string Role = Session["UserRole"].ToString();

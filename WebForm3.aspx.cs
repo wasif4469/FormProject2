@@ -15,15 +15,19 @@ namespace FormProject2
         {
             if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
             {
-                Response.Redirect("LoginPage.aspx");
+                string requestedURL = Request.Url.AbsolutePath.ToString();
+                Response.Redirect("/LoginPage.aspx?redirectURL=" + requestedURL);
             }
 
-            if (Page.RouteData.Values["id"] != null)
+            else
             {
-                if (!IsPostBack)
-                {
-                    Func();
 
+                if (Page.RouteData.Values["id"] != null)
+                {
+                    if (!IsPostBack)
+                    {
+                        Func();
+                    }
                 }
             }
 
@@ -291,8 +295,8 @@ namespace FormProject2
             Label4.Visible = false;
             Label5.Visible = false;
             SHPanel.Visible = false;
-            GHPanel.Visible = false;    
-            
+            GHPanel.Visible = false;
+
         }
         void Func()
         {
@@ -312,8 +316,6 @@ namespace FormProject2
                 TextBox4.Text = dr["Total_Rating"].ToString();
                 TextBox2.Text = dr["SECTION_HEAD_REJECTION"].ToString();
                 TextBox3.Text = dr["GROUP_LEAD_REJECTION"].ToString();
-
-
             }
             con.Close();
         }

@@ -84,12 +84,12 @@
                 <img alt="Logo" src="/Images/Jubilee%20Logo.jpg" />
             </div>
             <ul class="navbar-list">
-                <li id="SelfEvaluationItem" class="navbar-item" runat="server"><a href="WebForm.aspx" class="navbar-link">Self Evaluation</a></li>
-                <li id="ActivitiesFormItem" class="navbar-item" runat="server"><a href="WebForm2.aspx" class="navbar-link">Activities Evaluation</a></li>
-                <li id="KnowledgeIndicatorItem" class="navbar-item" runat="server"><a href="WebForm3.aspx" class="navbar-link">Knowledge Evaluation</a></li>
+                <li id="SelfEvaluationItem" class="navbar-item" runat="server"><a href="/WebForm.aspx" class="navbar-link">Self Evaluation</a></li>
+                <li id="ActivitiesFormItem" class="navbar-item" runat="server"><a href="/WebForm2.aspx" class="navbar-link">Activities Evaluation</a></li>
+                <li id="KnowledgeIndicatorItem" class="navbar-item" runat="server"><a href="/WebForm3.aspx" class="navbar-link">Knowledge Evaluation</a></li>
             </ul>
             <div class="navbar-logout">
-                <a href="LoginPage.aspx" class="navbar-link" id="logoutLink">Logout</a>
+                <a href="/LoginPage.aspx" class="navbar-link" id="logoutLink">Logout</a>
                 <span class="logout-arrow"></span>
             </div>
         </nav>
@@ -103,7 +103,7 @@
                 var cookie = document.cookie = "FormsAuthenticationCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
                 // Redirect to login page
-                window.location.href = "LoginPage.aspx";
+                window.location.href = "/LoginPage.aspx";
             });
         </script>
         <div>
