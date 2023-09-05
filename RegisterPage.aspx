@@ -16,13 +16,14 @@
     </div>
     <div class="container-left">
         <form id="signupForm" runat="server" class="signup-form">
-            <h1>TG-Portal Registration</h1>
+            <h1>Employee Details</h1>
+            <p>*Note:&nbsp;Please press tab after entering employee ID</p>
+            <p>*Note:&nbsp;Employee ID Should be of 6-8 digits</p>
             <div class="input-container">
                 <asp:TextBox ID="txtEmployeeID" runat="server" placeholder="Employee Code" OnTextChanged="txtEmployeeID_TextChanged" AutoPostBack="true"></asp:TextBox>
             </div>
-            <asp:RequiredFieldValidator ID="EmployeeIdValidator" runat="server" ForeColor="#BA0C25" ControlToValidate="txtEmployeeID" Display="Dynamic" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
-            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtEmployeeID" Display="Dynamic" ForeColor="#BA0C25" MaximumValue="99999999" MinimumValue="10000000" SetFocusOnError="True" Type="Integer">Employee ID Should be of Six digits</asp:RangeValidator>
-
+            <asp:RequiredFieldValidator ID="EmployeeIdValidator" runat="server" ForeColor="#BA0C25" ControlToValidate="txtEmployeeID" Display="Dynamic" SetFocusOnError="True" ValidationGroup="ValEmpid">*Required</asp:RequiredFieldValidator>
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtEmployeeID" Display="Dynamic" ForeColor="#BA0C25" MaximumValue="99999999" MinimumValue="100000" SetFocusOnError="True" Type="Integer" ValidationGroup="ValEmpid">Employee ID Should be of Six digits</asp:RangeValidator>
             <div class="input-container">
                 <asp:TextBox ID="txtUsername" runat="server" placeholder="Username"></asp:TextBox>
             </div>
@@ -45,7 +46,10 @@
                 <div class="form-links">
                     <a href="LoginPage.aspx" class="signup-link">Already have an account? Log In</a>
                 </div>
-                <br />
+                <div class="form-links">
+                    <a href="AdminLogin.aspx" class="signup-link" style="margin-right:70px;">Want to edit your details?</a>
+                    <br />
+                </div>
                 <asp:Label ID="RegisterLabel" runat="server" ForeColor="#BA0C25"></asp:Label>
             </div>
         </form>

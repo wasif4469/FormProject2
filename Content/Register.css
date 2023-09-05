@@ -83,6 +83,7 @@ input[type="text"], input[type="password"], input[type="email"], select {
 .signup-link {
     color: #BA0C25;
     margin-right: 1px;
+    margin-left: 50px;
     text-decoration: none;
     transition: color 0.3s;
     border: 1px solid #BA0C25;
@@ -95,3 +96,9 @@ input[type="text"], input[type="password"], input[type="email"], select {
         background-color: #BA0C25;
         color: white;
     }
+
+p {
+    font-family: Verdana;
+    font-size: 12px;
+    color: #BA0C25;
+}

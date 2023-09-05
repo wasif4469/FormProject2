@@ -11,6 +11,18 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["AdminLoggedIn"] == null || !(bool)Session["AdminLoggedIn"])
+            {
+                Session.Abandon();
+                Session.Clear();
+                Response.Redirect("AdminLogin.aspx");
+            }
+
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
 
         }
     }
