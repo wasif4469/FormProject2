@@ -37,9 +37,11 @@ namespace FormProject2
             {
                 Textempid.Text = Session["EmployeeID"].ToString();
                 Textname.Text = Session["FullName"].ToString();
+                TextEmail.Text = Session["Email"].ToString();
                 EnableFormElements(true);
                 Textname.Enabled = false;
                 Textempid.Enabled = false;
+                TextEmail.Enabled = false;
             }
             else if (Role == "Team Lead")
             {
@@ -80,11 +82,12 @@ namespace FormProject2
                 string TEAM_LEAD_NAME = Textsupervisor.Text.ToString();
                 string DATEFROM = TextdateFrom.Text.ToString();
                 string DateTO = TextdateTo.Text.ToString();
+                string Email = TextEmail.Text.ToString();   
                 Boolean ISACTIVE = true;
 
 
                 con.Open();
-                SqlCommand co = new SqlCommand("exec S_Evaluation  " + Employee_ID + ",'" + Trainee_Name.ToString() + "','" + Section_Name.ToString() + "','" + Answer_01.ToString() + "','" + Answer_02.ToString() + "','" + Answer_03.ToString() + "','" + Answer_04.ToString() + "','" + Answer_05.ToString() + "','" + Answer_06.ToString() + "','" + Answer_07.ToString() + "','" + Answer_08.ToString() + "','" + TEAM_LEAD_NAME.ToString() + "','" + DATEFROM.ToString() + "','" + DateTO.ToString() + ISACTIVE + "'", con);
+                SqlCommand co = new SqlCommand("exec S_Evaluation  " + Employee_ID + ",'" + Trainee_Name.ToString() + "','" + Section_Name.ToString() + "','" + Answer_01.ToString() + "','" + Answer_02.ToString() + "','" + Answer_03.ToString() + "','" + Answer_04.ToString() + "','" + Answer_05.ToString() + "','" + Answer_06.ToString() + "','" + Answer_07.ToString() + "','" + Answer_08.ToString() + "','" + TEAM_LEAD_NAME.ToString() + "','" + DATEFROM.ToString() + "','" + DateTO.ToString() + "','" + ISACTIVE + "','" + Email.ToString() + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
             }
@@ -93,6 +96,7 @@ namespace FormProject2
         private void EnableFormElements(bool enable)
         {
             Textname.Enabled = enable;
+            TextEmail.Enabled = enable;
             Textempid.Enabled = enable;
             Textsection.Enabled = enable;
             Textsupervisor.Enabled = enable;
@@ -119,6 +123,7 @@ namespace FormProject2
             {
                 Textempid.Text = dr["Employee_ID"].ToString();
                 Textname.Text = dr["Trainee_Name"].ToString();
+                TextEmail.Text = dr["email"].ToString();
                 Textsection.Text = dr["Section_Name"].ToString();
                 TextdateFrom.Text = dr["FROM_DATE"].ToString();
                 TextdateTo.Text = dr["TO_DATE"].ToString();

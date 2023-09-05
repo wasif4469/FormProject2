@@ -49,6 +49,15 @@
                 </td>
             </tr>
             <tr>
+                <td class="Table1-Label" style="border: thin solid #000000">Email</td>
+                <td class="Table1-Input" style="border: thin solid #000000">
+                    <asp:TextBox ID="TextEmail" runat="server" CssClass="Table1-Text"></asp:TextBox>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextEmail" Display="Dynamic" ErrorMessage="*Required" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                </td>
+            </tr>
+
+            <tr>
                 <td class="Table1-Label" style="border: thin solid #000000">From Date </td>
                 <td class="Table1-Input" style="border: thin solid #000000">
                     <asp:TextBox ID="TextdateFrom" runat="server" CssClass="Table1-Text"></asp:TextBox>
@@ -186,17 +195,17 @@
     <script>
         $(function () {
             $("#<%= TextdateFrom.ClientID %>").datepicker({
-            dateFormat: 'dd-mm-yy', // Desired date format
-            changeMonth: true,
-            changeYear: true
-        });
+                dateFormat: 'dd-mm-yy', // Desired date format
+                changeMonth: true,
+                changeYear: true
+            });
 
-        $("#<%= TextdateTo.ClientID %>").datepicker({
-            dateFormat: 'dd-mm-yy', // Desired date format
-            changeMonth: true,
-            changeYear: true
+            $("#<%= TextdateTo.ClientID %>").datepicker({
+                dateFormat: 'dd-mm-yy', // Desired date format
+                changeMonth: true,
+                changeYear: true
+            });
         });
-    });
     </script>
 
 </asp:Content>

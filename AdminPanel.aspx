@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPanel.aspx.cs" Inherits="FormProject2.AdminPanel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPanel.aspx.cs" Inherits="FormProject2.AdminPanel" EnableViewState="true" %>
 
 <!DOCTYPE html>
 
@@ -40,15 +40,19 @@
                 <asp:TextBox ID="txtRole" runat="server" placeholder="Role"></asp:TextBox>
             </div>
             <asp:RequiredFieldValidator ID="RoleValidator" runat="server" ControlToValidate="txtRole" Display="Dynamic" ForeColor="#BA0C25" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
+            <div class="input-container">
+                <asp:TextBox ID="TxtDepartment" runat="server" placeholder="Department"></asp:TextBox>
+            </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDepartment" Display="Dynamic" ForeColor="#BA0C25" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
             <div>
                 <div>
                     <asp:Button ID="btnSubmit" runat="server" Text="Save" CssClass="submit-button" OnClick="btnSubmit_Click" />
                 </div>
                 <div class="form-links">
-                    <a href="LoginPage.aspx" class="signup-link">Already have an account? Log In</a>
+                    <a href="LoginPage.aspx" class="signup-link" id="logoutLink2">Already have an account? Log In</a>
                 </div>
                 <div class="form-links">
-                    <a href="RegisterPage.aspx" class="signup-link" style="margin-left: 60px;">Go To Details Page</a>
+                    <a href="RegisterPage.aspx" class="signup-link" style="margin-left: 60px;" id="logoutLink">Go To Details Page</a>
                 </div>
                 <br />
                 <asp:Label ID="RegisterLabel" runat="server" ForeColor="#BA0C25"></asp:Label>
@@ -57,3 +61,29 @@
     </div>
 </body>
 </html>
+
+<script>
+    document.getElementById("logoutLink").addEventListener("click", function () {
+                // Clear session
+                <%= "Session.Clear();" %>
+                <%= "Session.Abandon();" %>
+
+        // Clear authentication cookies
+        var cookie = document.cookie = "FormsAuthenticationCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        // Redirect to login page
+        window.location.href = "/RegisterPage.aspx";
+    });
+    document.getElementById("logoutLink2").addEventListener("click", function () {
+           // Clear session
+           <%= "Session.Clear();" %>
+           <%= "Session.Abandon();" %>
+
+
+        // Clear authentication cookies
+        var cookie = document.cookie = "FormsAuthenticationCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        // Redirect to login page
+        window.location.href = "/LoginPage.aspx";
+    });
+</script>

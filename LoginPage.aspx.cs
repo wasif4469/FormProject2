@@ -1,5 +1,6 @@
 ﻿using ActiveDirectorySynchronization;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.DirectoryServices.AccountManagement;
@@ -43,7 +44,7 @@ namespace FormProject2
                 if (is_valid)
                 {
                     // Check if the AD username matches a username in the PortalUsers table
-                    if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName))
+                    if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName, out string Email))
                     {
                         // Store user data in session variables
                         Session["IsLoggedIn"] = true;
@@ -53,6 +54,7 @@ namespace FormProject2
                         Session["Department"] = Department;
                         Session["FullName"] = fullname;
                         Session["TeamName"] = TeamName;
+                        Session["Email"] = Email;
 
                         Response.Redirect("WebForm.aspx");
                     }
@@ -86,7 +88,7 @@ namespace FormProject2
                 if (is_valid)
                 {
                     // Check if the AD username matches a username in the PortalUsers table
-                    if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName))
+                    if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName, out string Email))
                     {
                         // Store user data in session variables
                         Session["IsLoggedIn"] = true;
@@ -96,6 +98,7 @@ namespace FormProject2
                         Session["Department"] = Department;
                         Session["FullName"] = fullname;
                         Session["TeamName"] = TeamName;
+                        Session["Email"] = Email;
 
                         if (requestedPage.StartsWith("/form/"))
                         {
@@ -175,10 +178,10 @@ namespace FormProject2
             }
         }
 
-        private bool IsAuthorizedUser(string username, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName)
+        private bool IsAuthorizedUser(string username, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName, out string Email)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
-            role = employeeID = fullname = Department = userName = TeamName = string.Empty;
+            role = employeeID = fullname = Department = userName = TeamName = Email = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM PortalUsers WHERE UserName = @UserName";
@@ -192,6 +195,7 @@ namespace FormProject2
 
                     if (reader.Read())
                     {
+                        Email = reader["Email"].ToString();
                         role = reader["Designation"].ToString();
                         employeeID = reader["EmployeeID"].ToString();
                         fullname = reader["FullName"].ToString();
