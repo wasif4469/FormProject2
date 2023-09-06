@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPanel.aspx.cs" Inherits="FormProject2.AdminPanel" EnableViewState="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPanelUpdate.aspx.cs" Inherits="FormProject2.AdminPanelUpdate" EnableViewState="true" %>
 
 <!DOCTYPE html>
 
@@ -15,7 +15,7 @@
     </div>
     <div class="login-form">
         <form id="signupForm" runat="server" class="signup-form">
-            <h1>Insert New Employee</h1>
+            <h1>Edit Details</h1>
             <div class="input-container">
                 <asp:TextBox ID="txtEmployeeID" runat="server" placeholder="Employee Code"></asp:TextBox>
             </div>
@@ -46,7 +46,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDepartment" Display="Dynamic" ForeColor="#BA0C25" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
             <div>
                 <div>
-                    <asp:Button ID="btnSubmit" runat="server" Text="Insert" CssClass="submit-button" OnClick="btnSubmit_Click" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Update" CssClass="submit-button" OnClick="btnSubmit_Click" />
                 </div>
                 <br />
                 <div class="form-links">
@@ -56,7 +56,7 @@
                     <a href="RegisterPage.aspx" class="signup-link" style="margin-left: 60px;" id="logoutLink">Go To Details Page</a>
                 </div>
                 <div class="form-links">
-                    <a href="AdminPanelUpdate.aspx" class="signup-link" style="margin-left: 60px;">Update Employee</a>
+                    <a href="AdminPanel.aspx" class="signup-link" style="margin-left: 40px;">Insert New Employees?</a>
                 </div>
                 <br />
                 <asp:Label ID="RegisterLabel" runat="server" ForeColor="#BA0C25"></asp:Label>

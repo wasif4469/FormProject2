@@ -30,7 +30,7 @@
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Sign In" CssClass="submit-button" />
             </div>
             <div class="form-links">
-                <a href="RegisterPage.aspx" class="signup-link">Sign Up</a>
+                <a href="RegisterPage.aspx" class="signup-link">Employee Details</a>
                 <a href="#" class="forgot-link">Forgot Password?</a>
             </div>
         </form>

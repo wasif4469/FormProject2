@@ -15,7 +15,7 @@ namespace FormProject2
         protected void Application_Start(object sender, EventArgs e)
         {
 
-            RouteTable.Routes.MapPageRoute("Default", "LoginPage.aspx", "~/LoginPage.aspx");
+            RouteTable.Routes.MapPageRoute("Default", "", "~/LoginPage.aspx");
             RouteTable.Routes.MapPageRoute("web", "form/{id}", "~/WebForm.aspx");
             RouteTable.Routes.MapPageRoute("web2", "form2/{id}", "~/form2.aspx");
             RouteTable.Routes.MapPageRoute("web3", "form3/{id}", "~/WebForm3.aspx");
