@@ -12,7 +12,7 @@
         <p class="PageHeader">Tech Graduate Program 2023</p>
         <p class="PageHeader">Jubilee Life Inusrance - Technology & Project Management</p>
         <p class="PageHeader"><b>Tech Graduate's Performance Evaluation</b></p>
-        <div class="Select">
+        <div class="Select" id ="select">
             <asp:DropDownList ID="trainee" runat="server" CssClass="Trainee-Select" OnSelectedIndexChanged="fetch" AutoPostBack="True"></asp:DropDownList>
             <asp:DropDownList ID="Depart" runat="server" CssClass="Depart-Select" OnSelectedIndexChanged="fetch" AutoPostBack="True"></asp:DropDownList>
         </div>

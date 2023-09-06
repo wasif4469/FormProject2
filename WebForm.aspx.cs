@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace FormProject2
@@ -15,6 +16,7 @@ namespace FormProject2
         protected void Page_Load(object sender, EventArgs e)
         {
             int count = 0;
+           
             if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
             {
                 string requestedURL = Request.Url.AbsolutePath.ToString();
@@ -55,17 +57,25 @@ namespace FormProject2
                 Textname.Enabled = false;
                 Textempid.Enabled = false;
                 TextEmail.Enabled = false;
+                trainee.Visible = false;
+                Depart.Visible = false;
             }
             else if (Role == "Team Lead")
             {
                 // Redirect or restrict access for Team Lead
+                EnableFormElements(false);
+                trainee.Visible = false;
+                Depart.Visible = false;
                 Response.Redirect("WebForm2.aspx");
+                
             }
             else if (Role == "Section Head")
             {
                 // Allow Section-Head and Group Head to view, but not edit
                 Response.Redirect("WebForm2.aspx");
                 EnableFormElements(false);
+                trainee.Visible = false;
+                Depart.Visible = false;
             }
 
             else if (Role == "Group Head")
