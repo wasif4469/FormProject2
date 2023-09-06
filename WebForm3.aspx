@@ -13,7 +13,10 @@
     <img src="/Images/Jubilee%20Logo.jpg" alt="Sample Photo" id="image" /><br /> <br /><br />  
 <asp:Label ID="Label1"  style="margin-left:20%; font-family:Verdana;font-weight:bold;" runat="server" 
     Text="To be Filled by Team Lead"></asp:Label>
-    <br />   <br />  <br />
+        <div class="Select">
+            <asp:DropDownList ID="trainee" runat="server" CssClass="Trainee-Select" OnSelectedIndexChanged="fetch" AutoPostBack="True"></asp:DropDownList>
+            <asp:DropDownList ID="Depart" runat="server" CssClass="Depart-Select" OnSelectedIndexChanged="fetch" AutoPostBack="True"></asp:DropDownList>
+        </div>
     <asp:Panel ID ="Table" runat="server">
     <table border="1" class="evaTable" >
         <tr>

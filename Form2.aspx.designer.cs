@@ -33,6 +33,24 @@ namespace FormProject2
         protected global::System.Web.UI.WebControls.Panel header;
 
         /// <summary>
+        /// trainee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList trainee;
+
+        /// <summary>
+        /// Depart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Depart;
+
+        /// <summary>
         /// Trainee_details control.
         /// </summary>
         /// <remarks>

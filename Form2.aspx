@@ -27,7 +27,10 @@
                 <p>Tech Graduate Program</p>
                 <p>Jubilee Life Insurance - Technology & Project Management</p>
                 <p>Tech Graduate Performance Evaluation </p>
-                <br>
+                <div class="Select">
+                    <asp:DropDownList ID="trainee" runat="server" CssClass="Trainee-Select" OnSelectedIndexChanged="fetch" AutoPostBack="True"></asp:DropDownList>
+                    <asp:DropDownList ID="Depart" runat="server" CssClass="Depart-Select" OnSelectedIndexChanged="fetch" AutoPostBack="True"></asp:DropDownList>
+                </div>
             </div>
         </asp:Panel>
         <asp:Panel ID="Trainee_details" runat="server">

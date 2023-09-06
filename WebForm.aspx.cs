@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int count = 0;
             if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
             {
                 string requestedURL = Request.Url.AbsolutePath.ToString();
@@ -26,12 +28,23 @@ namespace FormProject2
                 {
                     if (!IsPostBack)
                     {
+                        count++;
                         Func();
                     }
                 }
             }
 
             string Role = Session["UserRole"].ToString();
+
+            if (!IsPostBack && Role == "Group Head")
+            {
+
+                Trainee();
+                section();
+
+            }
+
+            
 
             if (Role == "Tech Graduate")
             {
@@ -58,6 +71,16 @@ namespace FormProject2
             else if (Role == "Group Head")
             {
                 EnableFormElements(false);
+                if (count > 0)
+                {
+                    trainee.Visible = false;
+                    Depart.Visible = false;
+                }
+                else
+                {
+                    trainee.Visible = true;
+                    Depart.Visible = true;
+                }
             }
 
         }
@@ -82,7 +105,7 @@ namespace FormProject2
                 string TEAM_LEAD_NAME = Textsupervisor.Text.ToString();
                 string DATEFROM = TextdateFrom.Text.ToString();
                 string DateTO = TextdateTo.Text.ToString();
-                string Email = TextEmail.Text.ToString();   
+                string Email = TextEmail.Text.ToString();
                 Boolean ISACTIVE = true;
 
 
@@ -110,7 +133,9 @@ namespace FormProject2
             TextBox6.Enabled = enable;
             TextBox7.Enabled = enable;
             TextBox8.Enabled = enable;
-            btnSubmit.Visible = enable; // Show/hide submit button based on the role
+            btnSubmit.Visible = enable;
+            trainee.Visible = enable;
+            Depart.Visible = enable;
         }
 
         void Func()
@@ -138,6 +163,69 @@ namespace FormProject2
                 TextBox8.Text = dr["Answer_07"].ToString();
             }
             con.Close();
+        }
+
+        void Trainee()
+        {
+            con.Open();
+            SqlDataAdapter comm = new SqlDataAdapter("select Distinct Trainee_Name from Details ", con);
+            DataTable dt = new DataTable();
+            comm.Fill(dt);
+            trainee.DataSource = dt;
+            trainee.DataTextField = "Trainee_Name";
+            trainee.DataBind();
+            trainee.Items.Insert(0, new ListItem("Please select", ""));
+            con.Close();
+
+        }
+        void section()
+        {
+            con.Open();
+            SqlDataAdapter comm = new SqlDataAdapter("select Distinct Section_Name from Details ", con);
+            DataTable dt = new DataTable();
+            comm.Fill(dt);
+            Depart.DataSource = dt;
+            Depart.DataTextField = "Section_Name";
+            Depart.DataBind();
+            Depart.Items.Insert(0, new ListItem("Please select", ""));
+            con.Close();
+        }
+
+        protected void fetch(object sender, EventArgs e)
+        {
+            if (trainee.SelectedItem.Text != "Please select" && Depart.SelectedItem.Text != "Please select")
+
+            {
+                string traini = trainee.SelectedItem.Text.ToString();
+                string sect = Depart.SelectedItem.Text.ToString();
+
+                con.Open();
+
+                string query = $"SELECT * FROM Details WHERE Trainee_Name = '{traini}' AND Section_Name = '{sect}'";
+                SqlCommand co = new SqlCommand(query, con);
+                SqlDataReader dr = co.ExecuteReader();
+                if (dr.Read())
+                {
+                    Textempid.Text = dr["Employee_ID"].ToString();
+                    TextEmail.Text = dr["email"].ToString();
+                    Textname.Text = dr["Trainee_Name"].ToString();
+                    Textsection.Text = dr["Section_Name"].ToString();
+                    TextdateFrom.Text = dr["FROM_DATE"].ToString();
+                    TextdateTo.Text = dr["TO_DATE"].ToString();
+                    Textsupervisor.Text = dr["TEAM_LEAD_NAME"].ToString();
+                    TextBox1.Text = dr["Answer_01"].ToString();
+                    TextBox2.Text = dr["Answer_02"].ToString();
+                    TextBox3.Text = dr["Answer_03"].ToString();
+                    TextBox4.Text = dr["Answer_04"].ToString();
+                    TextBox5.Text = dr["Answer_05"].ToString();
+                    TextBox6.Text = dr["Answer_06"].ToString();
+                    TextBox7.Text = dr["Answer_08"].ToString();
+                    TextBox8.Text = dr["Answer_07"].ToString();
+                }
+
+                con.Close();
+
+            }
         }
 
     }

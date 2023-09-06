@@ -279,3 +279,23 @@ body {
     .Reject:active {
         transition: background-color 0.1s;
     }
+
+.Trainee-Select {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.Depart-Select {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.Select {
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

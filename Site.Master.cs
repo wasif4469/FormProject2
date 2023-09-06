@@ -18,20 +18,24 @@ namespace FormProject2
             var selfEvaluationItem = FindControl("SelfEvaluationItem") as HtmlGenericControl;
             var activitiesFormItem = FindControl("ActivitiesFormItem") as HtmlGenericControl;
             var knowledgeIndicatorItem = FindControl("KnowledgeIndicatorItem") as HtmlGenericControl;
+            var activitiesFormItem2 = FindControl("ActivitiesFormItem2") as HtmlGenericControl;
 
-            if (selfEvaluationItem != null && activitiesFormItem != null && knowledgeIndicatorItem != null)
+            if (selfEvaluationItem != null && activitiesFormItem != null && knowledgeIndicatorItem != null && activitiesFormItem2 != null)
             {
                 if (Role == "Tech Graduate")
                 {
                     // Show all three list items
                     selfEvaluationItem.Visible = true;
                     activitiesFormItem.Visible = true;
+                    activitiesFormItem2.Visible = false;
                     knowledgeIndicatorItem.Visible = false;
+
                 }
                 else if (Role == "Team Lead" || Role == "Section Head")
                 {
                     // Show only Form2 and Form3 list items
                     selfEvaluationItem.Visible = false;
+                    activitiesFormItem2.Visible = false;
                     activitiesFormItem.Visible = true;
                     knowledgeIndicatorItem.Visible = true;
                 }
@@ -39,7 +43,8 @@ namespace FormProject2
                 {
                     // Hide all list items
                     selfEvaluationItem.Visible = true;
-                    activitiesFormItem.Visible = true;
+                    activitiesFormItem2.Visible = true;
+                    activitiesFormItem.Visible = false;
                     knowledgeIndicatorItem.Visible = true;
                 }
                 else 
@@ -47,6 +52,7 @@ namespace FormProject2
                     selfEvaluationItem.Visible = false;
                     activitiesFormItem.Visible = false;
                     knowledgeIndicatorItem.Visible = false;
+                    activitiesFormItem2.Visible = false;
                 }
             }
 

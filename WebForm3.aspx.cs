@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,12 +14,13 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int count = 0;
             if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
             {
                 string requestedURL = Request.Url.AbsolutePath.ToString();
                 Response.Redirect("/LoginPage.aspx?redirectURL=" + requestedURL);
             }
-
+      
             else
             {
 
@@ -26,13 +28,26 @@ namespace FormProject2
                 {
                     if (!IsPostBack)
                     {
+                        count++;
                         Func();
                     }
                 }
             }
 
             int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+
             string Role = Session["UserRole"].ToString();
+
+
+            if (!IsPostBack && Role == "Group Head")
+            {
+               
+                Trainee();
+                section();
+                DisableFormElements();
+
+
+            }
 
             if (Role == "Tech Graduate")
             {
@@ -63,7 +78,18 @@ namespace FormProject2
                 Label4.Visible = true;
                 Label5.Visible = true;
                 TextBox3.Visible = true;
-                GHPanel.Visible = true;
+                if (count > 0)
+                {
+                    GHPanel.Visible = true;
+                    trainee.Visible = false;
+                    Depart.Visible = false;
+                }
+                else {
+                    GHPanel.Visible = false;
+                    Label4.Visible = false;
+                    trainee.Visible = true;
+                    Depart.Visible = true;
+                }
             }
 
             //Table.Visible = false;
@@ -296,6 +322,8 @@ namespace FormProject2
             Label5.Visible = false;
             SHPanel.Visible = false;
             GHPanel.Visible = false;
+            trainee.Visible = false;
+            Depart.Visible = false;
 
         }
         void Func()
@@ -318,6 +346,67 @@ namespace FormProject2
                 TextBox3.Text = dr["GROUP_LEAD_REJECTION"].ToString();
             }
             con.Close();
+        }
+        void Trainee()
+        {
+
+
+            con.Open();
+            SqlDataAdapter comm = new SqlDataAdapter("select Distinct Trainee_Name from Details ", con);
+            DataTable dt = new DataTable();
+            comm.Fill(dt);
+            trainee.DataSource = dt;
+            trainee.DataTextField = "Trainee_Name";
+            trainee.DataBind();
+            trainee.Items.Insert(0, new ListItem("Please select", ""));
+            con.Close();
+
+        }
+        void section()
+        {
+
+
+            con.Open();
+            SqlDataAdapter comm = new SqlDataAdapter("select Distinct Section_Name from Details ", con);
+            DataTable dt = new DataTable();
+            comm.Fill(dt);
+            Depart.DataSource = dt;
+            Depart.DataTextField = "Section_Name";
+            Depart.DataBind();
+            Depart.Items.Insert(0, new ListItem("Please select", ""));
+            con.Close();
+        }
+        protected void fetch(object sender, EventArgs e)
+        {
+            if (trainee.SelectedItem.Text != "Please select" && Depart.SelectedItem.Text != "Please select")
+
+            {
+                string traini = trainee.SelectedItem.Text.ToString();
+                string sect = Depart.SelectedItem.Text.ToString();
+
+                con.Open();
+
+                string query = $"SELECT * FROM Details WHERE Trainee_Name = '{traini}' AND Section_Name = '{sect}'";
+                SqlCommand co = new SqlCommand(query, con);
+                SqlDataReader dr = co.ExecuteReader();
+                if (dr.Read())
+                {
+
+                    DDL1.SelectedValue = dr["Indicator_01_Rating"].ToString();
+                    DDL2.SelectedValue = dr["Indicator_02_Rating"].ToString();
+                    DDL3.SelectedValue = dr["Indicator_03_Rating"].ToString();
+                    DDL4.SelectedValue = dr["Indicator_04_Rating"].ToString();
+                    DDL5.SelectedValue = dr["Indicator_05_Rating"].ToString();
+                    DDL6.SelectedValue = dr["Indicator_06_Rating"].ToString();
+                    TextBox1.Text = dr["SUB_TOTAL"].ToString();
+                    TextBox4.Text = dr["Total_Rating"].ToString();
+                    TextBox2.Text = dr["SECTION_HEAD_REJECTION"].ToString();
+                    TextBox3.Text = dr["GROUP_LEAD_REJECTION"].ToString();
+                }
+
+                con.Close();
+
+            }
         }
 
     }

@@ -86,6 +86,7 @@
             <ul class="navbar-list">
                 <li id="SelfEvaluationItem" class="navbar-item" runat="server"><a href="/WebForm.aspx" class="navbar-link">Self Evaluation</a></li>
                 <li id="ActivitiesFormItem" class="navbar-item" runat="server"><a href="/WebForm2.aspx" class="navbar-link">Activities Evaluation</a></li>
+                <li id="ActivitiesFormItem2" class="navbar-item" runat="server"><a href="/Form2.aspx" class="navbar-link">Activities Evaluation</a></li>
                 <li id="KnowledgeIndicatorItem" class="navbar-item" runat="server"><a href="/WebForm3.aspx" class="navbar-link">Knowledge Evaluation</a></li>
             </ul>
             <div class="navbar-logout">
