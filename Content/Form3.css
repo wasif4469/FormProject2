@@ -15,7 +15,12 @@
     padding: 25px;
     box-shadow: 10px 0 13px rgba(0, 0, 0, 0.6); /* Add a subtle box shadow */
     border-radius: 10px;
+    transition: transform 0.2s;
 }
+
+    .container:hover {
+        transform: scale(1.01);
+    }
 
 table.evaTable {
     font-family: 'Times New Roman';
@@ -321,4 +326,24 @@ button {
     align-content: center;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
