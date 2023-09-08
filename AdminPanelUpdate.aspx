@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Content/AdminPanel.css" rel="stylesheet" />
-    <title></title>
+    <title>Admin Panel</title>
 </head>
 <body>
     <div class="container-bg">
@@ -56,10 +56,10 @@
                     <a href="RegisterPage.aspx" class="signup-link" style="margin-left: 60px;" id="logoutLink">Go To Details Page</a>
                 </div>
                 <div class="form-links">
-                    <a href="AdminPanel.aspx" class="signup-link" style="margin-left: 40px;">Insert New Employees?</a>
+                    <a href="AdminPanel.aspx" class="signup-link" style="margin-left: 45px;">Insert New Employees?</a>
                 </div>
                 <br />
-                <asp:Label ID="RegisterLabel" runat="server" ForeColor="#BA0C25"></asp:Label>
+                <asp:Label ID="RegisterLabel" runat="server" ForeColor="#BA0C25" Visible="false;"></asp:Label>
             </div>
         </form>
     </div>

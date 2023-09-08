@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm.aspx.cs" Inherits="FormProject2.WebForm" EnableViewState="true" %>
+﻿<%@ Page Title="SELF EVALUATION FORM" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm.aspx.cs" Inherits="FormProject2.WebForm" EnableViewState="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Form1.css" rel="stylesheet" />
@@ -12,7 +12,7 @@
         <p class="PageHeader">Tech Graduate Program 2023</p>
         <p class="PageHeader">Jubilee Life Inusrance - Technology & Project Management</p>
         <p class="PageHeader"><b>Tech Graduate's Performance Evaluation</b></p>
-        <div class="Select" id ="select">
+        <div class="Select" id="select">
             <asp:DropDownList ID="trainee" runat="server" CssClass="Trainee-Select" OnSelectedIndexChanged="fetch" AutoPostBack="True"></asp:DropDownList>
             <asp:DropDownList ID="Depart" runat="server" CssClass="Depart-Select" OnSelectedIndexChanged="fetch" AutoPostBack="True"></asp:DropDownList>
         </div>
@@ -81,6 +81,7 @@
         </table>
         <br />
         <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="Textempid" Display="Dynamic" ErrorMessage="*" ForeColor="Red" MaximumValue="199999" MinimumValue="100000" SetFocusOnError="True" Type="Integer" CssClass="val-col">*Employee ID Should be of six digits*</asp:RangeValidator>
+        <asp:Label ID="Label1" runat="server" Text="Label" Visible="false" ForeColor="#BA0C25" Style="display: flex;"></asp:Label>
         <br />
         <p class="TableHeading"><b>General Information of a Tenure by Tech Graduate</b></p>
         <table class="Form-Table2" border="1" style="border: thin solid #000000">
@@ -190,10 +191,9 @@
         </table>
         <br />
         <div>
-
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="Submit" OnClick="btnSubmit_Click" />
-
         </div>
+        <br>
     </div>
 
     <script>

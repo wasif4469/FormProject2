@@ -16,7 +16,7 @@ namespace FormProject2
         protected void Page_Load(object sender, EventArgs e)
         {
             int count = 0;
-           
+
             if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
             {
                 string requestedURL = Request.Url.AbsolutePath.ToString();
@@ -46,7 +46,7 @@ namespace FormProject2
 
             }
 
-            
+
 
             if (Role == "Tech Graduate")
             {
@@ -67,7 +67,7 @@ namespace FormProject2
                 trainee.Visible = false;
                 Depart.Visible = false;
                 Response.Redirect("WebForm2.aspx");
-                
+
             }
             else if (Role == "Section Head")
             {
@@ -98,8 +98,19 @@ namespace FormProject2
         SqlConnection con = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123");
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(TextBox1.Text) || string.IsNullOrWhiteSpace(TextBox2.Text) || string.IsNullOrWhiteSpace(TextBox3.Text) || string.IsNullOrWhiteSpace(TextBox4.Text) || string.IsNullOrWhiteSpace(TextBox5.Text) || string.IsNullOrWhiteSpace(TextBox6.Text) || string.IsNullOrWhiteSpace(TextBox8.Text) || string.IsNullOrWhiteSpace(TextBox7.Text))
 
-            if (Textempid.Text == Session["EmployeeID"].ToString())
+            {
+                // Display a message or perform any action you want
+                // For example, you can show an error message on the page
+                // You can also prevent further processing of the form if needed
+                // Here, I'm setting a label's text to display the error message
+                Label1.Visible = true;
+                Label1.Text = "Please fill in all textboxes before submitting the form.";
+                return; // Prevent further processing
+            }
+
+            else if (Textempid.Text == Session["EmployeeID"].ToString())
             {
                 int Employee_ID = int.Parse(Textempid.Text);
                 string Trainee_Name = Textname.Text.ToString();
@@ -123,6 +134,9 @@ namespace FormProject2
                 SqlCommand co = new SqlCommand("exec S_Evaluation  " + Employee_ID + ",'" + Trainee_Name.ToString() + "','" + Section_Name.ToString() + "','" + Answer_01.ToString() + "','" + Answer_02.ToString() + "','" + Answer_03.ToString() + "','" + Answer_04.ToString() + "','" + Answer_05.ToString() + "','" + Answer_06.ToString() + "','" + Answer_07.ToString() + "','" + Answer_08.ToString() + "','" + TEAM_LEAD_NAME.ToString() + "','" + DATEFROM.ToString() + "','" + DateTO.ToString() + "','" + ISACTIVE + "','" + Email.ToString() + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
+                Label1.Visible = true;
+                Label1.Text = "Form Submitted Successfully";
+                ClearAllFields();
             }
         }
 
@@ -146,6 +160,22 @@ namespace FormProject2
             btnSubmit.Visible = enable;
             trainee.Visible = enable;
             Depart.Visible = enable;
+        }
+
+        private void ClearAllFields() {
+            Textsection.Text = "";
+            Textsupervisor.Text = "";
+            TextdateFrom.Text = "";
+            TextdateTo.Text = "";
+            TextBox1.Text = "";
+            TextBox2.Text = "";
+            TextBox3.Text = "";
+            TextBox4.Text = "";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
+            TextBox7.Text = "";
+            TextBox8.Text = "";
+
         }
 
         void Func()

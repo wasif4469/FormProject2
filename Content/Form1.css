@@ -180,12 +180,17 @@ body {
     margin-bottom: 30px;
     margin-right: auto;
     margin-left: auto;
-    width: 65%; /* Adjust container width as needed */
+    width: 60%; /* Adjust container width as needed */
     background-color: #ffffff; /* White background color */
     padding: 25px;
     box-shadow: 10px 0 13px rgba(0, 0, 0, 0.6); /* Add a subtle box shadow */
     border-radius: 10px;
+    transition: transform 0.2s;
 }
+
+    .container:hover {
+        transform: scale(1.01);
+    }
 
 .auto-style16 {
     height: 20px;
@@ -220,7 +225,7 @@ body {
 }
 
 .navbar-list {
-   display:inline-flex;
+    display: inline-flex;
 }
 
 .navbar-item {
@@ -290,7 +295,6 @@ body {
     width: 200px;
     height: 30px;
     border-radius: 5px;
-
 }
 
 .Depart-Select {
@@ -298,6 +302,7 @@ body {
     height: 30px;
     border-radius: 5px;
 }
+
 .Select {
     justify-content: center;
     text-align: center;
@@ -306,3 +311,22 @@ body {
     margin-top: 20px;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

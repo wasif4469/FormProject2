@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="/Site.Master" AutoEventWireup="true" CodeBehind="form2.aspx.cs" Inherits="FormProject2.form2" %>
+﻿<%@ Page Title="Activities Form" Language="C#" MasterPageFile="/Site.Master" AutoEventWireup="true" CodeBehind="form2.aspx.cs" Inherits="FormProject2.form2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Form2.css" rel="stylesheet" />
@@ -323,6 +323,7 @@
             <asp:Button ID="Submit" runat="server" ValidationGroup="val" CssClass="Submit-Pro" Text="Submit" OnClick="Submit_Click1" />
             <asp:Button ID="Review" runat="server" ValidationGroup="val" Text="Reviewed" OnClick="review" CssClass="Submit" />
         </asp:Panel>
+        <asp:Label ID="Label2" runat="server" Text="" Visible="false" ForeColor="#BA0C25"></asp:Label>
         <asp:Panel ID="ApprovalPanel" runat="server">
             <br />
             <asp:Label ID="Label1" runat="server" Text="Reason for rejection." Style="margin-left: 10%"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator27" ControlToValidate="TextArea2" runat="server" ErrorMessage="Name Required" ForeColor="#FF3300" ValidationGroup="rej" ClientIDMode="Static">*</asp:RequiredFieldValidator>

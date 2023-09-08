@@ -36,7 +36,19 @@ namespace FormProject2
             SqlCommand co = new SqlCommand("exec S_Evaluation  " + username.ToString() + ",'" + FullName.ToString() + "','" + Email.ToString() + "','" + Department.ToString() + "','" + role.ToString() + "','" + EmployeeID.ToString() + "'", con);
             co.ExecuteNonQuery();
             con.Close();
+            RegisterLabel.Visible = true;
+            RegisterLabel.Text = "Employee Added Successfully";
+            ClearAllFields();
+        }
 
+        private void ClearAllFields() {
+            txtemail.Text = "";
+            txtEmployeeID.Text = "";
+            txtFullName.Text = "";
+            txtRole.Text = "";
+            txtUsername.Text = "";
+            TxtDepartment.Text = "";
         }
     }
+
 }

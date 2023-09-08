@@ -175,6 +175,8 @@ namespace FormProject2
                 con.Close();
                 // ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('successfully Inserted .');", true);
                 Details_SP_func_1();
+                Label2.Visible = true;
+                Label2.Text = "Form Reviewed Succesfully";
             }
         }
         void Details_SP_func()
@@ -263,6 +265,8 @@ namespace FormProject2
                 con.Close();
                 // ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('successfully Inserted .');", true);
                 Details_SP_func();
+                Label2.Visible = true;
+                Label2.Text = "Form Submitted Successfully";
             }
 
         }
@@ -330,6 +334,8 @@ namespace FormProject2
                 con.Close();
                 // ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('successfully Inserted .');", true);
                 Details_SP_func_1();
+                Label2.Visible = true;
+                Label2.Text = "Form Approved!";
             }
         }
         protected void reject(object sender, EventArgs e)
@@ -350,6 +356,9 @@ namespace FormProject2
                 co.ExecuteNonQuery();
                 con.Close();
                 from2_reject();
+
+                Label2.Visible = true;
+                Label2.Text = "From Rejected!";
 
             }
         }

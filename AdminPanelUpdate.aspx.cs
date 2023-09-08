@@ -40,6 +40,18 @@ namespace FormProject2
 
             cmd.ExecuteNonQuery();
             con.Close();
+            RegisterLabel.Visible = true;
+            RegisterLabel.Text = "Employee Details Updated Successfully";
+            ClearAllFields();
+        }
+
+        private void ClearAllFields() {
+            txtemail.Text = "";
+            txtEmployeeID.Text = "";
+            txtFullName.Text = "";
+            txtRole.Text = "";
+            txtUsername.Text = "";
+            TxtDepartment.Text = "";
         }
     }
 }

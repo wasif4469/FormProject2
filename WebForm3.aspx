@@ -1,5 +1,4 @@
-﻿
-<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="FormProject2.WebForm3" %>
+﻿<%@ Page Title="INDICATOR RATING" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="FormProject2.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Form3.css" rel="stylesheet" />
     <style type="text/css">
