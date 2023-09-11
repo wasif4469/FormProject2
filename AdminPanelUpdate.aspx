@@ -59,7 +59,7 @@
                     <a href="AdminPanel.aspx" class="signup-link" style="margin-left: 45px;">Insert New Employees?</a>
                 </div>
                 <br />
-                <asp:Label ID="RegisterLabel" runat="server" ForeColor="#BA0C25" Visible="false;"></asp:Label>
+                <asp:Label ID="RegisterLabel" runat="server" ForeColor="#BA0C25" Visible="false"></asp:Label>
             </div>
         </form>
     </div>

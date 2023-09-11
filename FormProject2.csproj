@@ -83,8 +83,10 @@
     <Content Include="Default.aspx" />
     <Content Include="Form2.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Jubilee Logo 2.jpg" />
     <Content Include="Images\Jubilee Logo.jpg" />
     <Content Include="Images\Jubilee_Logo_2-bgr.png" />
+    <Content Include="Images\Jubilee_Logo_2-removebg-preview.png" />
     <Content Include="Images\menu-Icon.png" />
     <Content Include="LoginPage.aspx" />
     <Content Include="Content\LoginPage.css" />

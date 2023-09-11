@@ -216,6 +216,8 @@ namespace FormProject2
                 co.ExecuteNonQuery();
                 con.Close();
                 Getprocess();
+                RejLabel1.Visible = true;
+                RejLabel1.Text = "Form Approved!";
             }
         }
 
@@ -242,6 +244,8 @@ namespace FormProject2
                 co.ExecuteNonQuery();
                 con.Close();
                 Getprocess();
+                RejLabel1.Visible = true;
+                RejLabel1.Text = "Form Approved!";
 
             }
         }
@@ -271,6 +275,8 @@ namespace FormProject2
                 co.ExecuteNonQuery();
                 con.Close();
                 GetReject();
+                RejLabel1.Visible = true;
+                RejLabel1.Text = "Form Rejected";
             }
         }
 
@@ -303,6 +309,8 @@ namespace FormProject2
                 co.ExecuteNonQuery();
                 con.Close();
                 GetReject();
+                RejLabel2.Visible = true;
+                RejLabel2.Text = "Form Rejected!";
             }
         }
 

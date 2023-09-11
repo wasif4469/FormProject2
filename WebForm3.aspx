@@ -293,16 +293,17 @@
     <asp:Button ID="Button5" runat="server" Text="Submit" CssClass="Submit" OnClick="Btn1_Click" />
     &nbsp;
     
-    <asp:Label ID="Label6" runat="server" Visible="False"></asp:Label>
+    <asp:Label ID="Label6" runat="server" Visible="False" ForeColor="#BA0C25"></asp:Label>
     
     <br />
 <asp:Panel ID="SHPanel" runat="server">
     <asp:Label ID="Label2" Style="font-family:Verdana;margin-left:3%;font-weight:bold;" runat="server" Text="To be Submitted by Section Head"></asp:Label>
     <br /><br />
     <div class="auto-style8">
-        <asp:Button ID="Button2" CssClass="Submit-Pro" runat="server" Text="Process" OnClick="Button2_Click"  />
+        <asp:Button ID="Button2" CssClass="Submit-Pro" runat="server" Text="Approved" OnClick="Button2_Click"  />
         <asp:Button ID="Button3" CssClass="Submit-Pro2" runat="server" Text="Rejected" onClick="Rejbtn1"/>
     </div>
+    <br />
      <asp:Label ID="RejLabel1" runat="server" ForeColor="#BA0C25" Visible="False"></asp:Label>
 &nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br/>

@@ -402,6 +402,9 @@
                 <asp:Button ID="Submit" runat="server" ValidationGroup="val" CssClass="Submit-Pro" Text="Submit" OnClick="Submit_Click1" />
                 <asp:Button ID="Review" runat="server" ValidationGroup="val" Text="Reviewed" OnClick="review" CssClass="Submit" />
             </asp:Panel>
+            <br />
+            <asp:Label ID="Label2" runat="server" Text="" Visible="false"></asp:Label>
+            <br />
             <asp:Panel ID="ApprovalPanel" runat="server">
                 <br />
                 <asp:Label ID="Label1" runat="server" Text="Reason for rejection." Style="margin-left: 10%"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator27" ControlToValidate="TextArea2" runat="server" ErrorMessage="Name Required" ForeColor="#FF3300" ValidationGroup="rej" ClientIDMode="Static">*</asp:RequiredFieldValidator>

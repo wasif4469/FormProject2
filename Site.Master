@@ -17,7 +17,8 @@
             }
 
             .navbar-brand img {
-                max-height: 40px;
+                max-height: 60px;
+                width: 100px;
             }
 
             .navbar-list {
@@ -36,7 +37,7 @@
             }
 
                 .navbar-link:hover {
-                    color: #ffc107;
+                    color: #BA0C25;
                 }
 
             /* Responsive Styles */
@@ -81,7 +82,7 @@
 
         <nav class="navbar">
             <div class="navbar-brand">
-                <img alt="Logo" src="/Images/Jubilee%20Logo.jpg" />
+                <img src="/Images/Jubilee%20Logo%202.jpg" />
             </div>
             <ul class="navbar-list">
                 <li id="SelfEvaluationItem" class="navbar-item" runat="server"><a href="/WebForm.aspx" class="navbar-link">Self Evaluation</a></li>
