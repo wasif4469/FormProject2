@@ -1,0 +1,154 @@
+﻿.navbar {
+    background-color: #343a40;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    max-height: 60px;
+    width: 100px;
+}
+
+.navbar-list {
+    display: inline-flex;
+}
+
+.navbar-item {
+    margin-right: 20px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+    .navbar-link:hover {
+        color: #BA0C25;
+    }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-list {
+        margin-top: 10px;
+    }
+
+    .navbar-item {
+        margin: 0;
+    }
+}
+
+.navbar-brand {
+    margin-right: 15px;
+}
+
+.navbar-logout {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logout-arrow {
+    display: inline-block;
+    margin-left: 5px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(45deg);
+}
+
+.custom-gridview {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    overflow-x: auto;
+}
+
+    .custom-gridview th.grid-header {
+        background-color: #BA0C25;
+        color: white;
+        text-align: center;
+    }
+
+    .custom-gridview td, .custom-gridview th {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .custom-gridview tr.grid-row:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .custom-gridview tr.grid-row:hover {
+        background-color: #ddd;
+    }
+
+    /* Style for the hyperlinks in the GridView */
+    .custom-gridview a {
+        text-decoration: none; /* Remove underline from hyperlinks */
+        color: #007bff; /* Change link color to blue (you can customize this) */
+    }
+
+        .custom-gridview a:hover {
+            color: #0056b3; /* Change link color on hover (you can customize this) */
+        }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .custom-gridview {
+        width: 100%;
+    }
+
+        .custom-gridview thead {
+            display: none;
+        }
+
+        .custom-gridview tr.grid-row {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            display: block;
+        }
+
+        .custom-gridview td {
+            border: none;
+            position: relative;
+            padding-left: 50%;
+        }
+
+            .custom-gridview td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+            }
+
+            .custom-gridview td:nth-of-type(1):before {
+                content: "ID:";
+            }
+
+            .custom-gridview td:nth-of-type(2):before {
+                content: "Trainee Name:";
+            }
+
+            .custom-gridview td:nth-of-type(3):before {
+                content: "Section Name:";
+            }
+
+            .custom-gridview td:nth-of-type(4):before {
+                content: "Activities Evaluation:";
+            }
+
+            .custom-gridview td:nth-of-type(5):before {
+                content: "Indicator Rating:";
+            }
+}

@@ -77,9 +77,11 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Dashboard.css" />
     <Content Include="Content\Form1.css" />
     <Content Include="Content\Form2.css" />
     <Content Include="Content\Form3.css" />
+    <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Form2.aspx" />
     <Content Include="Global.asax" />
@@ -227,6 +229,13 @@
     </Compile>
     <Compile Include="AdminPanelUpdate.aspx.designer.cs">
       <DependentUpon>AdminPanelUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

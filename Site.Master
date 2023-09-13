@@ -85,6 +85,7 @@
                 <img src="/Images/Jubilee%20Logo%202.jpg" />
             </div>
             <ul class="navbar-list">
+                <li id="PendingApproval" class="navbar-item" runat="server"><a href="/Dashboard.aspx" class="navbar-link">Pending Approvals</a></li>
                 <li id="SelfEvaluationItem" class="navbar-item" runat="server"><a href="/WebForm.aspx" class="navbar-link">Self Evaluation</a></li>
                 <li id="ActivitiesFormItem" class="navbar-item" runat="server"><a href="/WebForm2.aspx" class="navbar-link">Activities Evaluation</a></li>
                 <li id="ActivitiesFormItem2" class="navbar-item" runat="server"><a href="/Form2.aspx" class="navbar-link">Activities Evaluation</a></li>

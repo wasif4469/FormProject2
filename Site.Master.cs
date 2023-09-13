@@ -16,6 +16,7 @@ namespace FormProject2
 
             // Get the references to the list items using their IDs
             var selfEvaluationItem = FindControl("SelfEvaluationItem") as HtmlGenericControl;
+            var PendingApprovalItem = FindControl("PendingApproval") as HtmlGenericControl;
             var activitiesFormItem = FindControl("ActivitiesFormItem") as HtmlGenericControl;
             var knowledgeIndicatorItem = FindControl("KnowledgeIndicatorItem") as HtmlGenericControl;
             var activitiesFormItem2 = FindControl("ActivitiesFormItem2") as HtmlGenericControl;
@@ -27,6 +28,7 @@ namespace FormProject2
                     // Show all three list items
                     selfEvaluationItem.Visible = true;
                     activitiesFormItem.Visible = true;
+                    PendingApproval.Visible = true;
                     activitiesFormItem2.Visible = false;
                     knowledgeIndicatorItem.Visible = false;
 
@@ -35,6 +37,7 @@ namespace FormProject2
                 {
                     // Show only Form2 and Form3 list items
                     selfEvaluationItem.Visible = false;
+                    PendingApproval.Visible = true;
                     activitiesFormItem2.Visible = false;
                     activitiesFormItem.Visible = true;
                     knowledgeIndicatorItem.Visible = true;
@@ -46,6 +49,7 @@ namespace FormProject2
                     activitiesFormItem2.Visible = true;
                     activitiesFormItem.Visible = false;
                     knowledgeIndicatorItem.Visible = true;
+                    PendingApproval.Visible = true;
                 }
                 else 
                 {
