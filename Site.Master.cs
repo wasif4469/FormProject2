@@ -28,7 +28,7 @@ namespace FormProject2
                     // Show all three list items
                     selfEvaluationItem.Visible = true;
                     activitiesFormItem.Visible = true;
-                    PendingApproval.Visible = true;
+                    PendingApprovalItem.Visible = true;
                     activitiesFormItem2.Visible = false;
                     knowledgeIndicatorItem.Visible = false;
 
@@ -37,10 +37,10 @@ namespace FormProject2
                 {
                     // Show only Form2 and Form3 list items
                     selfEvaluationItem.Visible = false;
-                    PendingApproval.Visible = true;
+                    PendingApprovalItem.Visible = true;
                     activitiesFormItem2.Visible = false;
-                    activitiesFormItem.Visible = true;
-                    knowledgeIndicatorItem.Visible = true;
+                    activitiesFormItem.Visible = false;
+                    knowledgeIndicatorItem.Visible = false;
                 }
                 else if (Role == "Group Head")
                 {
@@ -49,7 +49,7 @@ namespace FormProject2
                     activitiesFormItem2.Visible = true;
                     activitiesFormItem.Visible = false;
                     knowledgeIndicatorItem.Visible = true;
-                    PendingApproval.Visible = true;
+                    PendingApprovalItem.Visible = true;
                 }
                 else 
                 {
@@ -57,6 +57,7 @@ namespace FormProject2
                     activitiesFormItem.Visible = false;
                     knowledgeIndicatorItem.Visible = false;
                     activitiesFormItem2.Visible = false;
+                    PendingApprovalItem.Visible = false;
                 }
             }
 
@@ -77,7 +78,7 @@ namespace FormProject2
             }
 
             // Redirect to login page
-            Response.Redirect("LoginPage.aspx");
+            Response.Redirect("/LoginPage.aspx");
 
         }
     }

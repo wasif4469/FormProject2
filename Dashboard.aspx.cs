@@ -13,6 +13,12 @@ namespace FormProject2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string role = Session["UserRole"].ToString();
+
+            Label1.Visible = false;
+            if (role == "Group Head") { Label1.Visible = true; }
+            else { Label1.Visible = false; }
+
             if (!Page.IsPostBack)
             {
                 Gridviewbind();
@@ -43,7 +49,7 @@ namespace FormProject2
                     FROM Details
                     WHERE (Section_Head_Name = '{currentUser}' OR TEAM_LEAD_NAME = '{currentUser}' OR Group_Head_Name = '{currentUser}' OR Trainee_Name = '{currentUser}')
                     AND Status_Application IN ({statusApplicationValues})
-                    AND ISACTIVE = 0
+                    AND ISACTIVE = 1
                     ORDER BY ID";
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

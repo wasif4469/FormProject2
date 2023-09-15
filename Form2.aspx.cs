@@ -12,105 +12,124 @@ namespace FormProject2
 {
     public partial class form2 : System.Web.UI.Page
     {
+        SqlConnection con = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123");
+
         protected void Page_Load(object sender, EventArgs e)
 
         {
-            int count = 0;
-            if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
+            con.Open();
+
+            string query = "SELECT Status_Application FROM Details"; // Apne table aur conditions ko specify karein
+            SqlCommand command = new SqlCommand(query, con);
+            string status = command.ExecuteScalar() as string;
+
+            if (status == "tl_2_pending")
             {
-                string requestedURL = Request.Url.AbsolutePath.ToString();
-                Response.Redirect("/LoginPage.aspx?redirectURL=" + requestedURL);
+                string errorMessage = "This Form has been Submitted Please return to Dashboard to finalize Indicator Form!";
+                string script = $"alert('{errorMessage}');";
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
+                con.Close();
             }
 
             else
             {
-
-                if (Page.RouteData.Values["id"] != null)
+                con.Close();
+                int count = 0;
+                if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
                 {
-                    if (!IsPostBack)
-                    {
-                        count++;
-                        Func();
-                    }
+                    string requestedURL = Request.Url.AbsolutePath.ToString();
+                    Response.Redirect("/LoginPage.aspx?redirectURL=" + requestedURL);
                 }
-            }
 
-            string Role = Session["UserRole"].ToString();
-
-            if (!IsPostBack && Role == "Group Head")
-            {
-
-                Trainee();
-                section();
-
-            }
-
-            Session["EmployeeID"] = Employ_ID1.Text;
-
-            Trainee_details.Enabled = false;
-            Static_table.Enabled = false;
-            Activity_table.Enabled = false;
-            Activity_table.Enabled = false;
-            Submit.Visible = false;
-            Review.Visible = false;
-            ApprovalPanel.Visible = false;
-            Submit.Visible = false;
-            Review.Visible = false;
-            trainee.Visible = false;
-            Depart.Visible = false;
-
-            if (Role == "Tech Graduate")
-            {
-                Employ_ID1.Enabled = false;
-                program1.Text = Role;
-                program1.Enabled = false;
-                Name1.Enabled = false;
-                Trainee_details.Enabled = true;
-                Activity_table.Enabled = true;
-                TextArea1.Visible = false;  // Disable the textarea
-                Team_name1.Enabled = false;
-                Label8.Visible = false;
-                ApprovalPanel.Visible = true;
-                section_name1.Enabled = false;
-                Section_head_name1.Enabled = false;
-                Remarks.Enabled = false;
-                button.Enabled = false;
-
-            }
-            else if (Role == "Team Lead")
-            {
-                Activity_table.Enabled = true;
-                TextArea1.Visible = false;
-                Label8.Visible = false;
-                ApprovalPanel.Visible = true;
-            }
-            else if (Role == "Section Head")
-            {
-                Review.Visible = true;
-                TextArea1.Visible = true;   // Enable the textarea
-                Label8.Visible = true;
-            }
-
-            else if (Role == "Group Head")
-            {
-                Trainee_details.Enabled = false;
-                Activity_table.Enabled = false;
-                Remarks.Enabled = true;
-                TextArea1.Disabled = true;
-                if (count > 0)
-                {
-                    trainee.Visible = false;
-                    Depart.Visible = false;
-                }
                 else
                 {
-                    trainee.Visible = true;
-                    Depart.Visible = true;
-                }
-            }
 
+                    if (Page.RouteData.Values["id"] != null)
+                    {
+                        if (!IsPostBack)
+                        {
+                            count++;
+                            Func();
+                        }
+                    }
+                }
+
+                string Role = Session["UserRole"].ToString();
+
+                if (!IsPostBack && Role == "Group Head")
+                {
+
+                    Trainee();
+                    section();
+
+                }
+
+                Session["EmployeeID"] = Employ_ID1.Text;
+
+                Trainee_details.Enabled = false;
+                Static_table.Enabled = false;
+                Activity_table.Enabled = false;
+                Activity_table.Enabled = false;
+                Submit.Visible = false;
+                Review.Visible = false;
+                ApprovalPanel.Visible = false;
+                Submit.Visible = false;
+                Review.Visible = false;
+                trainee.Visible = false;
+                Depart.Visible = false;
+
+                if (Role == "Tech Graduate")
+                {
+                    Employ_ID1.Enabled = false;
+                    program1.Text = Role;
+                    program1.Enabled = false;
+                    Name1.Enabled = false;
+                    Trainee_details.Enabled = true;
+                    Activity_table.Enabled = true;
+                    TextArea1.Visible = false;  // Disable the textarea
+                    Team_name1.Enabled = false;
+                    Label8.Visible = false;
+                    ApprovalPanel.Visible = true;
+                    section_name1.Enabled = false;
+                    Section_head_name1.Enabled = false;
+                    Remarks.Enabled = false;
+                    button.Enabled = false;
+
+                }
+                else if (Role == "Team Lead")
+                {
+                    Activity_table.Enabled = true;
+                    TextArea1.Visible = false;
+                    Label8.Visible = false;
+                    ApprovalPanel.Visible = true;
+                }
+                else if (Role == "Section Head")
+                {
+                    Review.Visible = true;
+                    TextArea1.Visible = true;   // Enable the textarea
+                    Label8.Visible = true;
+                }
+
+                else if (Role == "Group Head")
+                {
+                    Trainee_details.Enabled = false;
+                    Activity_table.Enabled = false;
+                    Remarks.Enabled = true;
+                    TextArea1.Disabled = true;
+                    if (count > 0)
+                    {
+                        trainee.Visible = false;
+                        Depart.Visible = false;
+                    }
+                    else
+                    {
+                        trainee.Visible = true;
+                        Depart.Visible = true;
+                    }
+                }
+
+            }
         }
-        SqlConnection con = new SqlConnection(@"Data Source=crmtest;Initial Catalog=Trainee_Evaluation_System_DB;User ID=t_graduate;Password=Oracle_123");
 
         protected void review(object sender, EventArgs e)
         {

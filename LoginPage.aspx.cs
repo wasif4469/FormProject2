@@ -48,7 +48,7 @@ namespace FormProject2
                     {
                         // Store user data in session variables
                         Session["IsLoggedIn"] = true;
-                        Session["UserRole"] = "Section Head";
+                        Session["UserRole"] = role;
                         Session["UserName"] = userName;
                         Session["EmployeeID"] = employeeID;
                         Session["Department"] = Department;
@@ -56,7 +56,13 @@ namespace FormProject2
                         Session["TeamName"] = TeamName;
                         Session["Email"] = Email;
 
-                        Response.Redirect("WebForm.aspx");
+                        if (Session["UserRole"].ToString() == "Tech Graduate")
+                        {
+                            Response.Redirect("/WebForm.aspx");
+                        }
+                        else if (role == "Team Lead") { Response.Redirect("/Dashboard.aspx"); }
+                        else if (role == "Section Head") { Response.Redirect("/Dasboard.aspx"); }
+                        else if (role == "Group Head") { Response.Redirect("/Dashboard.aspx"); }
                     }
                     else
                     {
