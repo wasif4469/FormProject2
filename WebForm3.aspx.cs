@@ -34,7 +34,7 @@ namespace FormProject2
                 }
             }
 
-            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            string EmployeeID = Session["EmployeeID"].ToString();
 
             string Role = Session["UserRole"].ToString();
 
@@ -140,7 +140,7 @@ namespace FormProject2
 
         protected void Btn1_Click(object sender, EventArgs e)
         {
-            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            string EmployeeID = Session["EmployeeID"].ToString();
             Boolean ISACTIVE = true;
 
             if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
@@ -203,7 +203,8 @@ namespace FormProject2
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            string EmployeeID = Session["EmployeeID"].ToString();
+
             Boolean ISACTIVE = true;
 
             if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
@@ -230,7 +231,8 @@ namespace FormProject2
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            string EmployeeID = Session["EmployeeID"].ToString();
+
             Boolean ISACTIVE = true;
 
             if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
@@ -262,7 +264,7 @@ namespace FormProject2
                 RejLabel1.Visible = false;
             }
 
-            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            string EmployeeID = Session["EmployeeID"].ToString();
             Boolean ISACTIVE = true;
             if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
             {
@@ -297,7 +299,8 @@ namespace FormProject2
             {
                 RejLabel2.Visible = false;
             }
-            int EmployeeID = int.Parse(Session["EmployeeID"].ToString());
+            string EmployeeID = Session["EmployeeID"].ToString();
+
             Boolean ISACTIVE = true;
             if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
             {
@@ -342,6 +345,7 @@ namespace FormProject2
             SqlDataReader dr = co.ExecuteReader();
             if (dr.Read())
             {
+                Session["EmployeeID"] = dr["Employee_ID"].ToString();
                 DDL1.SelectedValue = dr["Indicator_01_Rating"].ToString();
                 DDL2.SelectedValue = dr["Indicator_02_Rating"].ToString();
                 DDL3.SelectedValue = dr["Indicator_03_Rating"].ToString();

@@ -77,6 +77,8 @@ namespace FormProject2
                 Review.Visible = false;
                 trainee.Visible = false;
                 Depart.Visible = false;
+                TextArea1.Visible = false;
+
 
                 if (Role == "Tech Graduate")
                 {
@@ -99,15 +101,18 @@ namespace FormProject2
                 else if (Role == "Team Lead")
                 {
                     Activity_table.Enabled = true;
-                    TextArea1.Visible = false;
-                    Label8.Visible = false;
-                    ApprovalPanel.Visible = true;
+                    TextArea1.Visible = true;
+                    Label8.Visible = true;
+                    Review.Visible = true;
+                    ApprovalPanel.Visible = false;
+                    ApprovalPanel.Enabled = false;
                 }
                 else if (Role == "Section Head")
                 {
-                    Review.Visible = true;
                     TextArea1.Visible = true;   // Enable the textarea
+                    TextArea1.Disabled = true;
                     Label8.Visible = true;
+                    Review.Visible = false;
                 }
 
                 else if (Role == "Group Head")
@@ -115,6 +120,7 @@ namespace FormProject2
                     Trainee_details.Enabled = false;
                     Activity_table.Enabled = false;
                     Remarks.Enabled = true;
+                    TextArea1.Visible = true;
                     TextArea1.Disabled = true;
                     if (count > 0)
                     {
@@ -224,7 +230,7 @@ namespace FormProject2
             string EmployeeID = Session["EmployeeID"].ToString();
             Boolean ISACTIVE = true;
 
-            if ((Employ_ID1.Text == Session["EmployeeID"].ToString()) && ISACTIVE == true)
+            if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
             {
                 int sum = 0;
                 if (!string.IsNullOrEmpty(drop1.SelectedValue))
@@ -291,7 +297,7 @@ namespace FormProject2
         }
         protected void process(object sender, EventArgs e)
         {
-            string EmployeeID = Employ_ID1.Text;
+            string EmployeeID = Session["EmployeeID"].ToString();
 
             Boolean ISACTIVE = true;
 
@@ -362,7 +368,7 @@ namespace FormProject2
             string EmployeeID = Session["EmployeeID"].ToString();
             Boolean ISACTIVE = true;
 
-            if ((Employ_ID1.Text == Session["EmployeeID"].ToString()) && ISACTIVE == true)
+            if ((EmployeeID.ToString() == Session["EmployeeID"].ToString()) && ISACTIVE == true)
             {
 
 

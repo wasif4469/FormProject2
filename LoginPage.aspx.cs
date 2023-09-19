@@ -50,7 +50,6 @@ namespace FormProject2
                         Session["IsLoggedIn"] = true;
                         Session["UserRole"] = role;
                         Session["UserName"] = userName;
-                        Session["EmployeeID"] = employeeID;
                         Session["Department"] = Department;
                         Session["FullName"] = fullname;
                         Session["TeamName"] = TeamName;
@@ -59,6 +58,7 @@ namespace FormProject2
                         if (Session["UserRole"].ToString() == "Tech Graduate")
                         {
                             Response.Redirect("/WebForm.aspx");
+                            Session["EmployeeID"] = employeeID;
                         }
                         else if (role == "Team Lead") { Response.Redirect("/Dashboard.aspx"); }
                         else if (role == "Section Head") { Response.Redirect("/Dasboard.aspx"); }
