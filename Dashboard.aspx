@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Dashboard.css" rel="stylesheet" />
+    <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type = "image/x-icon"/>
     <style>
         .Label-Style {
             width: 400px;

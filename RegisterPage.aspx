@@ -7,6 +7,8 @@
 <head runat="server">
     <title>Employee Details</title>
     <link href="Content/Register.css" rel="stylesheet" />
+    <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type="image/x-icon" />
+
 </head>
 <body>
     <div class="container-right">
@@ -47,7 +49,7 @@
                     <a href="LoginPage.aspx" class="signup-link">Already have an account? Log In</a>
                 </div>
                 <div class="form-links">
-                    <a href="AdminLogin.aspx" class="signup-link" style="margin-right:70px;">Want to edit your details?</a>
+                    <a href="AdminLogin.aspx" class="signup-link" style="margin-right: 70px;">Want to edit your details?</a>
                     <br />
                 </div>
                 <asp:Label ID="RegisterLabel" runat="server" ForeColor="#BA0C25"></asp:Label>

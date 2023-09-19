@@ -6,6 +6,8 @@
 <head runat="server">
     <title>Admin Login</title>
     <link href="Content/AdminLogin.css" rel="stylesheet" />
+    <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type="image/x-icon" />
+
 </head>
 <body>
     <div class="container-bg">

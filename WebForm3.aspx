@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="INDICATOR RATING" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="FormProject2.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Form3.css" rel="stylesheet" />
+        <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type = "image/x-icon"/>
     <style type="text/css">
         .auto-style9 {
             margin-left: 0px;

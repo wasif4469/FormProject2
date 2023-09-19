@@ -6,6 +6,8 @@
 <head runat="server">
     <title></title>
     <link href="Content/LoginPage.css" rel="stylesheet" />
+        <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type = "image/x-icon"/>
+
 </head>
 <body>
     <div class="container-left">

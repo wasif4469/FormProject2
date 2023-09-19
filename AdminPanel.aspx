@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Content/AdminPanel.css" rel="stylesheet" />
+    <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type="image/x-icon" />
+
     <title>Admin Panel</title>
 </head>
 <body>

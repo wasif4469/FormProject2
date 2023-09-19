@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Form2.css" rel="stylesheet" />
+        <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type = "image/x-icon"/>
     <style type="text/css">
         .auto-style46 {
             width: 50px;
