@@ -14,15 +14,18 @@
             margin-bottom: 10px;
             margin-top: 12px;
         }
+
         h3 {
             margin-bottom: 12px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="Label-Style">
-        <asp:Label ID="Label1" runat="server" Text="*Note: For Group Heads, Links on the Pending table is for forms approval and links on the Navigation bar is to see the previous record for any Tech Graduate"></asp:Label>
-    </div>
+    <asp:Panel ID="Note" runat="server">
+        <div class="Label-Style">
+            <asp:Label ID="Label1" runat="server" Text="*Note: For Group Heads, Links on the Pending table is for forms approval and links on the Navigation bar is to see the previous record for any Tech Graduate"></asp:Label>
+        </div>
+    </asp:Panel>
     <h3>Pending Approvals</h3>
     <div class="PendingTable">
         <asp:GridView ID="GridView1" runat="server" CssClass="custom-gridview" AutoGenerateColumns="False">

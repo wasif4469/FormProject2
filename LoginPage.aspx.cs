@@ -61,7 +61,7 @@ namespace FormProject2
                             Session["EmployeeID"] = employeeID;
                         }
                         else if (role == "Team Lead") { Response.Redirect("/Dashboard.aspx"); }
-                        else if (role == "Section Head") { Response.Redirect("/Dasboard.aspx"); }
+                        else if (role == "Section Head") { Response.Redirect("/Dashboard.aspx"); }
                         else if (role == "Group Head") { Response.Redirect("/Dashboard.aspx"); }
                     }
                     else

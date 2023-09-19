@@ -16,7 +16,16 @@ namespace FormProject2
             string role = Session["UserRole"].ToString();
 
             Label1.Visible = false;
-            if (role == "Group Head") { Label1.Visible = true; }
+            Label1.Enabled = false;
+            Note.Enabled = false;
+            Note.Visible = false;
+            if (role == "Group Head") {
+                Note.Visible = true;
+                Note.Enabled = true;
+                Label1.Visible = true;
+                Label1.Enabled = true;
+            }
+
             else { Label1.Visible = false; }
 
             if (!Page.IsPostBack)
