@@ -49,8 +49,7 @@ namespace FormProject2
                         // Store user data in session variables
                         Session["IsLoggedIn"] = true;
                         Session["UserRole"] = role;
-                        Session["UserName"] = userName;
-                        
+                        Session["UserName"] = userName;                      
                         Session["Department"] = Department;
                         Session["FullName"] = fullname;
                         Session["TeamName"] = TeamName;
@@ -99,13 +98,14 @@ namespace FormProject2
                     {
                         // Store user data in session variables
                         Session["IsLoggedIn"] = true;
-                        Session["UserRole"] = "Team Lead";
+                        Session["UserRole"] = role;
                         Session["UserName"] = userName;
                         Session["EmployeeID"] = employeeID;
                         Session["Department"] = Department;
                         Session["FullName"] = fullname;
                         Session["TeamName"] = TeamName;
                         Session["Email"] = Email;
+                        
 
                         if (requestedPage.StartsWith("/form/"))
                         {
