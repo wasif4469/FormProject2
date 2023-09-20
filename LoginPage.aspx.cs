@@ -31,6 +31,7 @@ namespace FormProject2
                 string domain = "jubileelife.com";
                 string usernametxt = username.Value;
                 string passwordtxt = password.Value;
+                string SelectedRole = DropDownList1.Text;
 
                 ActiveDirectoryHelper ADhelper = new ActiveDirectoryHelper();
                 var details = ADhelper.GetUserByLoginName(usernametxt);
@@ -44,7 +45,7 @@ namespace FormProject2
                 if (is_valid)
                 {
                     // Check if the AD username matches a username in the PortalUsers table
-                    if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName, out string Email))
+                    if (IsAuthorizedUser(ADuser, SelectedRole, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName, out string Email))
                     {
                         // Store user data in session variables
                         Session["IsLoggedIn"] = true;
@@ -81,6 +82,7 @@ namespace FormProject2
                 string domain = "jubileelife.com";
                 string usernametxt = username.Value;
                 string passwordtxt = password.Value;
+                string SelectedRole = DropDownList1.Text;
 
                 ActiveDirectoryHelper ADhelper = new ActiveDirectoryHelper();
                 var details = ADhelper.GetUserByLoginName(usernametxt);
@@ -94,7 +96,7 @@ namespace FormProject2
                 if (is_valid)
                 {
                     // Check if the AD username matches a username in the PortalUsers table
-                    if (IsAuthorizedUser(ADuser, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName, out string Email))
+                    if (IsAuthorizedUser(ADuser, SelectedRole, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName, out string Email))
                     {
                         // Store user data in session variables
                         Session["IsLoggedIn"] = true;
@@ -185,17 +187,19 @@ namespace FormProject2
             }
         }
 
-        private bool IsAuthorizedUser(string username, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName, out string Email)
+        private bool IsAuthorizedUser(string username, string SelectedRole, out string role, out string employeeID, out string fullname, out string Department, out string userName, out string TeamName, out string Email)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionStringDB"].ConnectionString;
             role = employeeID = fullname = Department = userName = TeamName = Email = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM PortalUsers WHERE UserName = @UserName";
+                string query = "SELECT * FROM PortalUsers WHERE UserName = @UserName and Designation = @Designation";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@UserName", username);
+                    command.Parameters.AddWithValue("@Designation", SelectedRole);
+
 
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();

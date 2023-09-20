@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="FormProject2.LoginPage" Title="lOGIN PAGE" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="FormProject2.LoginPage" Title="LOGIN PAGE" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="Content/LoginPage.css" rel="stylesheet" />
-        <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type = "image/x-icon"/>
+    <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type="image/x-icon" />
 
 </head>
 <body>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="container-right">
-        <form id="loginForm" runat="server" class="login-form" >
+        <form id="loginForm" runat="server" class="login-form">
             <h1>TG-Portal Login</h1>
             <div class="input-container">
                 <input type="text" id="username" runat="server" placeholder="Username" />
@@ -26,8 +26,16 @@
                 <input type="password" id="password" runat="server" placeholder="Password" />
             </div>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="password" Display="Dynamic" ForeColor="#BA0C25" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
-            
-            <asp:Label ID="Label1" runat="server" ForeColor="#BA0C25" style="margin-bottom: 15px"></asp:Label>
+            <div class="input-container">
+                <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem Text="Tech Graduate" Value="Tech Graduate"></asp:ListItem>
+                    <asp:ListItem Text="Team Lead" Value="Team Lead"></asp:ListItem>
+                    <asp:ListItem Text="Section Head" Value="Section Head"></asp:ListItem>
+                    <asp:ListItem Text="Group Head" Value="Group Head"></asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="password" Display="Dynamic" ForeColor="#BA0C25" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
+            <asp:Label ID="Label1" runat="server" ForeColor="#BA0C25" Style="margin-bottom: 15px"></asp:Label>
             <div>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Sign In" CssClass="submit-button" />
             </div>
