@@ -41,7 +41,7 @@
             </div>
             <div class="form-links">
                 <a href="RegisterPage.aspx" class="signup-link">Employee Details</a>
-                <a href="#" class="forgot-link">Forgot Password?</a>
+                <a href="/Forgot2.aspx" class="forgot-link">Forgot Password?</a>
             </div>
         </form>
     </div>

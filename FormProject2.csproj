@@ -83,6 +83,7 @@
     <Content Include="Content\Form3.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Forgot2.aspx" />
     <Content Include="Form2.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\Jubilee Logo 2.jpg" />
@@ -243,6 +244,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forgot2.aspx.cs">
+      <DependentUpon>Forgot2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forgot2.aspx.designer.cs">
+      <DependentUpon>Forgot2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form2.aspx.cs">
       <DependentUpon>Form2.aspx</DependentUpon>
