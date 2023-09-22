@@ -30,11 +30,12 @@ namespace FormProject2
                     {
                         count++;
                         Func();
+                        Session["count"] = count;
                     }
                 }
             }
 
-            string EmployeeID = Session["EmployeeID"].ToString();
+            string EmployeeID = Session["EmployeeID"]?.ToString();
 
             string Role = Session["UserRole"].ToString();
 
@@ -78,7 +79,7 @@ namespace FormProject2
                 Label4.Visible = true;
                 Label5.Visible = true;
                 TextBox3.Visible = true;
-                if (count > 0)
+                if (count > 0 || Session["count"] != null)
                 {
                     GHPanel.Visible = true;
                     trainee.Visible = false;
@@ -93,7 +94,7 @@ namespace FormProject2
             }
 
             //Table.Visible = false;
-            if (!IsPostBack)
+            if (!IsPostBack && EmployeeID != null)
             {
 
                 GetIndicator();
@@ -273,7 +274,7 @@ namespace FormProject2
                 String SECTION_HEAD_REJECTION = TextBox2.Text;
 
                 con.Open();
-                SqlCommand co = new SqlCommand("exec SH_Reject  " + Approved_By_Section_Head + ",'" + Status_Application + "','" + SECTION_HEAD_REJECTION.ToString() + "'", con);
+                SqlCommand co = new SqlCommand("exec SH_Reject  " + int.Parse(EmployeeID) + ",'" + Approved_By_Section_Head + "','" + Status_Application + "','" + SECTION_HEAD_REJECTION.ToString() + "','" + ISACTIVE + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
                 GetReject();
@@ -306,9 +307,10 @@ namespace FormProject2
             {
                 String Status_Application = "gh_rejected";
                 Boolean Approved_By_Group_Lead = false;
+                ISACTIVE = true;
                 String GROUP_LEAD_REJECTION = TextBox3.Text;
                 con.Open();
-                SqlCommand co = new SqlCommand("exec GH_Reject  " + Approved_By_Group_Lead + ",'" + Status_Application + "','" + GROUP_LEAD_REJECTION.ToString() + "'", con);
+                SqlCommand co = new SqlCommand("exec GH_Reject  " + int.Parse(EmployeeID) + ",'" + Approved_By_Group_Lead + "','" + Status_Application + "','" + GROUP_LEAD_REJECTION.ToString() + "','" + ISACTIVE + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
                 GetReject();
