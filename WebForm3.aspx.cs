@@ -164,6 +164,7 @@ namespace FormProject2
 
                 if (!string.IsNullOrEmpty(DDL6.SelectedValue))
                     sum += Convert.ToInt32(DDL6.SelectedValue);
+                Session["IndicatorCount"] = sum;
                 if (!string.IsNullOrEmpty(TextBox1.Text))
                     sum += Convert.ToInt32(TextBox1.Text);
 
@@ -176,12 +177,13 @@ namespace FormProject2
                     int Indicator_01_Rating = int.Parse(DDL1.SelectedValue); int Indicator_02_Rating = int.Parse(DDL2.SelectedValue);
                     int Indicator_03_Rating = int.Parse(DDL3.SelectedValue); int Indicator_04_Rating = int.Parse(DDL4.SelectedValue);
                     int Indicator_05_Rating = int.Parse(DDL5.SelectedValue); int Indicator_06_Rating = int.Parse(DDL6.SelectedValue);
-                    int Indicator_07_Rating = int.Parse(TextBox4.Text);
+                    int Indicator_07_Rating = int.Parse(Session["IndicatorCount"].ToString());
+                    int Total_Rating = int.Parse(TextBox4.Text);
                     Boolean Approved_By_Team_Lead = true;
                     String Status_Application = "sh_pending";
                     ISACTIVE = true;
                     con.Open();
-                    SqlCommand co = new SqlCommand("exec Indicator_Update  " + EmployeeID + ",'" + Indicator_01_Rating + "', '" + Indicator_02_Rating + "','" + Indicator_03_Rating + "','" + Indicator_04_Rating + "','" + Indicator_05_Rating + "','" + Indicator_06_Rating + "','" + Indicator_07_Rating + "','" + Approved_By_Team_Lead + "','" + Status_Application + "','" + ISACTIVE + "'", con);
+                    SqlCommand co = new SqlCommand("exec Indicator_Update  " + EmployeeID + ",'" + Indicator_01_Rating + "', '" + Indicator_02_Rating + "','" + Indicator_03_Rating + "','" + Indicator_04_Rating + "','" + Indicator_05_Rating + "','" + Indicator_06_Rating + "','" + Indicator_07_Rating + "','" + Approved_By_Team_Lead + "','" + Status_Application + "','" + ISACTIVE + "','" + Total_Rating + "'", con);
                     co.ExecuteNonQuery();
                     con.Close();
                     GetIndicator();
@@ -354,7 +356,7 @@ namespace FormProject2
                 DDL4.SelectedValue = dr["Indicator_04_Rating"].ToString();
                 DDL5.SelectedValue = dr["Indicator_05_Rating"].ToString();
                 DDL6.SelectedValue = dr["Indicator_06_Rating"].ToString();
-                TextBox1.Text = dr["Indicator_07_Rating"].ToString();
+                TextBox1.Text = dr["SUB_TOTAL"].ToString();
                 TextBox4.Text = dr["Total_Rating"].ToString();
                 TextBox2.Text = dr["SECTION_HEAD_REJECTION"].ToString();
                 TextBox3.Text = dr["GROUP_LEAD_REJECTION"].ToString();

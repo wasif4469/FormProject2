@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Form2.css" rel="stylesheet" />
-        <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type = "image/x-icon"/>
+    <link rel="icon" href="/Images/Jubilee%20Logo%202.jpg" type="image/x-icon" />
     <style type="text/css">
         .auto-style46 {
             width: 50px;
@@ -316,9 +316,15 @@
             </table>
         </asp:Panel>
         <br />
+        <asp:Panel ID="ReviewRemarks" runat="server">
+            <asp:Label ID="Label3" runat="server" Text="Evaluation Remarks!" Style="margin-left: 10%"></asp:Label>
+            <textarea id="TextArea3" class="auto-style41" runat="server" name="S1"></textarea>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator29" ControlToValidate="TextArea1" runat="server" ErrorMessage="Remarks Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
+        </asp:Panel>
         <asp:Panel ID="Remarks" runat="server">
-            <asp:Label ID="Label8" runat="server" Text="Recommendation(s) for the further growth." Style="margin-left: 10%"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator28" ControlToValidate="TextArea1" runat="server" ErrorMessage="Name Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
+            <asp:Label ID="Label8" runat="server" Text="Recommendation(s) for the further growth." Style="margin-left: 10%"></asp:Label>
             <textarea id="TextArea1" class="auto-style41" runat="server" name="S1"></textarea>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator28" ControlToValidate="TextArea1" runat="server" ErrorMessage="Remarks Required" ForeColor="#FF3300" ValidationGroup="val" ClientIDMode="Static">*</asp:RequiredFieldValidator>
         </asp:Panel>
         <asp:Panel ID="button" runat="server">
             <asp:Button ID="Submit" runat="server" ValidationGroup="val" CssClass="Submit-Pro" Text="Submit" OnClick="Submit_Click1" />
@@ -326,13 +332,10 @@
         </asp:Panel>
         <br />
         <asp:Label ID="Label2" runat="server" Text="" Visible="false" ForeColor="#BA0C25"></asp:Label>
-        <br />
         <asp:Panel ID="ApprovalPanel" runat="server">
-            <br />
             <asp:Label ID="Label1" runat="server" Text="Reason for rejection." Style="margin-left: 10%"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator27" ControlToValidate="TextArea2" runat="server" ErrorMessage="Name Required" ForeColor="#FF3300" ValidationGroup="rej" ClientIDMode="Static">*</asp:RequiredFieldValidator>
             <br />
             <textarea id="TextArea2" class="auto-style41" runat="server" name="S1"></textarea>
-            <br />
             <br />
             <asp:Button ID="approve" runat="server" BackColor="#BA0C25" BorderColor="#BA0C25" CssClass="Approve" ValidationGroup="val" Text="Approve" OnClick="process" />
             <asp:Button ID="Reject" runat="server" BackColor="#BA0C25" BorderColor="#BA0C25" CssClass="Reject" ValidationGroup="rej" Text="Reject" OnClick="reject" />

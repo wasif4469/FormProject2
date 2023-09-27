@@ -26,7 +26,7 @@
                 <input type="password" id="Password" runat="server" placeholder="Password" />
             </div>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="password" Display="Dynamic" ForeColor="#BA0C25" SetFocusOnError="True">*Required</asp:RequiredFieldValidator>
-            <asp:Label ID="Label1" runat="server" ForeColor="#BA0C25" Style="margin-bottom: 15px"></asp:Label>
+            <asp:Label ID="Label1" runat="server" ForeColor="#BA0C25" Style="margin-bottom:15px" ></asp:Label>
             <div>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" CssClass="submit-button" />
             </div>

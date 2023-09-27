@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ACTIVITIES FORM" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="FormProject2.WebForm2" %>
+﻿<%@ Page Title="ACTIVITIES FORM" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="FormProject2.WebForm2" EnableViewState="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Form2.css" rel="stylesheet" />

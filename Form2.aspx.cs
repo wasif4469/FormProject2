@@ -72,12 +72,17 @@ namespace FormProject2
                 Activity_table.Enabled = false;
                 Submit.Visible = false;
                 Review.Visible = false;
-                ApprovalPanel.Visible = false;
+                approve.Visible = false;
+                Reject.Visible = false;
+                Label1.Visible = false;
+                TextArea2.Visible = false;
                 Submit.Visible = false;
                 Review.Visible = false;
                 trainee.Visible = false;
                 Depart.Visible = false;
                 TextArea1.Visible = false;
+                ReviewRemarks.Visible = false;
+                ReviewRemarks.Enabled = false;
 
 
                 if (Role == "Tech Graduate")
@@ -96,7 +101,22 @@ namespace FormProject2
                     Section_head_name1.Enabled = false;
                     Remarks.Enabled = false;
                     button.Enabled = false;
-
+                    if (count > 0)
+                    {
+                        ReviewRemarks.Visible = true;
+                        Remarks.Enabled = false;
+                        Remarks.Visible = true;
+                        Label8.Visible = true;
+                        TextArea1.Disabled = true;
+                        TextArea1.Visible = true;
+                        Label1.Visible = true;
+                        TextArea2.Visible = true;
+                        TextArea2.Disabled = false;
+                        approve.Visible = true;
+                        Reject.Visible = true;
+                        TextArea3.Disabled = true;
+                    }
+                    else { ReviewRemarks.Visible = false; }
                 }
                 else if (Role == "Team Lead")
                 {
@@ -104,8 +124,17 @@ namespace FormProject2
                     TextArea1.Visible = true;
                     Label8.Visible = true;
                     Review.Visible = true;
-                    ApprovalPanel.Visible = false;
-                    ApprovalPanel.Enabled = false;
+                    TextArea2.Visible = true;
+                    ReviewRemarks.Visible = true;
+                    ReviewRemarks.Enabled = true;
+                    Remarks.Enabled = false;
+                    Remarks.Visible = true;
+                    Label1.Visible = true;
+                    TextArea2.Visible = true;
+                    TextArea2.Disabled = true;
+                    approve.Visible = false;
+                    Reject.Visible = false;
+                    
                 }
                 else if (Role == "Section Head")
                 {
@@ -189,13 +218,14 @@ namespace FormProject2
 
                 Boolean Approved_By_Team_Lead = true;
                 string Recommendation_By_Section_Head = TextArea1.InnerText;
+                string Remarks = TextArea3.InnerText;
                 string Status_Application = "tg_pending";
                 string Status = "pending";
 
                 ISACTIVE = true;
                 int SUB_TOTAL = int.Parse(Txtsum.Text);
                 con.Open();
-                SqlCommand co = new SqlCommand("exec Details_SP_update_1 " + EmployeeID + ", '" + Trainee_Name.ToString() + "', '" + Section_Name.ToString() + "', '" + Team_Name.ToString() + "', '" + Program.ToString() + "', '" + Section_Head_Name.ToString() + "', '" + Activity_01.ToString() + "', '" + Activity_01_Rating + "', '" + Activity_02.ToString() + "', '" + Activity_02_Rating + "', '" + Activity_03.ToString() + "', '" + Activity_03_Rating + "', '" + Activity_04.ToString() + "', '" + Activity_04_Rating + "', '" + Activity_05.ToString() + "', '" + Activity_05_Rating + "', '" + Activity_06.ToString() + "', '" + Activity_06_Rating + "', '" + Activity_07.ToString() + "', '" + Activity_07_Rating + "', '" + Activity_08.ToString() + "', '" + Activity_08_Rating + "', '" + Activity_09.ToString() + "', '" + Activity_09_Rating + "', '" + Activity_10.ToString() + "', '" + Activity_10_Rating + "', '" + Recommendation_By_Section_Head.ToString() + "', '" + ISACTIVE + "', '" + SUB_TOTAL + "', '" + Status.ToString() + "', '" + Status_Application.ToString() + "', '" + Approved_By_Team_Lead + "'", con);
+                SqlCommand co = new SqlCommand("exec Details_SP_update_1 " + EmployeeID + ", '" + Trainee_Name.ToString() + "', '" + Section_Name.ToString() + "', '" + Team_Name.ToString() + "', '" + Program.ToString() + "', '" + Section_Head_Name.ToString() + "', '" + Activity_01.ToString() + "', '" + Activity_01_Rating + "', '" + Activity_02.ToString() + "', '" + Activity_02_Rating + "', '" + Activity_03.ToString() + "', '" + Activity_03_Rating + "', '" + Activity_04.ToString() + "', '" + Activity_04_Rating + "', '" + Activity_05.ToString() + "', '" + Activity_05_Rating + "', '" + Activity_06.ToString() + "', '" + Activity_06_Rating + "', '" + Activity_07.ToString() + "', '" + Activity_07_Rating + "', '" + Activity_08.ToString() + "', '" + Activity_08_Rating + "', '" + Activity_09.ToString() + "', '" + Activity_09_Rating + "', '" + Activity_10.ToString() + "', '" + Activity_10_Rating + "', '" + Recommendation_By_Section_Head.ToString() + "', '" + ISACTIVE + "', '" + SUB_TOTAL + "', '" + Status.ToString() + "', '" + Status_Application.ToString() + "', '" + Approved_By_Team_Lead + "', '" + Remarks + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
                 // ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('successfully Inserted .');", true);
@@ -348,13 +378,14 @@ namespace FormProject2
 
                 Boolean Approved_By_Team_Lead = true;
                 string Recommendation_By_Section_Head = TextArea1.InnerText;
+                string Remarks = TextArea3.InnerText;
                 string Status_Application = "tl_2_pending";
                 string Status = "pending";
 
                 ISACTIVE = true;
                 int SUB_TOTAL = int.Parse(Txtsum.Text);
                 con.Open();
-                SqlCommand co = new SqlCommand("exec Details_SP_update_1 " + EmployeeID + ", '" + Trainee_Name.ToString() + "', '" + Section_Name.ToString() + "', '" + Team_Name.ToString() + "', '" + Program.ToString() + "', '" + Section_Head_Name.ToString() + "', '" + Activity_01.ToString() + "', '" + Activity_01_Rating + "', '" + Activity_02.ToString() + "', '" + Activity_02_Rating + "', '" + Activity_03.ToString() + "', '" + Activity_03_Rating + "', '" + Activity_04.ToString() + "', '" + Activity_04_Rating + "', '" + Activity_05.ToString() + "', '" + Activity_05_Rating + "', '" + Activity_06.ToString() + "', '" + Activity_06_Rating + "', '" + Activity_07.ToString() + "', '" + Activity_07_Rating + "', '" + Activity_08.ToString() + "', '" + Activity_08_Rating + "', '" + Activity_09.ToString() + "', '" + Activity_09_Rating + "', '" + Activity_10.ToString() + "', '" + Activity_10_Rating + "', '" + Recommendation_By_Section_Head.ToString() + "', '" + ISACTIVE + "', '" + SUB_TOTAL + "', '" + Status.ToString() + "', '" + Status_Application.ToString() + "', '" + Approved_By_Team_Lead + "'", con);
+                SqlCommand co = new SqlCommand("exec Details_SP_update_1 " + EmployeeID + ", '" + Trainee_Name.ToString() + "', '" + Section_Name.ToString() + "', '" + Team_Name.ToString() + "', '" + Program.ToString() + "', '" + Section_Head_Name.ToString() + "', '" + Activity_01.ToString() + "', '" + Activity_01_Rating + "', '" + Activity_02.ToString() + "', '" + Activity_02_Rating + "', '" + Activity_03.ToString() + "', '" + Activity_03_Rating + "', '" + Activity_04.ToString() + "', '" + Activity_04_Rating + "', '" + Activity_05.ToString() + "', '" + Activity_05_Rating + "', '" + Activity_06.ToString() + "', '" + Activity_06_Rating + "', '" + Activity_07.ToString() + "', '" + Activity_07_Rating + "', '" + Activity_08.ToString() + "', '" + Activity_08_Rating + "', '" + Activity_09.ToString() + "', '" + Activity_09_Rating + "', '" + Activity_10.ToString() + "', '" + Activity_10_Rating + "', '" + Recommendation_By_Section_Head.ToString() + "', '" + ISACTIVE + "', '" + SUB_TOTAL + "', '" + Status.ToString() + "', '" + Status_Application.ToString() + "', '" + Approved_By_Team_Lead + "', '" + Remarks + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
                 // ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('successfully Inserted .');", true);
@@ -437,6 +468,8 @@ namespace FormProject2
                 Drop10.SelectedValue = dr["Activity_10_Rating"].ToString();
                 Txtsum.Text = dr["SUB_TOTAL"].ToString();
                 TextArea1.InnerText = dr["Recommendation_By_Section_Head"].ToString();
+                TextArea3.InnerText = dr["TeamLead_Remarks"].ToString();
+                TextArea2.InnerText = dr["TRAINEE_REJECTION"].ToString();
             }
 
             con.Close();
@@ -520,6 +553,9 @@ namespace FormProject2
                     Drop10.SelectedValue = dr["Activity_10_Rating"].ToString();
                     Txtsum.Text = dr["SUB_TOTAL"].ToString();
                     TextArea1.InnerText = dr["Recommendation_By_Section_Head"].ToString();
+                    TextArea3.InnerText = dr["TeamLead_Remarks"].ToString();
+                    TextArea2.InnerText = dr["TRAINEE_REJECTION"].ToString();
+
                 }
 
                 con.Close();

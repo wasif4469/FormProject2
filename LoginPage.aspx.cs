@@ -18,6 +18,7 @@ namespace FormProject2
                 Session.Abandon();
             }
 
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -35,7 +36,8 @@ namespace FormProject2
 
                 ActiveDirectoryHelper ADhelper = new ActiveDirectoryHelper();
                 var details = ADhelper.GetUserByLoginName(usernametxt);
-                var ADuser = details.LoginName;
+
+                var ADuser = details?.LoginName;
 
                 PrincipalContext context = new PrincipalContext(ContextType.Domain, domain);
 

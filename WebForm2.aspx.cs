@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace FormProject2
@@ -34,6 +35,8 @@ namespace FormProject2
             plus10.Visible = false;
             plus11.Visible = false;
 
+          
+
             if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
             {
                 Response.Redirect("/LoginPage.aspx");
@@ -41,7 +44,6 @@ namespace FormProject2
 
             else
             {
-
                 if (Page.RouteData.Values["id"] != null)
                 {
                     if (!IsPostBack)
@@ -51,6 +53,7 @@ namespace FormProject2
                 }
             }
 
+
             if (!IsPostBack)
             {
                 Details_SP_func();
@@ -58,6 +61,9 @@ namespace FormProject2
                 sh();
                 from2_reject();
             }
+
+            
+
 
             string Role = Session["UserRole"].ToString();
 
@@ -80,7 +86,7 @@ namespace FormProject2
                 Name1.Enabled = false;
                 Trainee_details.Enabled = true;
                 Activity_table.Enabled = true;
-                TextArea1.Visible = false;  // Disable the textarea
+                TextArea1.Visible = false;
                 Submit.Visible = true;
                 Review.Visible = false;
                 Team_name1.Text = Session["TeamName"].ToString();
@@ -94,12 +100,12 @@ namespace FormProject2
                 Review.Visible = true;
                 Activity_table.Enabled = true;
                 TextArea1.Visible = false;
-                Label8.Visible= false;
+                Label8.Visible = false;
             }
             else if (Role == "Section Head")
             {
                 Review.Visible = true;
-                TextArea1.Visible = true;   // Enable the textarea
+                TextArea1.Visible = true;
                 Label8.Visible = true;
             }
 
@@ -131,11 +137,8 @@ namespace FormProject2
 
         }
 
-
         void sh()
         {
-
-
             con.Open();
             SqlDataAdapter comm = new SqlDataAdapter("select * from BASIC_INFO ", con);
             DataTable dt = new DataTable();
@@ -167,28 +170,36 @@ namespace FormProject2
                 Team_name1.Text = dr["Team_Name"].ToString();
                 program1.Text = dr["Program"].ToString();
                 Section_head_name1.Text = dr["Section_Head_Name"].ToString();
-                acti1.SelectedValue = dr["Activity_01"].ToString();
+                acti1.DataTextField = dr["Activity_01"].ToString();
                 drop1.SelectedValue = dr["Activity_01_Rating"].ToString();
 
-                acti2.SelectedValue = dr["Activity_02"].ToString();
+                acti2.SelectedItem.Text = dr["Activity_02"].ToString();
                 Drop2.SelectedValue = dr["Activity_02_Rating"].ToString();
 
-                acti3.SelectedValue = dr["Activity_03"].ToString();
+                acti3.SelectedItem.Text = dr["Activity_03"].ToString();
                 Drop3.SelectedValue = dr["Activity_03_Rating"].ToString();
-                acti4.SelectedValue = dr["Activity_04"].ToString();
+
+                acti4.SelectedItem.Text = dr["Activity_04"].ToString();
                 Drop4.SelectedValue = dr["Activity_04_Rating"].ToString();
-                acti5.SelectedValue = dr["Activity_05"].ToString();
+
+                acti5.SelectedItem.Text = dr["Activity_05"].ToString();
                 Drop5.SelectedValue = dr["Activity_05_Rating"].ToString();
-                acti6.SelectedValue = dr["Activity_06"].ToString();
+
+                acti6.SelectedItem.Text = dr["Activity_06"].ToString();
                 Drop6.SelectedValue = dr["Activity_06_Rating"].ToString();
-                acti7.SelectedValue = dr["Activity_07"].ToString();
+
+                acti7.SelectedItem.Text = dr["Activity_07"].ToString();
                 Drop7.SelectedValue = dr["Activity_07_Rating"].ToString();
-                acti8.SelectedValue = dr["Activity_08"].ToString();
+
+                acti8.SelectedItem.Text = dr["Activity_08"].ToString();
                 Drop8.SelectedValue = dr["Activity_08_Rating"].ToString();
-                acti9.SelectedValue = dr["Activity_09"].ToString();
+
+                acti9.SelectedItem.Text = dr["Activity_09"].ToString();
                 Drop9.SelectedValue = dr["Activity_09_Rating"].ToString();
-                acti10.SelectedValue = dr["Activity_10"].ToString();
+
+                acti10.SelectedItem.Text = dr["Activity_10"].ToString();
                 Drop10.SelectedValue = dr["Activity_10_Rating"].ToString();
+
                 Txtsum.Text = dr["SUB_TOTAL"].ToString();
                 TextArea1.InnerHtml = dr["Recommendation_By_Section_Head"].ToString();
 
@@ -196,8 +207,10 @@ namespace FormProject2
             con.Close();
         }
 
+
         protected void Submit_Click1(object sender, EventArgs e)
         {
+
             string EmployeeID = Session["EmployeeID"].ToString();
             Boolean ISACTIVE = true;
 
@@ -237,7 +250,7 @@ namespace FormProject2
                 // int SUB_TOTAL = sum.;
 
                 int Employee_ID = int.Parse(Employ_ID1.Text.ToString());
-                string Trainee_Name = Name1.Text, Section_Name = section_name2.SelectedItem.Text.ToString(), Team_Name = Team_name1.Text, Program = program1.Text, Section_Head_Name = Section_head_name1.Text, Activity_01 = acti1.SelectedItem.Text.ToString(), Activity_02 = acti2.SelectedItem.Text.ToString(), Activity_03 = acti3.SelectedItem.Text.ToString(), Activity_04 = acti4.SelectedItem.Text.ToString(), Activity_05 = acti5.SelectedItem.Text.ToString(), Activity_06 = acti6.SelectedItem.Text.ToString(), Activity_07 = acti7.SelectedItem.Text.ToString(), Activity_08 = acti8.SelectedItem.Text.ToString(), Activity_09 = acti9.SelectedItem.Text.ToString(), Activity_10 = acti10.SelectedItem.Text.ToString();
+                string Trainee_Name = Name1.Text, Section_Name = section_name2.SelectedItem.Text.ToString(), Team_Name = Team_name1.Text, Program = program1.Text, Section_Head_Name = Section_head_name1.Text, Activity_01 = acti1.SelectedItem.Text.ToString() , Activity_02 = acti2.SelectedItem.Text.ToString(), Activity_03 = acti3.SelectedItem.Text.ToString(), Activity_04 = acti4.SelectedItem.Text.ToString(), Activity_05 = acti5.SelectedItem.Text.ToString(), Activity_06 = acti6.SelectedItem.Text.ToString(), Activity_07 = acti7.SelectedItem.Text.ToString(), Activity_08 = acti8.SelectedItem.Text.ToString(), Activity_09 = acti9.SelectedItem.Text.ToString(), Activity_10 = acti10.SelectedItem.Text.ToString();
                 int Activity_01_Rating = int.Parse(drop1.SelectedValue);
                 int Activity_02_Rating = int.Parse(Drop2.SelectedValue);
                 int Activity_03_Rating = int.Parse(Drop3.SelectedValue);
@@ -254,12 +267,13 @@ namespace FormProject2
                 string Status = "pending";
                 ISACTIVE = true;
 
+
+
                 int SUB_TOTAL = int.Parse(Txtsum.Text);
                 con.Open();
                 SqlCommand co = new SqlCommand("exec Details_SP_update " + Employee_ID + ", '" + Trainee_Name.ToString() + "', '" + Section_Name.ToString() + "', '" + Team_Name.ToString() + "', '" + Program.ToString() + "', '" + Section_Head_Name.ToString() + "', '" + Activity_01.ToString() + "', '" + Activity_01_Rating + "', '" + Activity_02.ToString() + "', '" + Activity_02_Rating + "', '" + Activity_03.ToString() + "', '" + Activity_03_Rating + "', '" + Activity_04.ToString() + "', '" + Activity_04_Rating + "', '" + Activity_05.ToString() + "', '" + Activity_05_Rating + "', '" + Activity_06.ToString() + "', '" + Activity_06_Rating + "', '" + Activity_07.ToString() + "', '" + Activity_07_Rating + "', '" + Activity_08.ToString() + "', '" + Activity_08_Rating + "', '" + Activity_09.ToString() + "', '" + Activity_09_Rating + "', '" + Activity_10.ToString() + "', '" + Activity_10_Rating + "', '" + Recommendation_By_Section_Head.ToString() + "', '" + ISACTIVE + "', '" + SUB_TOTAL + "', '" + Status.ToString() + "', '" + Status_Application.ToString() + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
-                // ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('successfully Inserted .');", true);
                 Details_SP_func();
 
                 Label2.Visible = true;
@@ -304,8 +318,6 @@ namespace FormProject2
                 if (!string.IsNullOrEmpty(Drop10.SelectedValue))
                     sum += Convert.ToInt32(Drop10.SelectedValue);
                 Txtsum.Text = sum.ToString();
-                // int SUB_TOTAL;
-
 
                 string Trainee_Name = Name1.Text, Section_Name = section_name2.SelectedItem.Text.ToString(), Team_Name = Team_name1.Text, Program = program1.Text, Section_Head_Name = Section_head_name1.Text, Activity_01 = acti1.SelectedItem.Text.ToString(), Activity_02 = acti2.SelectedItem.Text.ToString(), Activity_03 = acti3.SelectedItem.Text.ToString(), Activity_04 = acti4.SelectedItem.Text.ToString(), Activity_05 = acti5.SelectedItem.Text.ToString(), Activity_06 = acti6.SelectedItem.Text.ToString(), Activity_07 = acti7.SelectedItem.Text.ToString(), Activity_08 = acti8.SelectedItem.Text.ToString(), Activity_09 = acti9.SelectedItem.Text.ToString(), Activity_10 = acti10.SelectedItem.Text.ToString();
                 int Activity_01_Rating = int.Parse(drop1.SelectedValue);
@@ -330,7 +342,7 @@ namespace FormProject2
                 SqlCommand co = new SqlCommand("exec Details_SP_update_1 " + EmployeeID + ", '" + Trainee_Name.ToString() + "', '" + Section_Name.ToString() + "', '" + Team_Name.ToString() + "', '" + Program.ToString() + "', '" + Section_Head_Name.ToString() + "', '" + Activity_01.ToString() + "', '" + Activity_01_Rating + "', '" + Activity_02.ToString() + "', '" + Activity_02_Rating + "', '" + Activity_03.ToString() + "', '" + Activity_03_Rating + "', '" + Activity_04.ToString() + "', '" + Activity_04_Rating + "', '" + Activity_05.ToString() + "', '" + Activity_05_Rating + "', '" + Activity_06.ToString() + "', '" + Activity_06_Rating + "', '" + Activity_07.ToString() + "', '" + Activity_07_Rating + "', '" + Activity_08.ToString() + "', '" + Activity_08_Rating + "', '" + Activity_09.ToString() + "', '" + Activity_09_Rating + "', '" + Activity_10.ToString() + "', '" + Activity_10_Rating + "', '" + Recommendation_By_Section_Head.ToString() + "', '" + ISACTIVE + "', '" + SUB_TOTAL + "', '" + Status.ToString() + "', '" + Status_Application.ToString() + "', '" + Approved_By_Team_Lead + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
-                // ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('successfully Inserted .');", true);
+
                 Details_SP_func_1();
 
                 Label2.Visible = true;
@@ -341,11 +353,6 @@ namespace FormProject2
         {
             SqlCommand co = new SqlCommand("exec Details_SP_update_1", con);
             SqlDataAdapter sd = new SqlDataAdapter(co);
-
-            // DataTable dt = new DataTable();
-            // sd.Fill(dt);
-            // GridView1.DataSource = dt;
-            //GridView1.DataBind();
         }
 
         protected void process(object sender, EventArgs e)
@@ -383,7 +390,6 @@ namespace FormProject2
                 if (!string.IsNullOrEmpty(Drop10.SelectedValue))
                     sum += Convert.ToInt32(Drop10.SelectedValue);
                 Txtsum.Text = sum.ToString();
-                // int SUB_TOTAL;
 
 
                 string Trainee_Name = Name1.Text, Section_Name = section_name2.SelectedItem.Text.ToString(), Team_Name = Team_name1.Text, Program = program1.Text, Section_Head_Name = Section_head_name1.Text, Activity_01 = acti1.SelectedItem.Text.ToString(), Activity_02 = acti2.SelectedItem.Text.ToString(), Activity_03 = acti3.SelectedItem.Text.ToString(), Activity_04 = acti4.SelectedItem.Text.ToString(), Activity_05 = acti5.SelectedItem.Text.ToString(), Activity_06 = acti6.SelectedItem.Text.ToString(), Activity_07 = acti7.SelectedItem.Text.ToString(), Activity_08 = acti8.SelectedItem.Text.ToString(), Activity_09 = acti9.SelectedItem.Text.ToString(), Activity_10 = acti10.SelectedItem.Text.ToString();
@@ -409,9 +415,7 @@ namespace FormProject2
                 SqlCommand co = new SqlCommand("exec Details_SP_update_1 " + EmployeeID + ", '" + Trainee_Name.ToString() + "', '" + Section_Name.ToString() + "', '" + Team_Name.ToString() + "', '" + Program.ToString() + "', '" + Section_Head_Name.ToString() + "', '" + Activity_01.ToString() + "', '" + Activity_01_Rating + "', '" + Activity_02.ToString() + "', '" + Activity_02_Rating + "', '" + Activity_03.ToString() + "', '" + Activity_03_Rating + "', '" + Activity_04.ToString() + "', '" + Activity_04_Rating + "', '" + Activity_05.ToString() + "', '" + Activity_05_Rating + "', '" + Activity_06.ToString() + "', '" + Activity_06_Rating + "', '" + Activity_07.ToString() + "', '" + Activity_07_Rating + "', '" + Activity_08.ToString() + "', '" + Activity_08_Rating + "', '" + Activity_09.ToString() + "', '" + Activity_09_Rating + "', '" + Activity_10.ToString() + "', '" + Activity_10_Rating + "', '" + Recommendation_By_Section_Head.ToString() + "', '" + ISACTIVE + "', '" + SUB_TOTAL + "', '" + Status.ToString() + "', '" + Status_Application.ToString() + "', '" + Approved_By_Team_Lead + "'", con);
                 co.ExecuteNonQuery();
                 con.Close();
-                // ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('successfully Inserted .');", true);
                 Details_SP_func_1();
-
                 Label2.Visible = true;
                 Label2.Text = "Form Approved!";
             }
@@ -424,8 +428,6 @@ namespace FormProject2
 
             if ((Employ_ID1.Text == Session["EmployeeID"].ToString()) && ISACTIVE == true)
             {
-
-
                 string Status_Application = "tg_rejected";
                 string TRAINEE_REJECTION = TextArea2.InnerHtml;
                 string Employee_ID = Employ_ID1.Text;
@@ -464,7 +466,6 @@ namespace FormProject2
             string sect = section_name2.SelectedItem.Text.ToString();
             using (SqlDataAdapter comm = new SqlDataAdapter("select * from ACTIVITIES where Department = @sect", con))
             {
-                //string sect = section_name2.SelectedValue;
                 comm.SelectCommand.Parameters.AddWithValue("@sect", sect);
                 DataTable dt = new DataTable();
                 comm.Fill(dt);
@@ -510,6 +511,9 @@ namespace FormProject2
                 acti10.DataBind();
                 con.Close();
             }
+
+           
+
         }
 
         protected void chnge(object sender, EventArgs e)
@@ -518,48 +522,47 @@ namespace FormProject2
             string sect = section_name2.SelectedItem.Text.ToString();
             using (SqlDataAdapter comm = new SqlDataAdapter("select * from ACTIVITIES where Department = @sect", con))
             {
-                //string sect = section_name2.SelectedValue;
                 comm.SelectCommand.Parameters.AddWithValue("@sect", sect);
                 DataTable dt = new DataTable();
                 comm.Fill(dt);
                 acti1.DataSource = dt;
-                acti1.DataValueField = "Department";
+                acti1.DataValueField = "Activities";
                 acti1.DataTextField = "Activities";
                 acti1.DataBind();
                 acti2.DataSource = dt;
-                acti2.DataValueField = "Department";
+                acti2.DataValueField = "Activities";
                 acti2.DataTextField = "Activities";
                 acti2.DataBind();
                 acti3.DataSource = dt;
-                acti3.DataValueField = "Department";
+                acti3.DataValueField = "Activities";
                 acti3.DataTextField = "Activities";
                 acti3.DataBind();
                 acti4.DataSource = dt;
-                acti4.DataValueField = "Department";
+                acti4.DataValueField = "Activities";
                 acti4.DataTextField = "Activities";
                 acti4.DataBind();
                 acti5.DataSource = dt;
-                acti5.DataValueField = "Department";
+                acti5.DataValueField = "Activities";
                 acti5.DataTextField = "Activities";
                 acti5.DataBind();
                 acti6.DataSource = dt;
-                acti6.DataValueField = "Department";
+                acti6.DataValueField = "Activities";
                 acti6.DataTextField = "Activities";
                 acti6.DataBind();
                 acti7.DataSource = dt;
-                acti7.DataValueField = "Department";
+                acti7.DataValueField = "Activities";
                 acti7.DataTextField = "Activities";
                 acti7.DataBind();
                 acti8.DataSource = dt;
-                acti8.DataValueField = "Department";
+                acti8.DataValueField = "Activities";
                 acti8.DataTextField = "Activities";
                 acti8.DataBind();
                 acti9.DataSource = dt;
-                acti9.DataValueField = "Department";
+                acti9.DataValueField = "Activities";
                 acti9.DataTextField = "Activities";
                 acti9.DataBind();
                 acti10.DataSource = dt;
-                acti10.DataValueField = "Department";
+                acti10.DataValueField = "Activities";
                 acti10.DataTextField = "Activities";
                 acti10.DataBind();
                 con.Close();
