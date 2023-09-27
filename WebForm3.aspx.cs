@@ -79,7 +79,7 @@ namespace FormProject2
                 Label4.Visible = true;
                 Label5.Visible = true;
                 TextBox3.Visible = true;
-                if (count > 0 || Session["count"] != null)
+                if (count > 0 && Session["count"] != null)
                 {
                     GHPanel.Visible = true;
                     trainee.Visible = false;

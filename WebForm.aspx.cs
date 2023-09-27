@@ -121,8 +121,8 @@ namespace FormProject2
                 string Answer_04 = TextBox4.Text.ToString();
                 string Answer_05 = TextBox5.Text.ToString();
                 string Answer_06 = TextBox6.Text.ToString();
-                string Answer_07 = TextBox7.Text.ToString();
-                string Answer_08 = TextBox8.Text.ToString();
+                string Answer_07 = TextBox8.Text.ToString();
+                string Answer_08 = TextBox7.Text.ToString();
                 string TEAM_LEAD_NAME = Textsupervisor.Text.ToString();
                 string DATEFROM = TextdateFrom.Text.ToString();
                 string DateTO = TextdateTo.Text.ToString();

@@ -35,7 +35,7 @@ namespace FormProject2
             plus10.Visible = false;
             plus11.Visible = false;
 
-          
+
 
             if (Session["IsLoggedIn"] == null || !(bool)Session["IsLoggedIn"])
             {
@@ -62,7 +62,7 @@ namespace FormProject2
                 from2_reject();
             }
 
-            
+
 
 
             string Role = Session["UserRole"].ToString();
@@ -210,74 +210,98 @@ namespace FormProject2
 
         protected void Submit_Click1(object sender, EventArgs e)
         {
+            List<string> selectedActivities = new List<string>();
+            selectedActivities.Add(acti1.SelectedItem.Text);
+            selectedActivities.Add(acti2.SelectedItem.Text);
+            selectedActivities.Add(acti3.SelectedItem.Text);
+            selectedActivities.Add(acti4.SelectedItem.Text);
+            selectedActivities.Add(acti5.SelectedItem.Text);
+            selectedActivities.Add(acti6.SelectedItem.Text);
+            selectedActivities.Add(acti7.SelectedItem.Text);
+            selectedActivities.Add(acti8.SelectedItem.Text);
+            selectedActivities.Add(acti9.SelectedItem.Text);
+            selectedActivities.Add(acti10.SelectedItem.Text);
 
-            string EmployeeID = Session["EmployeeID"].ToString();
-            Boolean ISACTIVE = true;
+            bool areActivitiesUnique = selectedActivities.Distinct().Count() == selectedActivities.Count;
 
-            if ((Employ_ID1.Text == Session["EmployeeID"].ToString()) && ISACTIVE == true)
+            if (!areActivitiesUnique)
             {
-                int sum = 0;
-                if (!string.IsNullOrEmpty(drop1.SelectedValue))
-                    sum += Convert.ToInt32(drop1.SelectedValue);
-
-                if (!string.IsNullOrEmpty(Drop2.SelectedValue))
-                    sum += Convert.ToInt32(Drop2.SelectedValue);
-
-                if (!string.IsNullOrEmpty(Drop3.SelectedValue))
-                    sum += Convert.ToInt32(Drop3.SelectedValue);
-
-                if (!string.IsNullOrEmpty(Drop4.SelectedValue))
-                    sum += Convert.ToInt32(Drop4.SelectedValue);
-
-                if (!string.IsNullOrEmpty(Drop5.SelectedValue))
-                    sum += Convert.ToInt32(Drop5.SelectedValue);
-
-                if (!string.IsNullOrEmpty(Drop6.SelectedValue))
-                    sum += Convert.ToInt32(Drop6.SelectedValue);
-
-                if (!string.IsNullOrEmpty(Drop7.SelectedValue))
-                    sum += Convert.ToInt32(Drop7.SelectedValue);
-
-                if (!string.IsNullOrEmpty(Drop8.SelectedValue))
-                    sum += Convert.ToInt32(Drop8.SelectedValue);
-
-                if (!string.IsNullOrEmpty(Drop9.SelectedValue))
-                    sum += Convert.ToInt32(Drop9.SelectedValue);
-
-                if (!string.IsNullOrEmpty(Drop10.SelectedValue))
-                    sum += Convert.ToInt32(Drop10.SelectedValue);
-                Txtsum.Text = sum.ToString();
-                // int SUB_TOTAL = sum.;
-
-                int Employee_ID = int.Parse(Employ_ID1.Text.ToString());
-                string Trainee_Name = Name1.Text, Section_Name = section_name2.SelectedItem.Text.ToString(), Team_Name = Team_name1.Text, Program = program1.Text, Section_Head_Name = Section_head_name1.Text, Activity_01 = acti1.SelectedItem.Text.ToString() , Activity_02 = acti2.SelectedItem.Text.ToString(), Activity_03 = acti3.SelectedItem.Text.ToString(), Activity_04 = acti4.SelectedItem.Text.ToString(), Activity_05 = acti5.SelectedItem.Text.ToString(), Activity_06 = acti6.SelectedItem.Text.ToString(), Activity_07 = acti7.SelectedItem.Text.ToString(), Activity_08 = acti8.SelectedItem.Text.ToString(), Activity_09 = acti9.SelectedItem.Text.ToString(), Activity_10 = acti10.SelectedItem.Text.ToString();
-                int Activity_01_Rating = int.Parse(drop1.SelectedValue);
-                int Activity_02_Rating = int.Parse(Drop2.SelectedValue);
-                int Activity_03_Rating = int.Parse(Drop3.SelectedValue);
-                int Activity_04_Rating = int.Parse(Drop4.SelectedValue);
-                int Activity_05_Rating = int.Parse(Drop5.SelectedValue);
-                int Activity_06_Rating = int.Parse(Drop6.SelectedValue);
-                int Activity_07_Rating = int.Parse(Drop7.SelectedValue);
-                int Activity_08_Rating = int.Parse(Drop8.SelectedValue);
-                int Activity_09_Rating = int.Parse(Drop9.SelectedValue);
-                int Activity_10_Rating = int.Parse(Drop10.SelectedValue);
-
-                string Recommendation_By_Section_Head = TextArea1.InnerText;
-                string Status_Application = "tl_pending";
-                string Status = "pending";
-                ISACTIVE = true;
-
-
-
-                int SUB_TOTAL = int.Parse(Txtsum.Text);
-                con.Open();
-                SqlCommand co = new SqlCommand("exec Details_SP_update " + Employee_ID + ", '" + Trainee_Name.ToString() + "', '" + Section_Name.ToString() + "', '" + Team_Name.ToString() + "', '" + Program.ToString() + "', '" + Section_Head_Name.ToString() + "', '" + Activity_01.ToString() + "', '" + Activity_01_Rating + "', '" + Activity_02.ToString() + "', '" + Activity_02_Rating + "', '" + Activity_03.ToString() + "', '" + Activity_03_Rating + "', '" + Activity_04.ToString() + "', '" + Activity_04_Rating + "', '" + Activity_05.ToString() + "', '" + Activity_05_Rating + "', '" + Activity_06.ToString() + "', '" + Activity_06_Rating + "', '" + Activity_07.ToString() + "', '" + Activity_07_Rating + "', '" + Activity_08.ToString() + "', '" + Activity_08_Rating + "', '" + Activity_09.ToString() + "', '" + Activity_09_Rating + "', '" + Activity_10.ToString() + "', '" + Activity_10_Rating + "', '" + Recommendation_By_Section_Head.ToString() + "', '" + ISACTIVE + "', '" + SUB_TOTAL + "', '" + Status.ToString() + "', '" + Status_Application.ToString() + "'", con);
-                co.ExecuteNonQuery();
-                con.Close();
-                Details_SP_func();
-
                 Label2.Visible = true;
-                Label2.Text = "Form Submitted Successfully";
+                Label2.Text = "Please select unique activities for all dropdowns.";
+                return; // Don't proceed with form submission
+            }
+
+            else
+            {
+
+                string EmployeeID = Session["EmployeeID"].ToString();
+                Boolean ISACTIVE = true;
+
+                if ((Employ_ID1.Text == Session["EmployeeID"].ToString()) && ISACTIVE == true)
+                {
+                    int sum = 0;
+                    if (!string.IsNullOrEmpty(drop1.SelectedValue))
+                        sum += Convert.ToInt32(drop1.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(Drop2.SelectedValue))
+                        sum += Convert.ToInt32(Drop2.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(Drop3.SelectedValue))
+                        sum += Convert.ToInt32(Drop3.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(Drop4.SelectedValue))
+                        sum += Convert.ToInt32(Drop4.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(Drop5.SelectedValue))
+                        sum += Convert.ToInt32(Drop5.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(Drop6.SelectedValue))
+                        sum += Convert.ToInt32(Drop6.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(Drop7.SelectedValue))
+                        sum += Convert.ToInt32(Drop7.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(Drop8.SelectedValue))
+                        sum += Convert.ToInt32(Drop8.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(Drop9.SelectedValue))
+                        sum += Convert.ToInt32(Drop9.SelectedValue);
+
+                    if (!string.IsNullOrEmpty(Drop10.SelectedValue))
+                        sum += Convert.ToInt32(Drop10.SelectedValue);
+                    Txtsum.Text = sum.ToString();
+                    // int SUB_TOTAL = sum.;
+
+                    int Employee_ID = int.Parse(Employ_ID1.Text.ToString());
+                    string Trainee_Name = Name1.Text, Section_Name = section_name2.SelectedItem.Text.ToString(), Team_Name = Team_name1.Text, Program = program1.Text, Section_Head_Name = Section_head_name1.Text, Activity_01 = acti1.SelectedItem.Text.ToString(), Activity_02 = acti2.SelectedItem.Text.ToString(), Activity_03 = acti3.SelectedItem.Text.ToString(), Activity_04 = acti4.SelectedItem.Text.ToString(), Activity_05 = acti5.SelectedItem.Text.ToString(), Activity_06 = acti6.SelectedItem.Text.ToString(), Activity_07 = acti7.SelectedItem.Text.ToString(), Activity_08 = acti8.SelectedItem.Text.ToString(), Activity_09 = acti9.SelectedItem.Text.ToString(), Activity_10 = acti10.SelectedItem.Text.ToString();
+                    int Activity_01_Rating = int.Parse(drop1.SelectedValue);
+                    int Activity_02_Rating = int.Parse(Drop2.SelectedValue);
+                    int Activity_03_Rating = int.Parse(Drop3.SelectedValue);
+                    int Activity_04_Rating = int.Parse(Drop4.SelectedValue);
+                    int Activity_05_Rating = int.Parse(Drop5.SelectedValue);
+                    int Activity_06_Rating = int.Parse(Drop6.SelectedValue);
+                    int Activity_07_Rating = int.Parse(Drop7.SelectedValue);
+                    int Activity_08_Rating = int.Parse(Drop8.SelectedValue);
+                    int Activity_09_Rating = int.Parse(Drop9.SelectedValue);
+                    int Activity_10_Rating = int.Parse(Drop10.SelectedValue);
+
+                    string Recommendation_By_Section_Head = TextArea1.InnerText;
+                    string Status_Application = "tl_pending";
+                    string Status = "pending";
+                    ISACTIVE = true;
+
+
+
+                    int SUB_TOTAL = int.Parse(Txtsum.Text);
+                    con.Open();
+                    SqlCommand co = new SqlCommand("exec Details_SP_update " + Employee_ID + ", '" + Trainee_Name.ToString() + "', '" + Section_Name.ToString() + "', '" + Team_Name.ToString() + "', '" + Program.ToString() + "', '" + Section_Head_Name.ToString() + "', '" + Activity_01.ToString() + "', '" + Activity_01_Rating + "', '" + Activity_02.ToString() + "', '" + Activity_02_Rating + "', '" + Activity_03.ToString() + "', '" + Activity_03_Rating + "', '" + Activity_04.ToString() + "', '" + Activity_04_Rating + "', '" + Activity_05.ToString() + "', '" + Activity_05_Rating + "', '" + Activity_06.ToString() + "', '" + Activity_06_Rating + "', '" + Activity_07.ToString() + "', '" + Activity_07_Rating + "', '" + Activity_08.ToString() + "', '" + Activity_08_Rating + "', '" + Activity_09.ToString() + "', '" + Activity_09_Rating + "', '" + Activity_10.ToString() + "', '" + Activity_10_Rating + "', '" + Recommendation_By_Section_Head.ToString() + "', '" + ISACTIVE + "', '" + SUB_TOTAL + "', '" + Status.ToString() + "', '" + Status_Application.ToString() + "'", con);
+                    co.ExecuteNonQuery();
+                    con.Close();
+                    Details_SP_func();
+
+                    Label2.Visible = true;
+                    Label2.Text = "Form Submitted Successfully";
+                }
             }
 
         }
@@ -512,7 +536,7 @@ namespace FormProject2
                 con.Close();
             }
 
-           
+
 
         }
 

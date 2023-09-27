@@ -405,7 +405,7 @@
                 <asp:Button ID="Review" runat="server" ValidationGroup="val" Text="Reviewed" OnClick="review" CssClass="Submit" />
             </asp:Panel>
             <br />
-            <asp:Label ID="Label2" runat="server" Text="" Visible="false"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="" Visible="false" ForeColor="#BA0C25"></asp:Label>
             <br />
             <asp:Panel ID="ApprovalPanel" runat="server">
                 <br />
